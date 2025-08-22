@@ -9,9 +9,9 @@
 	<meta name="keywords" content="">
 	<meta name="author" content="Awaiken">
 	<!-- Page Title -->
-    <title>Dentaire - Dentist & Dental Clinic HTML Template</title>
+    <title>Contact Us</title>
 	<!-- Favicon Icon -->
-	<link rel="shortcut icon" type="image/x-icon" href="images/favicon.png">
+	<link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/images/favicon.png') }}">
 	<!-- Google Fonts Css-->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,74 +29,8 @@
     
 </head>
 <body>
-
-    <!-- Preloader Start -->
-	<div class="preloader">
-		<div class="loading-container">
-			<div class="loading"></div>
-			<div id="loading-icon"><img src="images/loader.svg" alt=""></div>
-		</div>
-	</div>
-	<!-- Preloader End -->
-
-    <!-- Header Start -->
-	<header class="main-header">
-		<div class="header-sticky">
-			<nav class="navbar navbar-expand-lg">
-				<div class="container">
-					<!-- Logo Start -->
-					<a class="navbar-brand" href="./">
-						<img src="images/logo.svg" alt="Logo">
-					</a>
-					<!-- Logo End -->
-
-					<!-- Main Menu Start -->
-					<div class="collapse navbar-collapse main-menu">
-                        <div class="nav-menu-wrapper">
-                            <ul class="navbar-nav mr-auto" id="menu">
-                                <li class="nav-item submenu"><a class="nav-link" href="./">Home</a>
-                                    <ul class="sub-menu">
-                                        <li class="nav-item"><a class="nav-link" href="index.html">Home - Hero Version 1</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="index-2.html">Home - Hero Version 2</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="index-3.html">Home - Hero Version 3</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="index-4.html">Home - Hero Version 4</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="index-5.html">Home - Hero Version 5</a></li>
-                                    </ul>
-                                </li>                                
-                                <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
-                                <li class="nav-item"><a class="nav-link" href="service.html">Services</a></li>
-                                <li class="nav-item submenu"><a class="nav-link" href="#">Pages</a>
-                                    <ul>                                        
-                                        <li class="nav-item"><a class="nav-link" href="service-single.html">Service Details</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="blog.html">Our Blog</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="blog-single.html">Blog Details</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="team.html">Our Team</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="team-single.html">Team Details</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="technology.html">Technology</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="testimonials.html">testimonials</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="faqs.html">FAQ's</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="404.html">404</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
-                                <li class="nav-item highlighted-menu"><a class="nav-link" href="appointment.html">book appointment</a></li>                               
-                            </ul>
-                        </div>
-                        <!-- Let’s Start Button Start -->
-                        <div class="header-btn d-inline-flex">
-                            <a href="appointment.html" class="btn-default">book appointment</a>
-                        </div>
-                        <!-- Let’s Start Button End -->
-					</div>
-					<!-- Main Menu End -->
-					<div class="navbar-toggle"></div>
-				</div>
-			</nav>
-			<div class="responsive-menu"></div>
-		</div>
-	</header>
-	<!-- Header End -->
+    <x-preloader />
+    <x-header />
 
     <!-- Page Header Start -->
 	<div class="page-header">
@@ -142,7 +76,7 @@
                                     <div class="contact-us-item wow fadeInUp">
                                         <!-- Icon Box Start -->
                                         <div class="icon-box">
-                                            <img src="images/icon-location.svg" alt="">
+                                            <img src="{{ asset('assets/images/icon-location.svg') }}" alt="">
                                         </div>
                                         <!-- Icon Box End -->
 
@@ -161,15 +95,14 @@
                                     <div class="contact-us-item wow fadeInUp" data-wow-delay="0.25s">
                                     <!-- Icon Box Start -->
                                     <div class="icon-box">
-                                        <img src="images/icon-phone.svg" alt="">
+                                        <img src="{{ asset('assets/images/icon-phone.svg') }}" alt="">
                                     </div>
                                     <!-- Icon Box End -->
 
                                     <!-- Contact Us Content Start -->
                                     <div class="contact-info-content">
                                         <h3>contact us</h3>
-                                        <p>(+01) 789 854 856</p>
-                                        <p>(+01) 789 854 856</p>
+                                        <p>{{ $setting?->contact_number }}</p>
                                     </div>
                                     <!-- Contact Us Content End -->
                                     </div>
@@ -181,7 +114,7 @@
                                     <div class="contact-us-item wow fadeInUp" data-wow-delay="0.5s">
                                         <!-- Icon Box Start -->
                                         <div class="icon-box">
-                                            <img src="images/icon-clock.svg" alt="">
+                                            <img src="{{ asset('assets/images/icon-clock.svg') }}" alt="">
                                         </div>
                                         <!-- Icon Box End -->
 
@@ -201,15 +134,14 @@
                                     <div class="contact-us-item wow fadeInUp" data-wow-delay="0.75s">
                                         <!-- Icon Box Start -->
                                         <div class="icon-box">
-                                            <img src="images/icon-mail.svg" alt="">
+                                            <img src="{{ asset('assets/images/icon-mail.svg') }}" alt="">
                                         </div>
                                         <!-- Icon Box End -->
 
                                         <!-- Contact Us Content Start -->
                                         <div class="contact-info-content">
                                             <h3>email us</h3>
-                                            <p>info@domainname.com</p>
-                                            <p>sales@domainname.com</p>
+                                            <p>{{ $setting?->contact_email }}</p>
                                         </div>
                                         <!-- Contact Us Content End -->
                                     </div>
@@ -225,7 +157,7 @@
                     <div class="google-map">
                         <!-- Google Map Iframe Start -->
                         <div class="google-map-iframe">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3579.7009014638734!2d50.564429975087734!3d26.2064062770751!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e49af2a448157ad%3A0xaacbbf9bb84cce22!2z2YXYsdmD2LIg2LPZitix2KfZhSDYp9mE2KrYrti12LXZiiDZhNi32Kgg2KfZhNij2LPZhtin2YYgQ2VyYW0gU3BlY2lhbGlzdCBEZW50YWwgQ2VudGVy!5e0!3m2!1sen!2sbh!4v1755693930016!5m2!1sen!2sbh" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <iframe src="{{ $setting?->location_url }}" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                         <!-- Google Map Iframe End -->
                     </div>
@@ -244,7 +176,7 @@
 					<!-- Contact Us Image Start -->
 					 <div class="contact-us-img">
 						<figure class="reveal image-anime">
-							<img src="images/contact-us-img.jpg" alt="">
+							<img src="{{ asset('assets/images/contact-us-img.jpg') }}" alt="">
 						</figure>
 					 </div>
 					<!-- Contact Us Image End -->
@@ -298,84 +230,7 @@
 	</div>
 	<!-- Contact Form End -->
     
-    <!-- Footer Start -->
-    <footer class="main-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4">
-                    <!-- About Footer Start -->
-                    <div class="about-footer">
-                        <!-- Footer Logo Start -->
-                        <div class="footer-logo">
-                            <img src="images/footer-logo.svg" alt="">
-                        </div>
-                        <!-- Footer Logo End -->
-
-                        <!-- About Footer Content Start -->
-                        <div class="about-footer-content">
-                            <p>The goal our clinic is provide friendly, caring dentistry and highest level of general, cosmetic, and specialist dental treatments.</p>
-                         </div>
-                         <!-- About Footer Content End -->
-                     </div>
-                    <!-- About Footer End -->
-                </div>
-                <div class="col-lg-3 col-md-4">
-                    <!-- Footer Quick Links Start -->
-                    <div class="footer-links footer-quick-links">
-                        <h3>quick links</h3>
-                        <ul>                            
-                            <li><a href="#">home</a></li>
-                            <li><a href="#">about us</a></li>
-                            <li><a href="#">services</a></li>
-                            <li><a href="#">book apoointment</a></li>
-                        </ul>
-                    </div>
-                    <!-- Footer Quick Links End -->
-                </div>
-
-                <div class="col-lg-3 col-md-4">
-                    <!-- Footer Social Links Start -->
-                    <div class="footer-links footer-social-links">
-                        <h3>social media</h3>
-                        <ul>                            
-                            <li><a href="#">facebook</a></li>
-                            <li><a href="#">instagram</a></li>
-                            <li><a href="#">youtube</a></li>
-                            <li><a href="#">twitter</a></li>
-                        </ul>
-                    </div>
-                    <!-- Footer Social Links End -->
-                </div>
-
-                <div class="col-lg-2 col-md-4">
-                    <!-- Footer Contact Links Start -->
-                    <div class="footer-links footer-contact-links">
-                        <h3>contact us</h3>
-                        <ul>                            
-                            <li><a href="#">info@domain.com</a></li>
-                            <li><a href="#">+(123) 698-5245</a></li>
-                        </ul>
-                    </div>
-                    <!-- Footer Contact Links End -->
-                </div>                
-            </div>
-
-            <!-- Footer Copyright Section Start -->
-            <div class="footer-copyright">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <!-- Footer Copyright Start -->
-                        <div class="footer-copyright-text">
-                            <p>Copyright © 2024 All Rights Reserved.</p>
-                        </div>
-                        <!-- Footer Copyright End -->
-                    </div>
-                </div>
-            </div>
-            <!-- Footer Copyright Section End -->
-        </div>
-    </footer>
-    <!-- Footer End -->
+    <x-footer />
 
     <script src="{{ asset('assets/js/jquery-3.7.1.min.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>

@@ -11,7 +11,7 @@
 
     <title>CERAM CLINIC</title>
 
-    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/images/favicon.png') }}">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,54 +31,8 @@
 
 </head>
 <body>
-
-    <!-- Preloader Start -->
-	<div class="preloader">
-		<div class="loading-container">
-			<div class="loading"></div>
-			<div id="loading-icon"><img src="images/loader.svg" alt=""></div>
-		</div>
-	</div>
-	<!-- Preloader End -->
-
-    <!-- Header Start -->
-	<header class="main-header">
-		<div class="header-sticky">
-			<nav class="navbar navbar-expand-lg">
-				<div class="container">
-					<!-- Logo Start -->
-					<a class="navbar-brand" href="./">
-						<img src="images/logo.png" alt="Logo">
-					</a>
-					<!-- Logo End -->
-
-					<!-- Main Menu Start -->
-					<div class="collapse navbar-collapse main-menu">
-                        <div class="nav-menu-wrapper">
-                            <ul class="navbar-nav mr-auto" id="menu">
-                                <li class="nav-item"><a class="nav-link" href="./">Home</a></li>                                
-                                <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
-                                <li class="nav-item"><a class="nav-link" href="service.html">Services</a></li>
-                                <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
-                                <li class="nav-item"><a class="nav-link" href="team.html">Our Team</a></li>
-                                <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
-                                <li class="nav-item highlighted-menu"><a class="nav-link" href="appointment.html">book appointment</a></li>                               
-                            </ul>
-                        </div>
-                        <!-- Let’s Start Button Start -->
-                        <div class="header-btn d-inline-flex">
-                            <button id="langBtn" class="btn-default">عربي</button>
-                        </div>
-                        <!-- Let’s Start Button End -->
-					</div>
-					<!-- Main Menu End -->
-					<div class="navbar-toggle"></div>
-				</div>
-			</nav>
-			<div class="responsive-menu"></div>
-		</div>
-	</header>
-	<!-- Header End -->
+    <x-preloader />
+    <x-header />
 
     <!-- Hero Section Start -->
 	<div class="hero">
@@ -96,25 +50,9 @@
 
                         <!-- Hero Content Body Start -->
                         <div class="hero-content-body wow fadeInUp" data-wow-delay="0.5s">
-                            <a href="#" class="btn-default">make an appointment</a>
+                            <a href="/about" class="btn-default">More About Us</a>
                         </div>
                         <!-- Hero Content Body End -->
-
-                        <!-- Google Rating Start -->
-                        <!-- <div class="google-rating wow fadeInUp" data-wow-delay="0.75s">
-                            <ul>
-                               <li>Google Rating <span>5.0</span></li>
-                               <li>
-                                   <i class="fa-solid fa-star"></i>
-                                   <i class="fa-solid fa-star"></i>
-                                   <i class="fa-solid fa-star"></i>
-                                   <i class="fa-solid fa-star"></i>
-                                   <i class="fa-solid fa-star"></i>
-                               </li>
-                               <li>based on 492 reviews</li>
-                            </ul>   
-                       </div> -->
-                       <!-- Google Rating End -->
                     </div>
                     <!-- Hero Content End -->
                 </div>
@@ -125,7 +63,7 @@
                         <!-- Hero Img Start -->
                         <div class="hero-img">
                             <figure>
-                                <img src="images/hero-img.png" alt="">
+                                <img src="{{ asset('assets/images/hero-img.png') }}" alt="">
                             </figure>
                         </div>
                         <!-- Hero Img End -->
@@ -134,7 +72,7 @@
                         <div class="export-dantist-box">
                             <div class="icon-box">
                                 <figure class="image-anime">
-                                    <img src="images/dantist-doctor-img.jpg" alt="">
+                                    <img src="{{ asset('assets/images/dantist-doctor-img.jpg') }}" alt="">
                                 </figure>
                             </div>
                             <div class="export-dantist-content">
@@ -147,22 +85,22 @@
                         <!-- Hero Icon List Start -->
                         <div class="hero-icon-list">
                             <div class="hero-icon-box-1">
-                                <img src="images/icon-hero-theeth-1.svg" alt="">
+                                <img src="{{ asset('assets/images/icon-hero-theeth-1.svg') }}" alt="">
                             </div>
 
                             <div class="hero-icon-box-2">
-                                <img src="images/icon-hero-theeth-2.svg" alt="">
+                                <img src="{{ asset('assets/images/icon-hero-theeth-2.svg') }}" alt="">
                             </div>
 
                             <div class="hero-icon-box-3">
-                                <img src="images/icon-hero-theeth-3.svg" alt="">
+                                <img src="{{ asset('assets/images/icon-hero-theeth-3.svg') }}" alt="">
                             </div>
                         </div>
                         <!-- Hero Icon List End -->
 
                         <!-- Icon Start Image Start -->
                         <div class="icon-star-image">
-                            <img src="images/icon-star.png" alt="">
+                            <img src="{{ asset('assets/images/icon-star.png') }}" alt="">
                         </div>
                         <!-- Icon Start Image End -->
                     </div>
@@ -181,7 +119,7 @@
                     <!-- Cta Box Item Start -->
                     <div class="cta-box-item wow fadeInUp">
                         <div class="icon-box">
-                            <img src="images/icon-cta-phone.svg" alt="">
+                            <img src="{{ asset('assets/images/icon-cta-phone.svg') }}" alt="">
                         </div>
                         <div class="cta-box-content">
                             <h3>need dental services ?</h3>
@@ -195,7 +133,7 @@
                 <div class="col-lg-4 col-md-6 col-12">
                     <div class="cta-box-item wow fadeInUp" data-wow-delay="0.25s">
                         <div class="icon-box">
-                            <img src="images/icon-cta-time.svg" alt="">
+                            <img src="{{ asset('assets/images/icon-cta-time.svg') }}" alt="">
                         </div>
                         <div class="cta-box-content">
                             <h3>opening hours</h3>
@@ -208,7 +146,7 @@
                 <div class="col-lg-4 col-md-12 col-12">
                     <!-- Cta Box Btn Start -->
                     <div class="cta-box-btn wow fadeInUp" data-wow-delay="0.5s">
-                        <a href="#" class="btn-default btn-highlighted">make an appointment</a>
+                        <a href="/about" class="btn-default btn-highlighted">More details</a>
                     </div>
                     <!-- Cta Box Btn End -->
                 </div>
@@ -226,20 +164,20 @@
                     <div class="about-image">
                         <div class="about-img-1">
                             <figure class="image-anime reveal">
-                                <img src="images/about-us-img-1.jpg" alt="">
+                                <img src="{{ asset('assets/images/about-us-img-1.jpg') }}" alt="">
                             </figure>
                         </div>
 
                         <div class="about-img-2">
                             <figure class="image-anime reveal">
-                                <img src="images/about-us-img-2.jpg" alt="">
+                                <img src="{{ asset('assets/images/about-us-img-2.jpg') }}" alt="">
                             </figure>
                         </div>
 
                         <!-- About Experience Circle Start -->
                         <div class="about-experience">
                             <figure>
-                                <img src="images/about-experience-circle.png" alt="">
+                                <img src="{{ asset('assets/images/about-experience-circle.png') }}" alt="">
                             </figure>
                         </div>
                         <!-- About Experience Circle End -->
@@ -303,7 +241,7 @@
                     <div class="service-item wow fadeInUp">
                         <div class="icon-box">
                             <div class="img">
-                                <img src="images/icon-services-1.svg" alt="">
+                                <img src="{{ asset('assets/images/icon-services-1.svg') }}" alt="">
                             </div>
                         </div>
                         <div class="service-body">
@@ -322,7 +260,7 @@
                     <div class="service-item wow fadeInUp" data-wow-delay="0.25s">
                         <div class="icon-box">
                             <div class="img">
-                                <img src="images/icon-services-2.svg" alt="">
+                                <img src="{{ asset('assets/images/icon-services-2.svg') }}" alt="">
                             </div>
                         </div>
                         <div class="service-body">
@@ -341,7 +279,7 @@
                     <div class="service-item wow fadeInUp" data-wow-delay="0.5s">
                         <div class="icon-box">
                             <div class="img">
-                                <img src="images/icon-services-3.svg" alt="">
+                                <img src="{{ asset('assets/images/icon-services-3.svg') }}" alt="">
                             </div>
                         </div>
                         <div class="service-body">
@@ -360,7 +298,7 @@
                     <div class="service-item wow fadeInUp" data-wow-delay="0.75s">
                         <div class="icon-box">
                             <div class="img">
-                                <img src="images/icon-services-4.svg" alt="">
+                                <img src="{{ asset('assets/images/icon-services-4.svg') }}" alt="">
                             </div>
                         </div>
                         <div class="service-body">
@@ -418,7 +356,7 @@
 
         <!-- Icon Start Image Start -->
         <div class="icon-star-image">
-            <img src="images/icon-star.png" alt="">
+            <img src="{{ asset('assets/images/icon-star.png') }}" alt="">
         </div>
         <!-- Icon Start Image End -->
     </div>
@@ -447,7 +385,7 @@
                         <div class="why-choose-item wow fadeInUp">
                             <!-- Icon Box Start -->
                             <div class="icon-box">
-                                <img src="images/icon-why-us-1.svg" alt="">
+                                <img src="{{ asset('assets/images/icon-why-us-1.svg') }}" alt="">
                             </div>  
                             <!-- Icon Box End -->
 
@@ -464,7 +402,7 @@
                         <div class="why-choose-item wow fadeInUp" data-wow-delay="0.25s">
                             <!-- Icon Box Start -->
                             <div class="icon-box">
-                                <img src="images/icon-why-us-2.svg" alt="">
+                                <img src="{{ asset('assets/images/icon-why-us-2.svg') }}" alt="">
                             </div>  
                             <!-- Icon Box End -->
 
@@ -481,7 +419,7 @@
                         <div class="why-choose-item wow fadeInUp" data-wow-delay="0.5s">
                             <!-- Icon Box Start -->
                             <div class="icon-box">
-                                <img src="images/icon-why-us-3.svg" alt="">
+                                <img src="{{ asset('assets/images/icon-why-us-3.svg') }}" alt="">
                             </div>  
                             <!-- Icon Box End -->
 
@@ -501,7 +439,7 @@
                     <!-- Why Choose Image Start -->
                     <div class="why-choose-image wow fadeInUp">
                         <figure>
-                            <img src="images/why-choose-us-img.png" alt="">
+                            <img src="{{ asset('assets/images/why-choose-us-img.png') }}" alt="">
                         </figure>
                     </div>
                     <!-- Why Choose Image End -->
@@ -514,7 +452,7 @@
                         <div class="why-choose-item wow fadeInUp">
                             <!-- Icon Box Start -->
                             <div class="icon-box">
-                                <img src="images/icon-why-us-4.svg" alt="">
+                                <img src="{{ asset('assets/images/icon-why-us-4.svg') }}" alt="">
                             </div>  
                             <!-- Icon Box End -->
 
@@ -531,7 +469,7 @@
                         <div class="why-choose-item wow fadeInUp" data-wow-delay="0.25s">
                             <!-- Icon Box Start -->
                             <div class="icon-box">
-                                <img src="images/icon-why-us-5.svg" alt="">
+                                <img src="{{ asset('assets/images/icon-why-us-5.svg') }}" alt="">
                             </div>  
                             <!-- Icon Box End -->
 
@@ -548,7 +486,7 @@
                         <div class="why-choose-item wow fadeInUp" data-wow-delay="0.5s">
                             <!-- Icon Box Start -->
                             <div class="icon-box">
-                                <img src="images/icon-why-us-6.svg" alt="">
+                                <img src="{{ asset('assets/images/icon-why-us-6.svg') }}" alt="">
                             </div>  
                             <!-- Icon Box End -->
 
@@ -567,7 +505,7 @@
         </div>
         <!-- Icon Start Image Start -->
         <div class="icon-star-image">
-            <img src="images/icon-star.png" alt="">
+            <img src="{{ asset('assets/images/icon-star.png') }}" alt="">
         </div>
         <!-- Icon Start Image End -->
     </div>
@@ -581,7 +519,7 @@
                     <!-- How It Work Image Start -->
                     <div class="how-it-work-img">
                         <figure class="reveal image-anime">
-                            <img src="images/how-it-work-img.jpg" alt="">
+                            <img src="{{ asset('assets/images/how-it-work-img.jpg') }}" alt="">
                         </figure>
                     </div>
                     <!-- How It Work Image End -->
@@ -624,7 +562,7 @@
                             <!-- FAQ Item Start -->
                             <div class="accordion-item wow fadeInUp" data-wow-delay="0.25s">
                                 <div class="icon-box">
-                                    <img src="images/icon-how-it-work-2.svg" alt="">
+                                    <img src="{{ asset('assets/images/icon-how-it-work-2.svg') }}" alt="">
                                 </div>
                                 <h2 class="accordion-header" id="heading2">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -644,7 +582,7 @@
                             <!-- FAQ Item Start -->
                             <div class="accordion-item wow fadeInUp" data-wow-delay="0.5s">
                                 <div class="icon-box">
-                                    <img src="images/icon-how-it-work-3.svg" alt="">
+                                    <img src="{{ asset('assets/images/icon-how-it-work-3.svg') }}" alt="">
                                 </div>
                                 <h2 class="accordion-header" id="heading3">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -692,7 +630,7 @@
                         <!-- Team Image Start -->
                         <div class="team-image">
                             <figure class="image-anime">
-                                <img src="images/team-1.jpg" alt="">
+                                <img src="{{ asset('assets/images/team-1.jpg') }}" alt="">
                             </figure>
                 
                             <!-- Team Social Icon Start -->
@@ -724,7 +662,7 @@
                         <!-- Team Image Start -->
                         <div class="team-image">
                             <figure class="image-anime">
-                                <img src="images/team-2.jpg" alt="">
+                                <img src="{{ asset('assets/images/team-2.jpg') }}" alt="">
                             </figure>
                 
                             <!-- Team Social Icon Start -->
@@ -756,7 +694,7 @@
                         <!-- Team Image Start -->
                         <div class="team-image">
                             <figure class="image-anime">
-                                <img src="images/team-3.jpg" alt="">
+                                <img src="{{ asset('assets/images/team-3.jpg') }}" alt="">
                             </figure>
                 
                             <!-- Team Social Icon Start -->
@@ -788,7 +726,7 @@
                         <!-- Team Image Start -->
                         <div class="team-image">
                             <figure class="image-anime">
-                                <img src="images/team-4.jpg" alt="">
+                                <img src="{{ asset('assets/images/team-4.jpg') }}" alt="">
                             </figure>
                 
                             <!-- Team Social Icon Start -->
@@ -817,90 +755,13 @@
         </div>
         <!-- Icon Start Image Start -->
         <div class="icon-star-image">
-            <img src="images/icon-star.png" alt="">
+            <img src="{{ asset('assets/images/icon-star.png') }}" alt="">
         </div>
         <!-- Icon Start Image End -->
     </div>
     <!-- Our Team End -->
 
-    <!-- Footer Start -->
-    <footer class="main-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4">
-                    <!-- About Footer Start -->
-                    <div class="about-footer">
-                        <!-- Footer Logo Start -->
-                        <div class="footer-logo">
-                            <img src="images/footer-logo.svg" alt="">
-                        </div>
-                        <!-- Footer Logo End -->
-
-                        <!-- About Footer Content Start -->
-                        <div class="about-footer-content">
-                            <p>The goal our clinic is provide friendly, caring dentistry and highest level of general, cosmetic, and specialist dental treatments.</p>
-                         </div>
-                         <!-- About Footer Content End -->
-                     </div>
-                    <!-- About Footer End -->
-                </div>
-                <div class="col-lg-3 col-md-4">
-                    <!-- Footer Quick Links Start -->
-                    <div class="footer-links footer-quick-links">
-                        <h3>quick links</h3>
-                        <ul>                            
-                            <li><a href="#">home</a></li>
-                            <li><a href="#">about us</a></li>
-                            <li><a href="#">services</a></li>
-                            <li><a href="#">book apoointment</a></li>
-                        </ul>
-                    </div>
-                    <!-- Footer Quick Links End -->
-                </div>
-
-                <div class="col-lg-3 col-md-4">
-                    <!-- Footer Social Links Start -->
-                    <div class="footer-links footer-social-links">
-                        <h3>social media</h3>
-                        <ul>                            
-                            <li><a href="#">facebook</a></li>
-                            <li><a href="#">instagram</a></li>
-                            <li><a href="#">youtube</a></li>
-                            <li><a href="#">twitter</a></li>
-                        </ul>
-                    </div>
-                    <!-- Footer Social Links End -->
-                </div>
-
-                <div class="col-lg-2 col-md-4">
-                    <!-- Footer Contact Links Start -->
-                    <div class="footer-links footer-contact-links">
-                        <h3>contact us</h3>
-                        <ul>                            
-                            <li><a href="#">info@domain.com</a></li>
-                            <li><a href="#">+(123) 698-5245</a></li>
-                        </ul>
-                    </div>
-                    <!-- Footer Contact Links End -->
-                </div>                
-            </div>
-
-            <!-- Footer Copyright Section Start -->
-            <div class="footer-copyright">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <!-- Footer Copyright Start -->
-                        <div class="footer-copyright-text">
-                            <p>Copyright © 2025 All Rights Reserved.</p>
-                        </div>
-                        <!-- Footer Copyright End -->
-                    </div>
-                </div>
-            </div>
-            <!-- Footer Copyright Section End -->
-        </div>
-    </footer>
-    <!-- Footer End -->
+    <x-footer />
 
     <script src="{{ asset('assets/js/jquery-3.7.1.min.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
