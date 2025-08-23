@@ -66,7 +66,7 @@
                     <div class="col-lg-12">
                         <!-- Footer Copyright Start -->
                         <div class="footer-copyright-text">
-                            <p>Copyright © 2025 All Rights Reserved.</p>
+                            <p>{!! $setting->getText('copyright') !!}</p>
                         </div>
                         <!-- Footer Copyright End -->
                     </div>
