@@ -10,7 +10,8 @@ class IndexController extends Controller
     public function index()
     {
         $setting = Setting::firstOrCreate([]);
+        $locale = session('locale', 'en');
 
-        return view('index', compact('setting'));
+        return view('index', compact('setting', 'locale'));
     }
 }

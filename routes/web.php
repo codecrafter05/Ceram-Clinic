@@ -20,3 +20,7 @@ Route::get('/service-single', [ServiceController::class, 'single'])->name('servi
 Route::get('/team', [TeamController::class, 'index'])->name('team');
 Route::get('/blog', [BlogController::class, 'index'])->name('blog');
 Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery');
+
+// Language Routes
+Route::post('/switch-language', [App\Http\Controllers\LanguageController::class, 'switchLanguage'])->name('switch.language');
+Route::get('/current-language', [App\Http\Controllers\LanguageController::class, 'getCurrentLanguage'])->name('current.language');

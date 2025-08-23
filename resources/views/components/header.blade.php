@@ -19,12 +19,12 @@
                                 <li class="nav-item"><a class="nav-link" href="/gallery">Gallery</a></li>
                                 <li class="nav-item"><a class="nav-link" href="/team">Our Team</a></li>
                                 <li class="nav-item"><a class="nav-link" href="/contact">Contact Us</a></li>
-                                <li class="nav-item highlighted-menu"><button class="nav-link" id="langBtn">عربي</button></li>
+                                <li class="nav-item highlighted-menu"><button class="nav-link" id="langBtn" data-current-lang="{{ session('locale', 'en') }}">{{ session('locale', 'en') === 'ar' ? 'English' : 'عربي' }}</button></li>
                             </ul>
                         </div>
                         <!-- Let’s Start Button Start -->
                         <div class="header-btn d-inline-flex">
-                            <button id="langBtn" class="btn-default">عربي</button>
+                            <button id="langBtn" class="btn-default" data-current-lang="{{ session('locale', 'en') }}">{{ session('locale', 'en') === 'ar' ? 'English' : 'عربي' }}</button>
                         </div>
                         <!-- Let’s Start Button End -->
 					</div>

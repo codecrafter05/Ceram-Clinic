@@ -88,9 +88,12 @@ class SettingResource extends Resource
 
                 // Footer
                 Section::make('Footer')->schema([
-                    TextInput::make('copyright')
+                    TextInput::make('copyright_en')
                         ->label('Copyright')
                         ->placeholder('© ' . date('Y') . ' Ceram Clinic. All rights reserved'),
+                    TextInput::make('copyright_ar')
+                        ->label('Copyright (AR)')
+                        ->placeholder('© ' . date('Y') . ' جميع الحقوق محفوظة'),
                 ]),
             ]);
     }

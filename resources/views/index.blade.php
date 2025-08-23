@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="{{ session('locale', 'en') }}" dir="{{ session('locale', 'en') === 'ar' ? 'rtl' : 'ltr' }}">
 <head>
 
     <meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
-	<meta name="keywords" content="">
+	    <meta name="keywords" content="">
 	<meta name="author" content="Awaiken">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>CERAM CLINIC</title>
 
@@ -27,6 +28,7 @@
     <link href="{{ asset('assets/css/magnific-popup.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/mousecursor.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/custom.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/rtl.css') }}" rel="stylesheet">
 
 
 </head>
@@ -43,14 +45,32 @@
                     <div class="hero-content">
                         <!-- Section Title Start -->
                         <div class="section-title">
-                            <h1 class="text-anime-style-2" data-cursor="-opaque">هلووو <span>عيادة سيرام</span> للاسنان الرائعة   </h1>
-                            <p class="wow fadeInUp" data-wow-delay="0.25s">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal</p>
+                            <h1 class="text-anime-style-2" data-cursor="-opaque">
+                                @if($locale === 'ar')
+                                    مرحباً بكم في <span>عيادة سيرام</span> للاسنان الرائعة
+                                @else
+                                    Welcome to <span>Ceram Clinic</span> for Excellent Dental Care
+                                @endif
+                            </h1>
+                            <p class="wow fadeInUp" data-wow-delay="0.25s">
+                                @if($locale === 'ar')
+                                    عيادة سيرام هي وجهتك المثالية للعناية بصحة أسنانك. نقدم أفضل الخدمات الطبية بأحدث التقنيات وأعلى معايير الجودة.
+                                @else
+                                    Ceram Clinic is your ideal destination for dental care. We provide the best medical services with the latest technologies and highest quality standards.
+                                @endif
+                            </p>
                         </div>
                         <!-- Section Title End -->
 
                         <!-- Hero Content Body Start -->
                         <div class="hero-content-body wow fadeInUp" data-wow-delay="0.5s">
-                            <a href="/about" class="btn-default">More About Us</a>
+                            <a href="/about" class="btn-default">
+                                @if($locale === 'ar')
+                                    المزيد عنا
+                                @else
+                                    More About Us
+                                @endif
+                            </a>
                         </div>
                         <!-- Hero Content Body End -->
                     </div>
@@ -780,7 +800,7 @@
     <script src="{{ asset('assets/js/jquery.mb.YTPlayer.min.js') }}"></script>
     <script src="{{ asset('assets/js/wow.js') }}"></script>
     <script src="{{ asset('assets/js/function.js') }}"></script>
-    <script src="{{ asset('assets/js/lang.js') }}"></script>
+    <script src="{{ asset('assets/js/language-switcher.js') }}"></script>
 
 
 </body>

@@ -8,6 +8,9 @@ class AboutController extends Controller
 {
     public function index()
     {
-        return view('about');
+        $setting = \App\Models\Setting::firstOrCreate([]);
+        $locale = session('locale', 'en');
+        
+        return view('about', compact('setting', 'locale'));
     }
 }

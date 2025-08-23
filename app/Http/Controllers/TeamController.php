@@ -8,6 +8,9 @@ class TeamController extends Controller
 {
     public function index()
     {
-        return view('team');
+        $setting = \App\Models\Setting::firstOrCreate([]);
+        $locale = session('locale', 'en');
+        
+        return view('team', compact('setting', 'locale'));
     }
 }

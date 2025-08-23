@@ -1,21 +1,22 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="{{ session('locale', 'en') }}" dir="{{ session('locale', 'en') === 'ar' ? 'rtl' : 'ltr' }}">
 <head>
-	<!-- Meta -->
-	<meta charset="utf-8">
+    <meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
 	<meta name="keywords" content="">
 	<meta name="author" content="Awaiken">
-	<!-- Page Title -->
-    <title>Dentaire - Dentist & Dental Clinic HTML Template</title>
-	<!-- Favicon Icon -->
-	<link rel="shortcut icon" type="image/x-icon" href="images/favicon.png">
-	<!-- Google Fonts Css-->
-	<link rel="preconnect" href="https://fonts.googleapis.com">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>CERAM CLINIC - About Us</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/images/favicon.png') }}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+
     <!-- css files -->
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/slicknav.min.css') }}" rel="stylesheet">
@@ -25,6 +26,7 @@
     <link href="{{ asset('assets/css/magnific-popup.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/mousecursor.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/custom.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/rtl.css') }}" rel="stylesheet">
 </head>
 <body>
 
@@ -444,7 +446,6 @@
     <script src="{{ asset('assets/js/jquery.mb.YTPlayer.min.js') }}"></script>
     <script src="{{ asset('assets/js/wow.js') }}"></script>
     <script src="{{ asset('assets/js/function.js') }}"></script>
-    <script src="{{ asset('assets/js/lang.js') }}"></script>
-
+    <script src="{{ asset('assets/js/language-switcher.js') }}"></script>
 </body>
 </html>

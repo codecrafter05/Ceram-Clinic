@@ -8,6 +8,9 @@ class BlogController extends Controller
 {
     public function index()
     {
-        return view('blog');
+        $setting = \App\Models\Setting::firstOrCreate([]);
+        $locale = session('locale', 'en');
+        
+        return view('blog', compact('setting', 'locale'));
     }
 }

@@ -8,6 +8,9 @@ class GalleryController extends Controller
 {
     public function index()
     {
-        return view('gallery');
+        $setting = \App\Models\Setting::firstOrCreate([]);
+        $locale = session('locale', 'en');
+        
+        return view('gallery', compact('setting', 'locale'));
     }
 }
