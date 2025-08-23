@@ -10,7 +10,8 @@ class ContactController extends Controller
     public function index()
     {
         $setting = Setting::firstOrCreate([]);
-
-        return view('contact', compact('setting'));
+        $locale = session('locale', 'en');
+        
+        return view('contact', compact('setting', 'locale'));
     }
 }

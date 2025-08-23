@@ -1,0 +1,273 @@
+/* RTL Styles for Arabic Language */
+
+/* General RTL overrides */
+[dir="rtl"] {
+    direction: rtl;
+    text-align: right;
+}
+
+[dir="rtl"] body {
+    direction: rtl;
+    text-align: right;
+}
+
+/* Header RTL */
+[dir="rtl"] .navbar-nav {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .navbar-nav .nav-item {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+[dir="rtl"] .navbar-nav .nav-item + .nav-item {
+    margin-right: 1rem;
+    margin-left: 0;
+}
+
+/* Navigation RTL */
+[dir="rtl"] .main-menu .nav-menu-wrapper {
+    direction: rtl;
+}
+
+[dir="rtl"] .navbar-nav {
+    padding-right: 0;
+}
+
+/* Button RTL */
+[dir="rtl"] .btn-default {
+    direction: rtl;
+}
+
+/* Container RTL */
+[dir="rtl"] .container {
+    direction: rtl;
+}
+
+/* Row RTL */
+[dir="rtl"] .row {
+    direction: rtl;
+}
+
+/* Column RTL */
+[dir="rtl"] .col-lg-6:first-child {
+    order: 2;
+}
+
+[dir="rtl"] .col-lg-6:last-child {
+    order: 1;
+}
+
+/* Text alignment RTL */
+[dir="rtl"] .text-left {
+    text-align: right !important;
+}
+
+[dir="rtl"] .text-right {
+    text-align: left !important;
+}
+
+/* Float RTL */
+[dir="rtl"] .float-left {
+    float: right !important;
+}
+
+[dir="rtl"] .float-right {
+    float: left !important;
+}
+
+/* Margin and Padding RTL */
+[dir="rtl"] .ml-auto {
+    margin-left: 0 !important;
+    margin-right: auto !important;
+}
+
+[dir="rtl"] .mr-auto {
+    margin-right: 0 !important;
+    margin-left: auto !important;
+}
+
+/* Bootstrap Grid RTL */
+[dir="rtl"] .col-lg-1,
+[dir="rtl"] .col-lg-2,
+[dir="rtl"] .col-lg-3,
+[dir="rtl"] .col-lg-4,
+[dir="rtl"] .col-lg-5,
+[dir="rtl"] .col-lg-6,
+[dir="rtl"] .col-lg-7,
+[dir="rtl"] .col-lg-8,
+[dir="rtl"] .col-lg-9,
+[dir="rtl"] .col-lg-10,
+[dir="rtl"] .col-lg-11,
+[dir="rtl"] .col-lg-12 {
+    direction: rtl;
+}
+
+/* Hero Section RTL */
+[dir="rtl"] .hero-content {
+    text-align: right;
+}
+
+[dir="rtl"] .section-title h1,
+[dir="rtl"] .section-title h2,
+[dir="rtl"] .section-title p {
+    text-align: right;
+}
+
+/* About Section RTL */
+[dir="rtl"] .about-content {
+    text-align: right;
+}
+
+[dir="rtl"] .about-feature-item {
+    text-align: right;
+}
+
+[dir="rtl"] .about-feature-item .icon-box {
+    margin-left: 1rem;
+    margin-right: 0;
+}
+
+/* Footer RTL */
+[dir="rtl"] .footer-content {
+    direction: rtl;
+}
+
+/* Social Icons RTL */
+[dir="rtl"] .social-icon {
+    margin-left: 0;
+    margin-right: 0.5rem;
+}
+
+/* List RTL */
+[dir="rtl"] ul {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+[dir="rtl"] li {
+    direction: rtl;
+}
+
+/* Form RTL */
+[dir="rtl"] .form-control {
+    text-align: right;
+}
+
+[dir="rtl"] .form-group {
+    direction: rtl;
+}
+
+/* Modal RTL */
+[dir="rtl"] .modal-header .close {
+    margin: -1rem auto -1rem -1rem;
+}
+
+/* Dropdown RTL */
+[dir="rtl"] .dropdown-menu {
+    right: 0;
+    left: auto;
+    text-align: right;
+}
+
+/* Breadcrumb RTL */
+[dir="rtl"] .breadcrumb {
+    direction: rtl;
+}
+
+[dir="rtl"] .breadcrumb-item + .breadcrumb-item::before {
+    content: "\\";
+    float: right;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+}
+
+/* Page Header RTL */
+[dir="rtl"] .page-header-box h1,
+[dir="rtl"] .page-header-box nav {
+    text-align: right;
+}
+
+/* Responsive RTL */
+@media (max-width: 768px) {
+    [dir="rtl"] .navbar-nav {
+        flex-direction: column;
+    }
+    
+    [dir="rtl"] .navbar-nav .nav-item + .nav-item {
+        margin-right: 0;
+        margin-top: 0.5rem;
+    }
+    
+    [dir="rtl"] .col-lg-6:first-child,
+    [dir="rtl"] .col-lg-6:last-child {
+        order: unset;
+    }
+}
+
+/* Language Button RTL */
+[dir="rtl"] #langBtn {
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+}
+
+/* Preloader RTL */
+[dir="rtl"] .preloader {
+    direction: rtl;
+}
+
+/* Animation RTL */
+[dir="rtl"] .wow {
+    direction: rtl;
+}
+
+/* Icon RTL */
+[dir="rtl"] .icon-box {
+    direction: rtl;
+}
+
+/* Content RTL */
+[dir="rtl"] .content {
+    direction: rtl;
+}
+
+/* Feature List RTL */
+[dir="rtl"] .about-feature-list {
+    direction: rtl;
+}
+
+[dir="rtl"] .about-feature-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+}
+
+[dir="rtl"] .about-feature-item .icon-box {
+    flex-shrink: 0;
+    margin-left: 1rem;
+    margin-right: 0;
+    width: 40px;
+    height: 40px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+[dir="rtl"] .about-feature-item .content {
+    flex: 1;
+}
+
+[dir="rtl"] .about-feature-item .content h4 {
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+[dir="rtl"] .about-feature-item .content p {
+    margin-bottom: 0;
+    color: var(--text-color);
+    line-height: 1.6;
+}

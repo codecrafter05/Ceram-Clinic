@@ -9,12 +9,18 @@ class ServiceController extends Controller
     // صفحة كل الخدمات
     public function index()
     {
-        return view('service');
+        $setting = \App\Models\Setting::firstOrCreate([]);
+        $locale = session('locale', 'en');
+        
+        return view('service', compact('setting', 'locale'));
     }
 
     // صفحة تفاصيل خدمة معينة
     public function single()
     {
-        return view('service-single');
+        $setting = \App\Models\Setting::firstOrCreate([]);
+        $locale = session('locale', 'en');
+        
+        return view('service-single', compact('setting', 'locale'));
     }
 }

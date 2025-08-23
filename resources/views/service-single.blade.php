@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="{{ session('locale', 'en') }}" dir="{{ session('locale', 'en') === 'ar' ? 'rtl' : 'ltr' }}">
 <head>
 	<!-- Meta -->
 	<meta charset="utf-8">
@@ -8,6 +8,7 @@
 	<meta name="description" content="">
 	<meta name="keywords" content="">
 	<meta name="author" content="Awaiken">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 	<!-- Page Title -->
     <title>Dentaire - Dentist & Dental Clinic HTML Template</title>
 	<!-- Favicon Icon -->
@@ -25,6 +26,7 @@
     <link href="{{ asset('assets/css/magnific-popup.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/mousecursor.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/custom.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/rtl.css') }}" rel="stylesheet">
 
 </head>
 <body>
@@ -421,7 +423,8 @@
     <script src="{{ asset('assets/js/jquery.mb.YTPlayer.min.js') }}"></script>
     <script src="{{ asset('assets/js/wow.js') }}"></script>
     <script src="{{ asset('assets/js/function.js') }}"></script>
-    <script src="{{ asset('assets/js/lang.js') }}"></script>
+    <script src="{{ asset('assets/js/language-switcher.js') }}"></script>
+    <script src="{{ asset('assets/js/language-switcher.js') }}"></script>
     
 </body>
 </html>
