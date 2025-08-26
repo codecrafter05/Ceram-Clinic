@@ -30,73 +30,8 @@
 </head>
 <body>
 
-    <!-- Preloader Start -->
-	<div class="preloader">
-		<div class="loading-container">
-			<div class="loading"></div>
-			<div id="loading-icon"><img src="images/loader.svg" alt=""></div>
-		</div>
-	</div>
-	<!-- Preloader End -->
-
-    <!-- Header Start -->
-	<header class="main-header">
-		<div class="header-sticky">
-			<nav class="navbar navbar-expand-lg">
-				<div class="container">
-					<!-- Logo Start -->
-					<a class="navbar-brand" href="./">
-						<img src="images/logo.svg" alt="Logo">
-					</a>
-					<!-- Logo End -->
-
-					<!-- Main Menu Start -->
-					<div class="collapse navbar-collapse main-menu">
-                        <div class="nav-menu-wrapper">
-                            <ul class="navbar-nav mr-auto" id="menu">
-                                <li class="nav-item submenu"><a class="nav-link" href="./">Home</a>
-                                    <ul class="sub-menu">
-                                        <li class="nav-item"><a class="nav-link" href="index.html">Home - Hero Version 1</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="index-2.html">Home - Hero Version 2</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="index-3.html">Home - Hero Version 3</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="index-4.html">Home - Hero Version 4</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="index-5.html">Home - Hero Version 5</a></li>
-                                    </ul>
-                                </li>                                
-                                <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
-                                <li class="nav-item"><a class="nav-link" href="service.html">Services</a></li>
-                                <li class="nav-item submenu"><a class="nav-link" href="#">Pages</a>
-                                    <ul>                                        
-                                        <li class="nav-item"><a class="nav-link" href="service-single.html">Service Details</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="blog.html">Our Blog</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="blog-single.html">Blog Details</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="team.html">Our Team</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="team-single.html">Team Details</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="technology.html">Technology</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="testimonials.html">testimonials</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="faqs.html">FAQ's</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="404.html">404</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
-                                <li class="nav-item highlighted-menu"><a class="nav-link" href="appointment.html">book appointment</a></li>                               
-                            </ul>
-                        </div>
-                        <!-- Let’s Start Button Start -->
-                        <div class="header-btn d-inline-flex">
-                            <a href="appointment.html" class="btn-default">book appointment</a>
-                        </div>
-                        <!-- Let’s Start Button End -->
-					</div>
-					<!-- Main Menu End -->
-					<div class="navbar-toggle"></div>
-				</div>
-			</nav>
-			<div class="responsive-menu"></div>
-		</div>
-	</header>
-	<!-- Header End -->
+    <x-preloader />
+    <x-header />
 
     <!-- Page Header Start -->
 	<div class="page-header">
@@ -120,495 +55,108 @@
 	</div>
 	<!-- Page Header End -->
 
+    @php
+        use Illuminate\Support\Str;
+    @endphp
+
     <!-- Page Faqs Start -->
     <div class="page-faqs">
         <div class="container">
             <div class="row">
+                <!-- Sidebar -->
                 <div class="col-lg-4">
-                    <!-- Faqs Sidebar Start -->
                     <div class="faq-sidebar">
-                        <!-- Faqs Catagery List Start -->
                         <div class="faq-catagery-list wow fadeInUp" data-wow-delay="0.25s">
                             <ul>
-                                <li><a href="#general_information">general information</a></li>
-                                <li><a href="#preventive_care">preventive care</a></li>
-                                <li><a href="#cosmetic_dentistry">cosmetic dentistry</a></li>
-                                <li><a href="#restorative_dentistry">restorative dentistry</a></li>
+                                @php $hasCats = false; @endphp
+                                @foreach ($categories as $cat)
+                                    @if ($cat->faqs->count() > 0)
+                                        @php
+                                            $catId  = 'cat-'.$cat->id;
+                                            $catTxt = $cat->getText('name');
+                                            $hasCats = true;
+                                        @endphp
+                                        <li><a href="#{{ $catId }}">{{ $catTxt }}</a></li>
+                                    @endif
+                                @endforeach
+
+                                @unless($hasCats)
+                                    <li>{{ $locale === 'ar' ? 'لا توجد تصنيفات.' : 'No categories.' }}</li>
+                                @endunless
                             </ul>
                         </div>
-                        <!-- Faqs Catagery List End -->
                     </div>
-                    <!-- Faqs Sidebar End -->
                 </div>
-                
+
+                <!-- Content -->
                 <div class="col-lg-8">
-                    <!-- FAQs section start -->
-                    <div class="faqs-section" id="general_information">
-                        <div class="faqs-section-title">
-                            <h2 class="text-anime-style-2" data-cursor="-opaque">General Information</h2>
-                        </div>
-                        <!-- FAQ Accordion Start -->
-                        <div class="faq-accordion" id="accordion">
-                            <!-- FAQ Item Start -->
-                            <div class="accordion-item wow fadeInUp">
-                                <h2 class="accordion-header" id="heading1">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
-                                        what is orthodontics?
-                                    </button>
-                                </h2>
-                                <div id="collapse1" class="accordion-collapse collapse show" aria-labelledby="heading1"
-                                    data-bs-parent="#accordion">
-                                    <div class="accordion-body">
-                                        <p>Orthodontics is a dental specialty focused on diagnosing, preventing, and treating dental and facial irregularities, such as misaligned teeth and jaws.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- FAQ Item End -->
+                    @php $hasContent = false; @endphp
+                    @foreach ($categories as $cat)
+                        @if ($cat->faqs->count() > 0)
+                            @php
+                                $catId   = 'cat-'.$cat->id;
+                                $accId   = 'accordion-'.$cat->id;
+                                $catName = $cat->getText('name');
+                                $hasContent = true;
+                            @endphp
 
-                            <!-- FAQ Item Start -->
-                            <div class="accordion-item wow fadeInUp" data-wow-delay="0.25s">
-                                <h2 class="accordion-header" id="heading2">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
-                                        what are dental sealants?
-                                    </button>
-                                </h2>
-                                <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2"
-                                    data-bs-parent="#accordion">
-                                    <div class="accordion-body">
-                                        <p>Dental sealants are thin, protective coatings applied to the chewing surfaces of molars to prevent cavities.</p>
-                                    </div>
+                            <div class="faqs-section" id="{{ $catId }}">
+                                <div class="faqs-section-title">
+                                    <h2 class="text-anime-style-2" data-cursor="-opaque">{{ $catName }}</h2>
                                 </div>
-                            </div>
-                            <!-- FAQ Item End -->
 
-                            <!-- FAQ Item Start -->
-                            <div class="accordion-item wow fadeInUp" data-wow-delay="0.5s">
-                                <h2 class="accordion-header" id="heading3">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
-                                        are teeth whitening treatments safe?
-                                    </button>
-                                </h2>
-                                <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="heading3"
-                                    data-bs-parent="#accordion">
-                                    <div class="accordion-body">
-                                        <p>Yes, teeth whitening treatments performed by a dentist or with dentist-approved products are safe and effective.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- FAQ Item End -->
+                                <div class="faq-accordion" id="{{ $accId }}">
+                                    @foreach ($cat->faqs as $faq)
+                                        @php
+                                            $i         = $loop->iteration;
+                                            $headingId = "heading-{$cat->id}-{$i}";
+                                            $collapseId= "collapse-{$cat->id}-{$i}";
+                                            $show      = $i === 1 ? 'show' : '';
+                                            $expanded  = $i === 1 ? 'true' : 'false';
+                                            $delaySec  = number_format(($i-1)*0.25, 2);
+                                        @endphp
 
-                            <!-- FAQ Item Start -->
-                            <div class="accordion-item wow fadeInUp" data-wow-delay="0.75s">
-                                <h2 class="accordion-header" id="heading4">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
-                                        what is cosmetic dentistry?
-                                    </button>
-                                </h2>
-                                <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="heading4"
-                                    data-bs-parent="#accordion">
-                                    <div class="accordion-body">
-                                        <p>Cosmetic dentistry focuses on improving the appearance of teeth, gums, and smile through procedures like whitening, veneers, and bonding.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- FAQ Item End -->
+                                        <div class="accordion-item wow fadeInUp" @if($i>1) data-wow-delay="{{ $delaySec }}s" @endif>
+                                            <h2 class="accordion-header" id="{{ $headingId }}">
+                                                <button class="accordion-button @if(!$show) collapsed @endif"
+                                                        type="button"
+                                                        data-bs-toggle="collapse"
+                                                        data-bs-target="#{{ $collapseId }}"
+                                                        aria-expanded="{{ $expanded }}"
+                                                        aria-controls="{{ $collapseId }}">
+                                                    {{ $faq->getText('question') }}
+                                                </button>
+                                            </h2>
 
-                            <!-- FAQ Item Start -->
-                            <div class="accordion-item wow fadeInUp" data-wow-delay="1s">
-                                <h2 class="accordion-header" id="heading5">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
-                                        how can i whiten my teeth at home?
-                                    </button>
-                                </h2>
-                                <div id="collapse5" class="accordion-collapse collapse" aria-labelledby="heading5"
-                                    data-bs-parent="#accordion">
-                                    <div class="accordion-body">
-                                        <p>At-home whitening options include over-the-counter whitening strips, gels, toothpaste, and custom trays provided by your dentist.</p>
-                                    </div>
+                                            <div id="{{ $collapseId }}"
+                                                class="accordion-collapse collapse {{ $show }}"
+                                                aria-labelledby="{{ $headingId }}"
+                                                data-bs-parent="#{{ $accId }}">
+                                                <div class="accordion-body">
+                                                    {!! $faq->getText('answer') !!}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
                                 </div>
                             </div>
-                            <!-- FAQ Item End -->
-                        </div>
-                        <!-- FAQ Accordion End -->
-                    </div>
-                    <!-- FAQs section End -->
+                        @endif
+                    @endforeach
 
-                    <!-- FAQs section start -->
-                    <div class="faqs-section" id="preventive_care">
-                        <div class="faqs-section-title">
-                            <h2 class="text-anime-style-2" data-cursor="-opaque">Preventive Care</h2>
-                        </div>
-                        <!-- FAQ Accordion Start -->
-                        <div class="faq-accordion" id="accordion1">
-                            <!-- FAQ Item Start -->
-                            <div class="accordion-item wow fadeInUp">
-                                <h2 class="accordion-header" id="heading11">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapse11" aria-expanded="true" aria-controls="collapse11">
-                                        What is preventive dental care?
-                                    </button>
-                                </h2>
-                                <div id="collapse11" class="accordion-collapse collapse show" aria-labelledby="heading11"
-                                    data-bs-parent="#accordion1">
-                                    <div class="accordion-body">
-                                        <p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore of magna aliqua. Ut enim ad minim veniam, made of owl the quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea dolor commodo consequat.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- FAQ Item End -->
-
-                            <!-- FAQ Item Start -->
-                            <div class="accordion-item wow fadeInUp" data-wow-delay="0.25s">
-                                <h2 class="accordion-header" id="heading12">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapse12" aria-expanded="false" aria-controls="collapse12">
-                                        How often should I visit the dentist for preventive care?
-                                    </button>
-                                </h2>
-                                <div id="collapse12" class="accordion-collapse collapse" aria-labelledby="heading12"
-                                    data-bs-parent="#accordion1">
-                                    <div class="accordion-body">
-                                        <p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore of magna aliqua. Ut enim ad minim veniam, made of owl the quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea dolor commodo consequat.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- FAQ Item End -->
-
-                            <!-- FAQ Item Start -->
-                            <div class="accordion-item wow fadeInUp" data-wow-delay="0.5s">
-                                <h2 class="accordion-header" id="heading13">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapse13" aria-expanded="false" aria-controls="collapse13">
-                                        What are dental sealants and who should get them?
-                                    </button>
-                                </h2>
-                                <div id="collapse13" class="accordion-collapse collapse" aria-labelledby="heading13"
-                                    data-bs-parent="#accordion1">
-                                    <div class="accordion-body">
-                                        <p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore of magna aliqua. Ut enim ad minim veniam, made of owl the quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea dolor commodo consequat.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- FAQ Item End -->
-
-                            <!-- FAQ Item Start -->
-                            <div class="accordion-item wow fadeInUp" data-wow-delay="0.75s">
-                                <h2 class="accordion-header" id="heading14">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapse14" aria-expanded="false" aria-controls="collapse14">
-                                        What are the signs of gum disease and how can it be prevented?
-                                    </button>
-                                </h2>
-                                <div id="collapse14" class="accordion-collapse collapse" aria-labelledby="heading14"
-                                    data-bs-parent="#accordion1">
-                                    <div class="accordion-body">
-                                        <p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore of magna aliqua. Ut enim ad minim veniam, made of owl the quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea dolor commodo consequat.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- FAQ Item End -->
-
-                            <!-- FAQ Item Start -->
-                            <div class="accordion-item wow fadeInUp" data-wow-delay="1s">
-                                <h2 class="accordion-header" id="heading15">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapse15" aria-expanded="false" aria-controls="collapse15">
-                                        Can chronic therapy help with postural problems?
-                                    </button>
-                                </h2>
-                                <div id="collapse15" class="accordion-collapse collapse" aria-labelledby="heading15"
-                                    data-bs-parent="#accordion1">
-                                    <div class="accordion-body">
-                                        <p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore of magna aliqua. Ut enim ad minim veniam, made of owl the quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea dolor commodo consequat.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- FAQ Item End -->
-                        </div>
-                        <!-- FAQ Accordion End -->
-                    </div>
-                    <!-- FAQs section End -->
-
-                    <!-- FAQs section start -->
-                    <div class="faqs-section" id="cosmetic_dentistry">
-                        <div class="faqs-section-title">
-                            <h2 class="text-anime-style-2" data-cursor="-opaque">Cosmetic Dentistry</h2>
-                        </div>
-                        <!-- FAQ Accordion Start -->
-                        <div class="faq-accordion" id="accordion2">
-                            <!-- FAQ Item Start -->
-                            <div class="accordion-item wow fadeInUp">
-                                <h2 class="accordion-header" id="heading21">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapse21" aria-expanded="true" aria-controls="collapse21">
-                                        What is cosmetic dentistry?
-                                    </button>
-                                </h2>
-                                <div id="collapse21" class="accordion-collapse collapse show" aria-labelledby="heading21"
-                                    data-bs-parent="#accordion2">
-                                    <div class="accordion-body">
-                                        <p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore of magna aliqua. Ut enim ad minim veniam, made of owl the quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea dolor commodo consequat.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- FAQ Item End -->
-
-                            <!-- FAQ Item Start -->
-                            <div class="accordion-item wow fadeInUp" data-wow-delay="0.25s">
-                                <h2 class="accordion-header" id="heading22">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapse22" aria-expanded="false" aria-controls="collapse22">
-                                        How long does teeth whitening last?
-                                    </button>
-                                </h2>
-                                <div id="collapse22" class="accordion-collapse collapse" aria-labelledby="heading22"
-                                    data-bs-parent="#accordion2">
-                                    <div class="accordion-body">
-                                        <p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore of magna aliqua. Ut enim ad minim veniam, made of owl the quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea dolor commodo consequat.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- FAQ Item End -->
-
-                            <!-- FAQ Item Start -->
-                            <div class="accordion-item wow fadeInUp" data-wow-delay="0.5s">
-                                <h2 class="accordion-header" id="heading23">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapse23" aria-expanded="false" aria-controls="collapse23">
-                                        How can cosmetic dentistry improve my smile?
-                                    </button>
-                                </h2>
-                                <div id="collapse23" class="accordion-collapse collapse" aria-labelledby="heading23"
-                                    data-bs-parent="#accordion2">
-                                    <div class="accordion-body">
-                                        <p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore of magna aliqua. Ut enim ad minim veniam, made of owl the quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea dolor commodo consequat.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- FAQ Item End -->
-
-                            <!-- FAQ Item Start -->
-                            <div class="accordion-item wow fadeInUp" data-wow-delay="0.75s">
-                                <h2 class="accordion-header" id="heading24">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapse24" aria-expanded="false" aria-controls="collapse24">
-                                        What are dental fillings and when are they needed?
-                                    </button>
-                                </h2>
-                                <div id="collapse24" class="accordion-collapse collapse" aria-labelledby="heading24"
-                                    data-bs-parent="#accordion2">
-                                    <div class="accordion-body">
-                                        <p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore of magna aliqua. Ut enim ad minim veniam, made of owl the quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea dolor commodo consequat.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- FAQ Item End -->
-
-                            <!-- FAQ Item Start -->
-                            <div class="accordion-item wow fadeInUp" data-wow-delay="1s">
-                                <h2 class="accordion-header" id="heading25">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapse25" aria-expanded="false" aria-controls="collapse25">
-                                        What is a dental crown and why might I need one?
-                                    </button>
-                                </h2>
-                                <div id="collapse25" class="accordion-collapse collapse" aria-labelledby="heading25"
-                                    data-bs-parent="#accordion2">
-                                    <div class="accordion-body">
-                                        <p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore of magna aliqua. Ut enim ad minim veniam, made of owl the quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea dolor commodo consequat.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- FAQ Item End -->
-                        </div>
-                        <!-- FAQ Accordion End -->
-                    </div>
-                    <!-- FAQs section End -->
-
-                    <!-- FAQs section start -->
-                    <div class="faqs-section" id="restorative_dentistry">
-                        <div class="faqs-section-title">
-                            <h2 class="text-anime-style-2" data-cursor="-opaque">Restorative Dentistry</h2>
-                        </div>
-                        <!-- FAQ Accordion Start -->
-                        <div class="faq-accordion" id="accordion3">
-                            <!-- FAQ Item Start -->
-                            <div class="accordion-item wow fadeInUp">
-                                <h2 class="accordion-header" id="heading31">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapse31" aria-expanded="true" aria-controls="collapse31">
-                                        What is restorative dentistry?
-                                    </button>
-                                </h2>
-                                <div id="collapse31" class="accordion-collapse collapse show" aria-labelledby="heading31"
-                                    data-bs-parent="#accordion3">
-                                    <div class="accordion-body">
-                                        <p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore of magna aliqua. Ut enim ad minim veniam, made of owl the quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea dolor commodo consequat.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- FAQ Item End -->
-
-                            <!-- FAQ Item Start -->
-                            <div class="accordion-item wow fadeInUp" data-wow-delay="0.25s">
-                                <h2 class="accordion-header" id="heading32">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapse32" aria-expanded="false" aria-controls="collapse32">
-                                        What are dental fillings and when are they needed?
-                                    </button>
-                                </h2>
-                                <div id="collapse32" class="accordion-collapse collapse" aria-labelledby="heading32"
-                                    data-bs-parent="#accordion3">
-                                    <div class="accordion-body">
-                                        <p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore of magna aliqua. Ut enim ad minim veniam, made of owl the quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea dolor commodo consequat.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- FAQ Item End -->
-
-                            <!-- FAQ Item Start -->
-                            <div class="accordion-item wow fadeInUp" data-wow-delay="0.5s">
-                                <h2 class="accordion-header" id="heading33">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapse33" aria-expanded="false" aria-controls="collapse33">
-                                        What is the difference between partial and full dentures?
-                                    </button>
-                                </h2>
-                                <div id="collapse33" class="accordion-collapse collapse" aria-labelledby="heading33"
-                                    data-bs-parent="#accordion3">
-                                    <div class="accordion-body">
-                                        <p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore of magna aliqua. Ut enim ad minim veniam, made of owl the quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea dolor commodo consequat.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- FAQ Item End -->
-
-                            <!-- FAQ Item Start -->
-                            <div class="accordion-item wow fadeInUp" data-wow-delay="0.75s">
-                                <h2 class="accordion-header" id="heading34">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapse34" aria-expanded="false" aria-controls="collapse34">
-                                        Are restorative dental procedures painful?
-                                    </button>
-                                </h2>
-                                <div id="collapse34" class="accordion-collapse collapse" aria-labelledby="heading34"
-                                    data-bs-parent="#accordion3">
-                                    <div class="accordion-body">
-                                        <p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore of magna aliqua. Ut enim ad minim veniam, made of owl the quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea dolor commodo consequat.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- FAQ Item End -->
-
-                            <!-- FAQ Item Start -->
-                            <div class="accordion-item wow fadeInUp" data-wow-delay="1s">
-                                <h2 class="accordion-header" id="heading35">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapse35" aria-expanded="false" aria-controls="collapse35">
-                                        How can I care for my restorations to ensure they last?
-                                    </button>
-                                </h2>
-                                <div id="collapse35" class="accordion-collapse collapse" aria-labelledby="heading35"
-                                    data-bs-parent="#accordion3">
-                                    <div class="accordion-body">
-                                        <p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore of magna aliqua. Ut enim ad minim veniam, made of owl the quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea dolor commodo consequat.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- FAQ Item End -->
-                        </div>
-                        <!-- FAQ Accordion End -->
-                    </div>
-                    <!-- FAQs section End -->
+                    @unless($hasContent)
+                        <p class="m-0">
+                            {{ $locale === 'ar' ? 'لا توجد أسئلة متاحة حالياً.' : 'No FAQs available at the moment.' }}
+                        </p>
+                    @endunless
                 </div>
             </div>
         </div>
     </div>
-    <!-- Page Faq End -->
+    <!-- Page Faqs End -->
 
-    <!-- Footer Start -->
-    <footer class="main-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4">
-                    <!-- About Footer Start -->
-                    <div class="about-footer">
-                        <!-- Footer Logo Start -->
-                        <div class="footer-logo">
-                            <img src="images/footer-logo.svg" alt="">
-                        </div>
-                        <!-- Footer Logo End -->
 
-                        <!-- About Footer Content Start -->
-                        <div class="about-footer-content">
-                            <p>The goal our clinic is provide friendly, caring dentistry and highest level of general, cosmetic, and specialist dental treatments.</p>
-                         </div>
-                         <!-- About Footer Content End -->
-                     </div>
-                    <!-- About Footer End -->
-                </div>
-                <div class="col-lg-3 col-md-4">
-                    <!-- Footer Quick Links Start -->
-                    <div class="footer-links footer-quick-links">
-                        <h3>quick links</h3>
-                        <ul>                            
-                            <li><a href="#">home</a></li>
-                            <li><a href="#">about us</a></li>
-                            <li><a href="#">services</a></li>
-                            <li><a href="#">book apoointment</a></li>
-                        </ul>
-                    </div>
-                    <!-- Footer Quick Links End -->
-                </div>
 
-                <div class="col-lg-3 col-md-4">
-                    <!-- Footer Social Links Start -->
-                    <div class="footer-links footer-social-links">
-                        <h3>social media</h3>
-                        <ul>                            
-                            <li><a href="#">facebook</a></li>
-                            <li><a href="#">instagram</a></li>
-                            <li><a href="#">youtube</a></li>
-                            <li><a href="#">twitter</a></li>
-                        </ul>
-                    </div>
-                    <!-- Footer Social Links End -->
-                </div>
-
-                <div class="col-lg-2 col-md-4">
-                    <!-- Footer Contact Links Start -->
-                    <div class="footer-links footer-contact-links">
-                        <h3>contact us</h3>
-                        <ul>                            
-                            <li><a href="#">info@domain.com</a></li>
-                            <li><a href="#">+(123) 698-5245</a></li>
-                        </ul>
-                    </div>
-                    <!-- Footer Contact Links End -->
-                </div>                
-            </div>
-
-            <!-- Footer Copyright Section Start -->
-            <div class="footer-copyright">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <!-- Footer Copyright Start -->
-                        <div class="footer-copyright-text">
-                            <p>Copyright © 2024 All Rights Reserved.</p>
-                        </div>
-                        <!-- Footer Copyright End -->
-                    </div>
-                </div>
-            </div>
-            <!-- Footer Copyright Section End -->
-        </div>
-    </footer>
-    <!-- Footer End -->
+    <x-footer />
 
     <script src="{{ asset('assets/js/jquery-3.7.1.min.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
