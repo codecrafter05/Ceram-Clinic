@@ -11,7 +11,7 @@
 
     <title>CERAM CLINIC - About Us</title>
 
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/images/favicon.png') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ $setting?->site_icon ? asset('storage/' . $setting->site_icon) : asset('assets/images/favicon.png') }}">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,73 +30,8 @@
 </head>
 <body>
 
-    <!-- Preloader Start -->
-	<div class="preloader">
-		<div class="loading-container">
-			<div class="loading"></div>
-			<div id="loading-icon"><img src="images/loader.svg" alt=""></div>
-		</div>
-	</div>
-	<!-- Preloader End -->
-
-    <!-- Header Start -->
-	<header class="main-header">
-		<div class="header-sticky">
-			<nav class="navbar navbar-expand-lg">
-				<div class="container">
-					<!-- Logo Start -->
-					<a class="navbar-brand" href="./">
-						<img src="images/logo.svg" alt="Logo">
-					</a>
-					<!-- Logo End -->
-
-					<!-- Main Menu Start -->
-					<div class="collapse navbar-collapse main-menu">
-                        <div class="nav-menu-wrapper">
-                            <ul class="navbar-nav mr-auto" id="menu">
-                                <li class="nav-item submenu"><a class="nav-link" href="./">Home</a>
-                                    <ul class="sub-menu">
-                                        <li class="nav-item"><a class="nav-link" href="index.html">Home - Hero Version 1</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="index-2.html">Home - Hero Version 2</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="index-3.html">Home - Hero Version 3</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="index-4.html">Home - Hero Version 4</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="index-5.html">Home - Hero Version 5</a></li>
-                                    </ul>
-                                </li>                                
-                                <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
-                                <li class="nav-item"><a class="nav-link" href="service.html">Services</a></li>
-                                <li class="nav-item submenu"><a class="nav-link" href="#">Pages</a>
-                                    <ul>                                        
-                                        <li class="nav-item"><a class="nav-link" href="service-single.html">Service Details</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="blog.html">Our Blog</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="blog-single.html">Blog Details</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="team.html">Our Team</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="team-single.html">Team Details</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="technology.html">Technology</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="testimonials.html">testimonials</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="faqs.html">FAQ's</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="404.html">404</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
-                                <li class="nav-item highlighted-menu"><a class="nav-link" href="appointment.html">book appointment</a></li>                               
-                            </ul>
-                        </div>
-                        <!-- Let’s Start Button Start -->
-                        <div class="header-btn d-inline-flex">
-                            <a href="appointment.html" class="btn-default">book appointment</a>
-                        </div>
-                        <!-- Let’s Start Button End -->
-					</div>
-					<!-- Main Menu End -->
-					<div class="navbar-toggle"></div>
-				</div>
-			</nav>
-			<div class="responsive-menu"></div>
-		</div>
-	</header>
-	<!-- Header End -->
+    <x-preloader />
+    <x-header />
 
     <!-- Page Header Start -->
 	<div class="page-header">
@@ -129,20 +64,24 @@
                     <div class="about-image">
                         <div class="about-img-1">
                             <figure class="image-anime reveal">
-                                <img src="images/about-us-img-1.jpg" alt="">
+                                @if($about && $about->about_img1)
+                                <img src="{{ asset('storage/' . $about->about_img1) }}" alt="About Image 1">
+                                @endif
                             </figure>
                         </div>
 
                         <div class="about-img-2">
                             <figure class="image-anime reveal">
-                                <img src="images/about-us-img-2.jpg" alt="">
+                                @if($about && $about->about_img2)
+                                <img src="{{ asset('storage/' . $about->about_img2) }}" alt="About Image 2">
+                                @endif
                             </figure>
                         </div>
 
                         <!-- About Experience Circle Start -->
                         <div class="about-experience">
                             <figure>
-                                <img src="images/about-experience-circle.png" alt="">
+                                <img src="{{ asset('assets/images/log.png') }}"alt="">
                             </figure>
                         </div>
                         <!-- About Experience Circle End -->
@@ -156,19 +95,22 @@
                         <!-- Section Title Start -->
                         <div class="section-title">
                             <h3 class="wow fadeInUp">about us</h3>
-                            <h2 class="text-anime-style-2" data-cursor="-opaque"><span>Your Journey</span> to a Healthier Smile Begins Here</h2>
-                            <p class="wow fadeInUp" data-wow-delay="0.25s">The goal of our clinic is to provide friendly, caring dentistry and the highest level of general, cosmetic, and specialist dental treatments. With dental practices throughout the world.</p>
+                            <h2 class="text-anime-style-2" data-cursor="-opaque">{{ $about?->getText('title') }}</h2>
+                            <p class="wow fadeInUp" data-wow-delay="0.25s">{{ $about?->getText('subTitle') }}</p>
                         </div>
                         <!-- Section Title End -->
 
                         <!-- About Us Body Start -->
                         <div class="about-us-body wow fadeInUp" data-wow-delay="0.5s">
-                            <ul>
-                                <li>experienced team</li>
-                                <li>comprehensive services</li>
-                                <li>state-of-the-art technology</li>
-                                <li>emergency dental services</li>
-                            </ul>
+                            @if($about && is_array($about->goals))
+                                <ul>
+                                @foreach($about->goals as $goal)
+                                    <li>
+                                    {{ app()->getLocale() === 'ar' ? ($goal['text_ar'] ?? '') : ($goal['text_en'] ?? '') }}
+                                    </li>
+                                @endforeach
+                                </ul>
+                            @endif
                         </div>
                         <!-- About Us Body End -->
                     </div>
@@ -179,167 +121,95 @@
     </div>
     <!-- Page About Us End -->
 
-    <!-- Insurance Company Logo Slider Start -->
-    <div class="insurance-company-carousel">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-4">
-                    <div class="insurance-carousel-title">
-                        <h3>Trusted by the industry's leading insurance provider</h3>
-                    </div>
-                </div>
-
-                <div class="col-lg-8">
-                    <!-- company Carousel Start -->
-                    <div class="company-carousel">
-                        <div class="swiper companies_logo_slider">
-                            <div class="swiper-wrapper">
-                                <!-- company Logo Start -->
-                                <div class="swiper-slide">
-                                    <div class="company-logo">
-                                        <img src="images/client-logo-1.svg" alt="">
-                                    </div>
-                                </div>
-                                <!-- company Logo End -->
-
-                                <!-- company Logo Start -->
-                                <div class="swiper-slide">
-                                    <div class="company-logo">
-                                        <img src="images/client-logo-2.svg" alt="">
-                                    </div>
-                                </div>
-                                <!-- company Logo End -->
-
-                                <!-- company Logo Start -->
-                                <div class="swiper-slide">
-                                    <div class="company-logo">
-                                        <img src="images/client-logo-3.svg" alt="">
-                                    </div>
-                                </div>
-                                <!-- company Logo End -->
-                                
-                                <!-- company Logo Start -->
-                                <div class="swiper-slide">
-                                    <div class="company-logo">
-                                        <img src="images/client-logo-1.svg" alt="">
-                                    </div>
-                                </div>
-                                <!-- company Logo End -->
-                                
-                                <!-- company Logo Start -->
-                                <div class="swiper-slide">
-                                    <div class="company-logo">
-                                        <img src="images/client-logo-2.svg" alt="">
-                                    </div>
-                                </div>
-                                <!-- company Logo End -->
-                                
-                                <!-- company Logo Start -->
-                                <div class="swiper-slide">
-                                    <div class="company-logo">
-                                        <img src="images/client-logo-3.svg" alt="">
-                                    </div>
-                                </div>
-                                <!-- company Logo End -->                             
-                            </div>
-                        </div>
-                    </div>
-                    <!-- company Carousel End -->
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Insurance Company Logo Slider End -->
-
     <!-- How It Work Start -->
     <div class="how-it-work about-how-it-work">
         <div class="container">
             <div class="row align-items-center">
 
                 <div class="col-lg-6">
-                    <div class="how-it-work-content">
-                        <!-- Section Title Start -->
-                        <div class="section-title">
-                            <h3 class="wow fadeInUp">how it work</h3>
-                            <h2 class="text-anime-style-2" data-cursor="-opaque"><span>What We Do</span> for Your Teeth</h2>
-                            <p class="wow fadeInUp" data-wow-delay="0.25s">We are committed to sustainability. Our clinic practices eco-friendly initiatives like digital records to reduce paper waste and energy-efficient equipment.</p>
-                        </div>
-                        <!-- Section Title End -->
-
-                        <!-- How Work Accordion Start -->
-                        
-                        <!-- FAQ Accordion Start -->
-                        <div class="faq-accordion how-work-accordion" id="accordion">
-                            <!-- FAQ Item Start -->
-                            <div class="accordion-item wow fadeInUp">
-                                <div class="icon-box">
-                                    <img src="images/icon-how-it-work-1.svg" alt="">
-                                </div>
-                                <h2 class="accordion-header" id="heading1">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
-                                        book an appointment
-                                    </button>
-                                </h2>
-                                <div id="collapse1" class="accordion-collapse collapse show" aria-labelledby="heading1"
-                                    data-bs-parent="#accordion">
-                                    <div class="accordion-body">
-                                        <p>The goal of our clinic is to provide friendly, caring dentistry and the highest level of general, cosmetic, ents.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- FAQ Item End -->
-
-                            <!-- FAQ Item Start -->
-                            <div class="accordion-item wow fadeInUp" data-wow-delay="0.25s">
-                                <div class="icon-box">
-                                    <img src="images/icon-how-it-work-2.svg" alt="">
-                                </div>
-                                <h2 class="accordion-header" id="heading2">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
-                                        What conditions can manual therapy treat?
-                                    </button>
-                                </h2>
-                                <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2"
-                                    data-bs-parent="#accordion">
-                                    <div class="accordion-body">
-                                        <p>The goal of our clinic is to provide friendly, caring dentistry and the highest level of general, cosmetic, ents.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- FAQ Item End -->
-                            
-                            <!-- FAQ Item Start -->
-                            <div class="accordion-item wow fadeInUp" data-wow-delay="0.5s">
-                                <div class="icon-box">
-                                    <img src="images/icon-how-it-work-3.svg" alt="">
-                                </div>
-                                <h2 class="accordion-header" id="heading3">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
-                                        expert care
-                                    </button>
-                                </h2>
-                                <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="heading3"
-                                    data-bs-parent="#accordion">
-                                    <div class="accordion-body">
-                                        <p>The goal of our clinic is to provide friendly, caring dentistry and the highest level of general, cosmetic, ents.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- FAQ Item End -->
-                        </div>
-                        <!-- FAQ Accordion End -->
-                        <!-- How Work Accordion End -->
+                <div class="how-it-work-content">
+                    <!-- Section Title Start -->
+                    <div class="section-title">
+                    <h3 class="wow fadeInUp">how it work</h3>
+                    <h2 class="text-anime-style-2" data-cursor="-opaque">{{ $about?->getText('faq_title') }}</h2>
+                    <p class="wow fadeInUp" data-wow-delay="0.25s">{{ $about?->getText('faq_subTitle') }}</p>
                     </div>
+                    <!-- Section Title End -->
+
+                    <!-- FAQ Accordion Start -->
+                    <div class="faq-accordion how-work-accordion" id="accordion">
+                    @if($about && is_array($about->faq) && count($about->faq))
+                        @foreach($about->faq as $index => $item)
+                        @php
+                            // IDs فريدة لكل عنصر
+                            $headingId = 'heading' . $index;
+                            $collapseId = 'collapse' . $index;
+
+                            // أول عنصر مفتوح
+                            $isFirst = $index === 0;
+
+                            // اختيار أيقونة (تدوير 1..3)
+                            $iconNumber = ($index % 3) + 1;
+                        @endphp
+
+                        <div class="accordion-item wow fadeInUp" data-wow-delay="0.{{ $index+1 }}s">
+                            <div class="icon-box">
+                            <img src="{{ asset('images/icon-how-it-work-' . $iconNumber . '.svg') }}" alt="">
+                            </div>
+
+                            <h2 class="accordion-header" id="{{ $headingId }}">
+                            <button
+                                class="accordion-button {{ $isFirst ? '' : 'collapsed' }}"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#{{ $collapseId }}"
+                                aria-expanded="{{ $isFirst ? 'true' : 'false' }}"
+                                aria-controls="{{ $collapseId }}"
+                            >
+                                {{ app()->getLocale() === 'ar' ? ($item['question_ar'] ?? '') : ($item['question_en'] ?? '') }}
+                            </button>
+                            </h2>
+
+                            <div
+                            id="{{ $collapseId }}"
+                            class="accordion-collapse collapse {{ $isFirst ? 'show' : '' }}"
+                            aria-labelledby="{{ $headingId }}"
+                            data-bs-parent="#accordion"
+                            >
+                            <div class="accordion-body">
+                                <p>
+                                {{ app()->getLocale() === 'ar' ? ($item['answer_ar'] ?? '') : ($item['answer_en'] ?? '') }}
+                                </p>
+                            </div>
+                            </div>
+                        </div>
+                        @endforeach
+                    @else
+                        <!-- في حال ما في بيانات -->
+                        <div class="accordion-item">
+                        <h2 class="accordion-header" id="heading-empty">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-empty" aria-expanded="true" aria-controls="collapse-empty">
+                            {{ app()->getLocale() === 'ar' ? 'لا توجد أسئلة شائعة بعد' : 'No FAQs yet' }}
+                            </button>
+                        </h2>
+                        <div id="collapse-empty" class="accordion-collapse collapse show" aria-labelledby="heading-empty" data-bs-parent="#accordion">
+                            <div class="accordion-body">
+                            <p>{{ app()->getLocale() === 'ar' ? 'أضِف الأسئلة من لوحة التحكم.' : 'Add FAQs from the admin panel.' }}</p>
+                            </div>
+                        </div>
+                        </div>
+                    @endif
+                    </div>
+                    <!-- FAQ Accordion End -->
                 </div>
+                </div>
+
 
                 <div class="col-lg-6">
                     <!-- How It Work Image Start -->
                     <div class="how-it-work-img">
                         <figure class="reveal image-anime">
-                            <img src="images/how-it-work-img.jpg" alt="">
+                            <img src="{{ asset('storage/' . $about->faq_img) }}" alt="FAQ Image">
                         </figure>
                     </div>
                     <!-- How It Work Image End -->
@@ -349,85 +219,7 @@
     </div>
     <!-- How It Work End -->
 
-
-    <!-- Footer Start -->
-    <footer class="main-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4">
-                    <!-- About Footer Start -->
-                    <div class="about-footer">
-                        <!-- Footer Logo Start -->
-                        <div class="footer-logo">
-                            <img src="images/footer-logo.svg" alt="">
-                        </div>
-                        <!-- Footer Logo End -->
-
-                        <!-- About Footer Content Start -->
-                        <div class="about-footer-content">
-                            <p>The goal our clinic is provide friendly, caring dentistry and highest level of general, cosmetic, and specialist dental treatments.</p>
-                         </div>
-                         <!-- About Footer Content End -->
-                     </div>
-                    <!-- About Footer End -->
-                </div>
-                <div class="col-lg-3 col-md-4">
-                    <!-- Footer Quick Links Start -->
-                    <div class="footer-links footer-quick-links">
-                        <h3>quick links</h3>
-                        <ul>                            
-                            <li><a href="#">home</a></li>
-                            <li><a href="#">about us</a></li>
-                            <li><a href="#">services</a></li>
-                            <li><a href="#">book apoointment</a></li>
-                        </ul>
-                    </div>
-                    <!-- Footer Quick Links End -->
-                </div>
-
-                <div class="col-lg-3 col-md-4">
-                    <!-- Footer Social Links Start -->
-                    <div class="footer-links footer-social-links">
-                        <h3>social media</h3>
-                        <ul>                            
-                            <li><a href="#">facebook</a></li>
-                            <li><a href="#">instagram</a></li>
-                            <li><a href="#">youtube</a></li>
-                            <li><a href="#">twitter</a></li>
-                        </ul>
-                    </div>
-                    <!-- Footer Social Links End -->
-                </div>
-
-                <div class="col-lg-2 col-md-4">
-                    <!-- Footer Contact Links Start -->
-                    <div class="footer-links footer-contact-links">
-                        <h3>contact us</h3>
-                        <ul>                            
-                            <li><a href="#">info@domain.com</a></li>
-                            <li><a href="#">+(123) 698-5245</a></li>
-                        </ul>
-                    </div>
-                    <!-- Footer Contact Links End -->
-                </div>                
-            </div>
-
-            <!-- Footer Copyright Section Start -->
-            <div class="footer-copyright">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <!-- Footer Copyright Start -->
-                        <div class="footer-copyright-text">
-                            <p>Copyright © 2024 All Rights Reserved.</p>
-                        </div>
-                        <!-- Footer Copyright End -->
-                    </div>
-                </div>
-            </div>
-            <!-- Footer Copyright Section End -->
-        </div>
-    </footer>
-    <!-- Footer End -->
+    <x-footer />
 
     <script src="{{ asset('assets/js/jquery-3.7.1.min.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>

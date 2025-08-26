@@ -5,7 +5,7 @@
 				<div class="container">
 					<!-- Logo Start -->
 					<a class="navbar-brand" href="./">
-						<img src="{{ asset('assets/images/logo.png') }}" alt="Logo">
+						<img src="{{ $setting?->site_logo ? asset('storage/' . $setting->site_logo) : asset('assets/images/logo.png') }}" alt="Logo">
 					</a>
 					<!-- Logo End -->
 
@@ -16,8 +16,13 @@
                                 <li class="nav-item"><a class="nav-link" href="./">Home</a></li>                                
                                 <li class="nav-item"><a class="nav-link" href="/about">About Us</a></li>
                                 <li class="nav-item"><a class="nav-link" href="/services">Services</a></li>
-                                <li class="nav-item"><a class="nav-link" href="/gallery">Gallery</a></li>
-                                <li class="nav-item"><a class="nav-link" href="/team">Our Team</a></li>
+                                <li class="nav-item submenu"><a class="nav-link" href="#">Pages</a>
+                                    <ul>
+                                        <li class="nav-item"><a class="nav-link" href="/gallery">Gallery</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="/faqs">FAQ's</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="/404">404</a></li>
+                                    </ul>
+                                </li>
                                 <li class="nav-item"><a class="nav-link" href="/contact">Contact Us</a></li>
                                 <li class="nav-item highlighted-menu"><button class="nav-link" id="langBtn" data-current-lang="{{ session('locale', 'en') }}">{{ session('locale', 'en') === 'ar' ? 'English' : 'عربي' }}</button></li>
                             </ul>

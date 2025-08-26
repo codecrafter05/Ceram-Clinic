@@ -10,9 +10,9 @@
 	<meta name="author" content="Awaiken">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 	<!-- Page Title -->
-    <title>Dentaire - Dentist & Dental Clinic HTML Template</title>
+    <title>Ceramic Clinic - Gallery</title>
 	<!-- Favicon Icon -->
-	<link rel="shortcut icon" type="image/x-icon" href="images/favicon.png">
+	<link rel="shortcut icon" type="image/x-icon" href="{{ $setting?->site_icon ? asset('storage/' . $setting->site_icon) : asset('assets/images/favicon.png') }}">
 	<!-- Google Fonts Css-->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,74 +31,8 @@
 
 </head>
 <body>
-
-    <!-- Preloader Start -->
-	<div class="preloader">
-		<div class="loading-container">
-			<div class="loading"></div>
-			<div id="loading-icon"><img src="images/loader.svg" alt=""></div>
-		</div>
-	</div>
-	<!-- Preloader End -->
-
-    <!-- Header Start -->
-	<header class="main-header">
-		<div class="header-sticky">
-			<nav class="navbar navbar-expand-lg">
-				<div class="container">
-					<!-- Logo Start -->
-					<a class="navbar-brand" href="./">
-						<img src="images/logo.svg" alt="Logo">
-					</a>
-					<!-- Logo End -->
-
-					<!-- Main Menu Start -->
-					<div class="collapse navbar-collapse main-menu">
-                        <div class="nav-menu-wrapper">
-                            <ul class="navbar-nav mr-auto" id="menu">
-                                <li class="nav-item submenu"><a class="nav-link" href="./">Home</a>
-                                    <ul class="sub-menu">
-                                        <li class="nav-item"><a class="nav-link" href="index.html">Home - Hero Version 1</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="index-2.html">Home - Hero Version 2</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="index-3.html">Home - Hero Version 3</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="index-4.html">Home - Hero Version 4</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="index-5.html">Home - Hero Version 5</a></li>
-                                    </ul>
-                                </li>                                
-                                <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
-                                <li class="nav-item"><a class="nav-link" href="service.html">Services</a></li>
-                                <li class="nav-item submenu"><a class="nav-link" href="#">Pages</a>
-                                    <ul>                                        
-                                        <li class="nav-item"><a class="nav-link" href="service-single.html">Service Details</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="blog.html">Our Blog</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="blog-single.html">Blog Details</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="team.html">Our Team</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="team-single.html">Team Details</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="technology.html">Technology</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="testimonials.html">testimonials</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="faqs.html">FAQ's</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="404.html">404</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
-                                <li class="nav-item highlighted-menu"><a class="nav-link" href="appointment.html">book appointment</a></li>                               
-                            </ul>
-                        </div>
-                        <!-- Let’s Start Button Start -->
-                        <div class="header-btn d-inline-flex">
-                            <a href="appointment.html" class="btn-default">book appointment</a>
-                        </div>
-                        <!-- Let’s Start Button End -->
-					</div>
-					<!-- Main Menu End -->
-					<div class="navbar-toggle"></div>
-				</div>
-			</nav>
-			<div class="responsive-menu"></div>
-		</div>
-	</header>
-	<!-- Header End -->
+    <x-preloader />
+    <x-header />
 
     <!-- Page Header Start -->
 	<div class="page-header">
@@ -123,237 +57,33 @@
 	<!-- Page Header End -->
 
     <!-- Photo Gallery Section Start -->
-	<div class="our-gallery-page">
-		<div class="container">
-			<!-- gallery section start -->
-			<div class="row gallery-items">
-                <div class="col-lg-3 col-md-4 col-6">
-                    <!-- image gallery start -->
-                    <div class="photo-gallery wow fadeInUp" data-cursor-text="View">
-                        <a href="images/gallery-1.jpg">
-                            <figure>
-                                <img src="images/gallery-1.jpg" alt="">
-                            </figure>
-                        </a>
-                    </div>
-                    <!-- image gallery end -->
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-6">
-                    <!-- image gallery start -->
-                    <div class="photo-gallery wow fadeInUp" data-wow-delay="0.2s" data-cursor-text="View">
-                        <a href="images/gallery-2.jpg">
-                            <figure>
-                                <img src="images/gallery-2.jpg" alt="">
-                            </figure>
-                        </a>
-                    </div>
-                    <!-- image gallery end -->
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-6">
-                    <!-- image gallery start -->
-                    <div class="photo-gallery wow fadeInUp" data-wow-delay="0.4s" data-cursor-text="View">
-                        <a href="images/gallery-3.jpg">
-                            <figure>
-                                <img src="images/gallery-3.jpg" alt="">
-                            </figure>
-                        </a>
-                    </div>
-                    <!-- image gallery end -->
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-6">
-                    <!-- image gallery start -->
-                    <div class="photo-gallery wow fadeInUp" data-wow-delay="0.6s" data-cursor-text="View">
-                        <a href="images/gallery-4.jpg">
-                            <figure>
-                                <img src="images/gallery-4.jpg" alt="">
-                            </figure>
-                        </a>
-                    </div>
-                    <!-- image gallery end -->
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-6">
-                    <!-- image gallery start -->
-                    <div class="photo-gallery wow fadeInUp" data-wow-delay="0.8s" data-cursor-text="View">
-                        <a href="images/gallery-5.jpg">
-                            <figure>
-                                <img src="images/gallery-5.jpg" alt="">
-                            </figure>
-                        </a>
-                    </div>
-                    <!-- image gallery end -->
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-6">
-                    <!-- image gallery start -->
-                    <div class="photo-gallery wow fadeInUp" data-wow-delay="1s" data-cursor-text="View">
-                        <a href="images/gallery-6.jpg">
-                            <figure>
-                                <img src="images/gallery-6.jpg" alt="">
-                            </figure>
-                        </a>
-                    </div>
-                    <!-- image gallery end -->
-                </div>
-                
-                <div class="col-lg-3 col-md-4 col-6">
-                    <!-- image gallery start -->
-                    <div class="photo-gallery wow fadeInUp" data-wow-delay="1.2s" data-cursor-text="View">
-                        <a href="images/gallery-7.jpg">
-                            <figure>
-                                <img src="images/gallery-7.jpg" alt="">
-                            </figure>
-                        </a>
-                    </div>
-                    <!-- image gallery end -->
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-6">
-                    <!-- image gallery start -->
-                    <div class="photo-gallery wow fadeInUp" data-wow-delay="1.4s" data-cursor-text="View">
-                        <a href="images/gallery-8.jpg">
-                            <figure>
-                                <img src="images/gallery-8.jpg" alt="">
-                            </figure>
-                        </a>
-                    </div>
-                    <!-- image gallery end -->
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-6">
-                    <!-- image gallery start -->
-                    <div class="photo-gallery wow fadeInUp" data-wow-delay="1.6s" data-cursor-text="View">
-                        <a href="images/gallery-9.jpg">
-                            <figure>
-                                <img src="images/gallery-9.jpg" alt="">
-                            </figure>
-                        </a>
-                    </div>
-                    <!-- image gallery end -->
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-6">
-                    <!-- image gallery start -->
-                    <div class="photo-gallery wow fadeInUp" data-wow-delay="1.8s" data-cursor-text="View">
-                        <a href="images/gallery-10.jpg">
-                            <figure>
-                                <img src="images/gallery-10.jpg" alt="">
-                            </figure>
-                        </a>
-                    </div>
-                    <!-- image gallery end -->
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-6">
-                    <!-- image gallery start -->
-                    <div class="photo-gallery wow fadeInUp" data-wow-delay="2s" data-cursor-text="View">
-                        <a href="images/gallery-11.jpg">
-                            <figure>
-                                <img src="images/gallery-11.jpg" alt="">
-                            </figure>
-                        </a>
-                    </div>
-                    <!-- image gallery end -->
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-6">
-                    <!-- image gallery start -->
-                    <div class="photo-gallery wow fadeInUp" data-wow-delay="2.2s" data-cursor-text="View">
-                        <a href="images/gallery-12.jpg">
-                            <figure>
-                                <img src="images/gallery-12.jpg" alt="">
-                            </figure>
-                        </a>
-                    </div>
-                    <!-- image gallery end -->
-                </div>
-			</div>
-			<!-- gallery section end -->
-		</div>
-	</div>
-	<!-- Photo Gallery Section End -->
-
-    <!-- Footer Start -->
-    <footer class="main-footer">
+    <div class="our-gallery-page">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-4">
-                    <!-- About Footer Start -->
-                    <div class="about-footer">
-                        <!-- Footer Logo Start -->
-                        <div class="footer-logo">
-                            <img src="images/footer-logo.svg" alt="">
+            <!-- gallery section start -->
+            <div class="row gallery-items">
+                @foreach($galleries as $index => $gallery)
+                    <div class="col-lg-3 col-md-4 col-6">
+                        <!-- image gallery start -->
+                        <div class="photo-gallery wow fadeInUp" 
+                            data-wow-delay="{{ $index * 0.2 }}s" 
+                            data-cursor-text="View">
+                            <a href="{{ asset('storage/'.$gallery->image) }}" class="gallery-lightbox">
+                                <figure>
+                                    <img src="{{ asset('storage/'.$gallery->image) }}" alt="Gallery Image">
+                                </figure>
+                            </a>
                         </div>
-                        <!-- Footer Logo End -->
-
-                        <!-- About Footer Content Start -->
-                        <div class="about-footer-content">
-                            <p>The goal our clinic is provide friendly, caring dentistry and highest level of general, cosmetic, and specialist dental treatments.</p>
-                         </div>
-                         <!-- About Footer Content End -->
-                     </div>
-                    <!-- About Footer End -->
-                </div>
-                <div class="col-lg-3 col-md-4">
-                    <!-- Footer Quick Links Start -->
-                    <div class="footer-links footer-quick-links">
-                        <h3>quick links</h3>
-                        <ul>                            
-                            <li><a href="#">home</a></li>
-                            <li><a href="#">about us</a></li>
-                            <li><a href="#">services</a></li>
-                            <li><a href="#">book apoointment</a></li>
-                        </ul>
+                        <!-- image gallery end -->
                     </div>
-                    <!-- Footer Quick Links End -->
-                </div>
-
-                <div class="col-lg-3 col-md-4">
-                    <!-- Footer Social Links Start -->
-                    <div class="footer-links footer-social-links">
-                        <h3>social media</h3>
-                        <ul>                            
-                            <li><a href="#">facebook</a></li>
-                            <li><a href="#">instagram</a></li>
-                            <li><a href="#">youtube</a></li>
-                            <li><a href="#">twitter</a></li>
-                        </ul>
-                    </div>
-                    <!-- Footer Social Links End -->
-                </div>
-
-                <div class="col-lg-2 col-md-4">
-                    <!-- Footer Contact Links Start -->
-                    <div class="footer-links footer-contact-links">
-                        <h3>contact us</h3>
-                        <ul>                            
-                            <li><a href="#">info@domain.com</a></li>
-                            <li><a href="#">+(123) 698-5245</a></li>
-                        </ul>
-                    </div>
-                    <!-- Footer Contact Links End -->
-                </div>                
+                @endforeach
             </div>
-
-            <!-- Footer Copyright Section Start -->
-            <div class="footer-copyright">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <!-- Footer Copyright Start -->
-                        <div class="footer-copyright-text">
-                            <p>Copyright © 2024 All Rights Reserved.</p>
-                        </div>
-                        <!-- Footer Copyright End -->
-                    </div>
-                </div>
-            </div>
-            <!-- Footer Copyright Section End -->
+            <!-- gallery section end -->
         </div>
-    </footer>
-    <!-- Footer End -->
+    </div>
+    <!-- Photo Gallery Section End -->
+
+
+    <x-footer />
 
     <script src="{{ asset('assets/js/jquery-3.7.1.min.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
