@@ -511,156 +511,117 @@
 
     <!-- Our Team Start -->
     <div class="our-team">
-        <div class="container">
-            <div class="row section-row">
-                <div class="col-lg-12">
-                    <!-- Section Title Start -->
-                    <div class="section-title">
-                        <h3 class="wow fadeInUp">our team</h3>
-                        <h2 class="text-anime-style-2" data-cursor="-opaque"><span>Our Friendly</span> Dentists Team</h2>
-                        <p class="wow fadeInUp" data-wow-delay="0.25s">We are committed to sustainability.  eco-friendly initiatives.</p>
-                    </div>
-                    <!-- Section Title End -->
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-lg-3 col-md-6">
-                    <!-- Team Member Item Start -->
-                    <div class="team-member-item wow fadeInUp">
-                        <!-- Team Image Start -->
-                        <div class="team-image">
-                            <figure class="image-anime">
-                                <img src="{{ asset('assets/images/team-1.jpg') }}" alt="">
-                            </figure>
-                
-                            <!-- Team Social Icon Start -->
-                            <div class="team-social-icon">
-                                <ul>
-                                    <li><a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a></li>
-                                    <li><a href="#" class="social-icon"><i class="fa-brands fa-youtube"></i></a></li>
-                                    <li><a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a></li>
-                                    <li><a href="#" class="social-icon"><i class="fa-brands fa-x-twitter"></i></a></li>
-                                </ul>
-                            </div>
-                            <!-- Team Social Icon End -->
-                        </div>
-                        <!-- Team Image End -->
-                
-                        <!-- Team Content Start -->
-                        <div class="team-content">
-                            <h3>dr.johan joe</h3>
-                            <p>lead dentist</p>
-                        </div>
-                        <!-- Team Content End -->
-                    </div>
-                    <!-- Team Member Item End -->
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <!-- Team Member Item Start -->
-                    <div class="team-member-item wow fadeInUp" data-wow-delay="0.25s">
-                        <!-- Team Image Start -->
-                        <div class="team-image">
-                            <figure class="image-anime">
-                                <img src="{{ asset('assets/images/team-2.jpg') }}" alt="">
-                            </figure>
-                
-                            <!-- Team Social Icon Start -->
-                            <div class="team-social-icon">
-                                <ul>
-                                    <li><a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a></li>
-                                    <li><a href="#" class="social-icon"><i class="fa-brands fa-youtube"></i></a></li>
-                                    <li><a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a></li>
-                                    <li><a href="#" class="social-icon"><i class="fa-brands fa-x-twitter"></i></a></li>
-                                </ul>
-                            </div>
-                            <!-- Team Social Icon End -->
-                        </div>
-                        <!-- Team Image End -->
-                
-                        <!-- Team Content Start -->
-                        <div class="team-content">
-                            <h3>dr.mike johnson</h3>
-                            <p>senior dantist</p>
-                        </div>
-                        <!-- Team Content End -->
-                    </div>
-                    <!-- Team Member Item End -->
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <!-- Team Member Item Start -->
-                    <div class="team-member-item wow fadeInUp" data-wow-delay="0.5s">
-                        <!-- Team Image Start -->
-                        <div class="team-image">
-                            <figure class="image-anime">
-                                <img src="{{ asset('assets/images/team-3.jpg') }}" alt="">
-                            </figure>
-                
-                            <!-- Team Social Icon Start -->
-                            <div class="team-social-icon">
-                                <ul>
-                                    <li><a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a></li>
-                                    <li><a href="#" class="social-icon"><i class="fa-brands fa-youtube"></i></a></li>
-                                    <li><a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a></li>
-                                    <li><a href="#" class="social-icon"><i class="fa-brands fa-x-twitter"></i></a></li>
-                                </ul>
-                            </div>
-                            <!-- Team Social Icon End -->
-                        </div>
-                        <!-- Team Image End -->
-                
-                        <!-- Team Content Start -->
-                        <div class="team-content">
-                            <h3>dr. alison banson</h3>
-                            <p>orthodontist</p>
-                        </div>
-                        <!-- Team Content End -->
-                    </div>
-                    <!-- Team Member Item End -->
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <!-- Team Member Item Start -->
-                    <div class="team-member-item wow fadeInUp" data-wow-delay="0.75s">
-                        <!-- Team Image Start -->
-                        <div class="team-image">
-                            <figure class="image-anime">
-                                <img src="{{ asset('assets/images/team-4.jpg') }}" alt="">
-                            </figure>
-                
-                            <!-- Team Social Icon Start -->
-                            <div class="team-social-icon">
-                                <ul>
-                                    <li><a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a></li>
-                                    <li><a href="#" class="social-icon"><i class="fa-brands fa-youtube"></i></a></li>
-                                    <li><a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a></li>
-                                    <li><a href="#" class="social-icon"><i class="fa-brands fa-x-twitter"></i></a></li>
-                                </ul>
-                            </div>
-                            <!-- Team Social Icon End -->
-                        </div>
-                        <!-- Team Image End -->
-                
-                        <!-- Team Content Start -->
-                        <div class="team-content">
-                            <h3>dr.christopher case</h3>
-                            <p>periodontist</p>
-                        </div>
-                        <!-- Team Content End -->
-                    </div>
-                    <!-- Team Member Item End -->
-                </div>
+    <div class="container">
+        <div class="row section-row">
+        <div class="col-lg-12">
+            <div class="section-title">
+            <h3 class="wow fadeInUp">
+                {{ $locale === 'ar' ? 'فريقنا' : 'our team' }}
+            </h3>
+            <h2 class="text-anime-style-2" data-cursor="-opaque">
+                <span>{{ $locale === 'ar' ? 'فريقنا اللطيف' : 'Our Friendly' }}</span>
+                {{ $locale === 'ar' ? 'من أطباء الأسنان' : 'Dentists Team' }}
+            </h2>
+            <p class="wow fadeInUp" data-wow-delay="0.25s">
+                {{ $locale === 'ar' ? 'نلتزم بالاستدامة ومبادرات صديقة للبيئة.' : 'We are committed to sustainability. eco-friendly initiatives.' }}
+            </p>
             </div>
         </div>
-        <!-- Icon Start Image Start -->
-        <div class="icon-star-image">
-            <img src="{{ asset('assets/images/icon-star.png') }}" alt="">
         </div>
-        <!-- Icon Start Image End -->
+
+        <div class="row">
+        @php
+            use Illuminate\Support\Facades\Storage;
+            use Illuminate\Support\Str;
+
+            $faMap = [
+            'facebook'  => 'fa-facebook-f',
+            'instagram' => 'fa-instagram',
+            'x'         => 'fa-x-twitter',
+            'twitter'   => 'fa-x-twitter',
+            'youtube'   => 'fa-youtube',
+            'linkedin'  => 'fa-linkedin-in',
+            'tiktok'    => 'fa-tiktok',
+            'snapchat'  => 'fa-snapchat-ghost',
+            'whatsapp'  => 'fa-whatsapp',
+            'website'   => 'fa-globe',
+            'email'     => 'fa-envelope',
+            'phone'     => 'fa-phone',
+            ];
+            $delay = 0;
+        @endphp
+
+        @forelse($teamHome as $member)
+            <div class="col-lg-3 col-md-6">
+            <!-- Team Member Item Start -->
+            <div class="team-member-item wow fadeInUp" @if($delay) data-wow-delay="{{ $delay }}s" @endif>
+                <!-- Team Image Start -->
+                <div class="team-image">
+                <figure class="image-anime">
+                    <img src="{{ $member->photo ? Storage::url($member->photo) : asset('assets/images/team-1.jpg') }}"
+                        alt="{{ $member->getText('name') }}">
+                </figure>
+
+                @if(!empty($member->social_links))
+                    <div class="team-social-icon">
+                    <ul>
+                        @foreach($member->social_links as $link)
+                        @php
+                            $platform = strtolower($link['platform'] ?? '');
+                            $url = $link['url'] ?? '#';
+                            if ($platform === 'email' && $url && !Str::startsWith($url, 'mailto:')) $url = 'mailto:'.$url;
+                            if ($platform === 'phone' && $url && !Str::startsWith($url, 'tel:')) $url = 'tel:'.preg_replace('/\s+/', '', $url);
+                            $icon = $faMap[$platform] ?? 'fa-link';
+                        @endphp
+                        <li>
+                            <a href="{{ $url }}" class="social-icon" target="_blank" rel="noopener">
+                            <i class="fa-brands {{ $icon }}"></i>
+                            </a>
+                        </li>
+                        @endforeach
+                    </ul>
+                    </div>
+                @endif
+                </div>
+                <!-- Team Image End -->
+
+                <!-- Team Content Start -->
+                <div class="team-content">
+                <h3>{{ $member->getText('name') }}</h3>
+                @if($member->getText('position'))
+                    <p>{{ $member->getText('position') }}</p>
+                @endif
+                </div>
+                <!-- Team Content End -->
+            </div>
+            <!-- Team Member Item End -->
+            </div>
+            @php $delay += 0.25; @endphp
+        @empty
+            <div class="col-12">
+            <p class="text-center">
+                {{ $locale === 'ar' ? 'لا يوجد أعضاء فريق حالياً.' : 'No team members yet.' }}
+            </p>
+            </div>
+        @endforelse
+        </div>
+
+        <div class="row mt-3">
+        <div class="col-12 text-center">
+            <a href="{{ route('team.index') }}" class="btn-default">
+            {{ $locale === 'ar' ? 'عرض كل الفريق' : 'View full team' }}
+            </a>
+        </div>
+        </div>
+    </div>
+
+    <!-- Icon Star Image -->
+    <div class="icon-star-image">
+        <img src="{{ asset('assets/images/icon-star.png') }}" alt="">
+    </div>
     </div>
     <!-- Our Team End -->
+
 
     <x-footer />
 

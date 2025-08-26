@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Setting;
 use App\Models\WhyChoose;
-use App\Models\Service; 
+use App\Models\Service;
+use App\Models\Team; // ⬅️ أضف هذا
 use Illuminate\Http\Request;
 
 class IndexController extends Controller
@@ -19,12 +20,15 @@ class IndexController extends Controller
 
         $services = Service::latest('id')->take(4)->get();
 
+        $teamHome = Team::orderBy('sort_order')->orderBy('id')->take(4)->get();
+
         return view('index', compact(
             'setting',
             'locale',
             'whyLeft',
             'whyRight',
-            'services'
+            'services',
+            'teamHome',
         ));
     }
 }
