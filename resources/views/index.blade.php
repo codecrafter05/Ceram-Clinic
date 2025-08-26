@@ -256,91 +256,47 @@
             </div>
 
             <div class="row">
-                <div class="col-lg-3 col-md-6">
-                    <!-- Service Item Start -->
-                    <div class="service-item wow fadeInUp">
-                        <div class="icon-box">
-                            <div class="img">
-                                <img src="{{ asset('assets/images/icon-services-1.svg') }}" alt="">
+                @php $delay = 0; @endphp
+                @forelse ($services as $service)
+                    <div class="col-lg-3 col-md-6">
+                        <!-- Service Item Start -->
+                        <div class="service-item wow fadeInUp" @if($delay) data-wow-delay="{{ $delay }}s" @endif>
+                            <div class="icon-box">
+                                <div class="img">
+                                    <img src="{{ $service->icon ? Storage::url($service->icon) : asset('assets/images/icon-services-1.svg') }}"
+                                        alt="{{ $service->getText('title') }}">
+                                </div>
+                            </div>
+                            <div class="service-body">
+                                <h3>{{ $service->getText('title') }}</h3>
+                                <p>{!! $service->getText('description') !!}</p>
                             </div>
                         </div>
-                        <div class="service-body">
-                            <h3>general dental care</h3>
-                            <p>We are excited to meet you and provide the best dental care for your family.</p>
-                        </div>
-                        <div class="read-more-btn">
-                            <a href="#">read more</a>
-                        </div>
+                        <!-- Service Item End -->
                     </div>
-                    <!-- Service Item End -->
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <!-- Service Item Start -->
-                    <div class="service-item wow fadeInUp" data-wow-delay="0.25s">
-                        <div class="icon-box">
-                            <div class="img">
-                                <img src="{{ asset('assets/images/icon-services-2.svg') }}" alt="">
-                            </div>
-                        </div>
-                        <div class="service-body">
-                            <h3>dental implants</h3>
-                            <p>We are excited to meet you and provide the best dental care for your family.</p>
-                        </div>
-                        <div class="read-more-btn">
-                            <a href="#">read more</a>
-                        </div>
+                    @php $delay += 0.25; @endphp
+                @empty
+                    <div class="col-12">
+                        <p class="text-center">{{ $locale === 'ar' ? 'لا توجد خدمات حالياً' : 'No services available' }}</p>
                     </div>
-                    <!-- Service Item End -->
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <!-- Service Item Start -->
-                    <div class="service-item wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="icon-box">
-                            <div class="img">
-                                <img src="{{ asset('assets/images/icon-services-3.svg') }}" alt="">
-                            </div>
-                        </div>
-                        <div class="service-body">
-                            <h3>cosmetic dentistry</h3>
-                            <p>We are excited to meet you and provide the best dental care for your family.</p>
-                        </div>
-                        <div class="read-more-btn">
-                            <a href="#">read more</a>
-                        </div>
-                    </div>
-                    <!-- Service Item End -->
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <!-- Service Item Start -->
-                    <div class="service-item wow fadeInUp" data-wow-delay="0.75s">
-                        <div class="icon-box">
-                            <div class="img">
-                                <img src="{{ asset('assets/images/icon-services-4.svg') }}" alt="">
-                            </div>
-                        </div>
-                        <div class="service-body">
-                            <h3>teeth whitening</h3>
-                            <p>We are excited to meet you and provide the best dental care for your family.</p>
-                        </div>
-                        <div class="read-more-btn">
-                            <a href="#">read more</a>
-                        </div>
-                    </div>
-                    <!-- Service Item End -->
-                </div>
+                @endforelse
 
                 <div class="col-lg-12">
                     <!-- Service Box Footer Start -->
-                    <div class="services-box-footer wow fadeInUp" data-wow-delay="1s">
-                        <p>We believe in using the latest technology and techniques to ensure the best outcomes for our patients.</p>
-                        <a href="#" class="btn-default">view all service</a>
+                    <div class="services-box-footer wow fadeInUp" data-wow-delay="{{ $delay + 0.25 }}s">
+                        <p>
+                            {{ $locale === 'ar'
+                                ? 'نؤمن باستخدام أحدث التقنيات لضمان أفضل النتائج للمرضى.'
+                                : 'We believe in using the latest technology and techniques to ensure the best outcomes for our patients.' }}
+                        </p>
+                        <a href="{{ route('services.index') }}" class="btn-default">
+                            {{ $locale === 'ar' ? 'عرض كل الخدمات' : 'View all services' }}
+                        </a>
                     </div>
                     <!-- Service Box Footer End -->
                 </div>
             </div>
+
         </div>
 
         <!-- Intro Clinic Video Section Start -->
@@ -399,129 +355,54 @@
 
             <div class="row">
                 <div class="col-lg-4 col-md-6 order-1">
-                    <!-- Why Choose Box Start -->
                     <div class="why-choose-box-1">
-                        <!-- Why Choose Item Start -->
-                        <div class="why-choose-item wow fadeInUp">
-                            <!-- Icon Box Start -->
-                            <div class="icon-box">
-                                <img src="{{ asset('assets/images/icon-why-us-1.svg') }}" alt="">
-                            </div>  
-                            <!-- Icon Box End -->
-
-                            <!-- Why Choose Content Start -->
-                            <div class="why-choose-content">
-                                <h3>experienced doctor</h3>
-                                <p>The goal of our clinic is to provide friendly, caring dentistry and the.</p>
+                        @php $delay = 0; @endphp
+                        @forelse ($whyLeft as $item)
+                            <div class="why-choose-item wow fadeInUp" @if($delay) data-wow-delay="{{ $delay }}s" @endif>
+                                <div class="icon-box">
+                                    <img src="{{ $item->icon_url }}" alt="{{ $item->getText('title') }}">
+                                </div>
+                                <div class="why-choose-content">
+                                    <h3>{{ $item->getText('title') }}</h3>
+                                    <p>{!! $item->getText('description') !!}</p>
+                                </div>
                             </div>
-                            <!-- Why Choose Content End -->
-                        </div>
-                        <!-- Why Choose Item End -->
-
-                        <!-- Why Choose Item Start -->
-                        <div class="why-choose-item wow fadeInUp" data-wow-delay="0.25s">
-                            <!-- Icon Box Start -->
-                            <div class="icon-box">
-                                <img src="{{ asset('assets/images/icon-why-us-2.svg') }}" alt="">
-                            </div>  
-                            <!-- Icon Box End -->
-
-                            <!-- Why Choose Content Start -->
-                            <div class="why-choose-content">
-                                <h3>personalized care</h3>
-                                <p>The goal of our clinic is to provide friendly, caring dentistry and the.</p>
-                            </div>
-                            <!-- Why Choose Content End -->
-                        </div>
-                        <!-- Why Choose Item End -->
-
-                        <!-- Why Choose Item Start -->
-                        <div class="why-choose-item wow fadeInUp" data-wow-delay="0.5s">
-                            <!-- Icon Box Start -->
-                            <div class="icon-box">
-                                <img src="{{ asset('assets/images/icon-why-us-3.svg') }}" alt="">
-                            </div>  
-                            <!-- Icon Box End -->
-
-                            <!-- Why Choose Content Start -->
-                            <div class="why-choose-content">
-                                <h3>flexible payment options</h3>
-                                <p>The goal of our clinic is to provide friendly, caring dentistry and the.</p>
-                            </div>
-                            <!-- Why Choose Content End -->
-                        </div>
-                        <!-- Why Choose Item End -->
+                            @php $delay += 0.25; @endphp
+                        @empty
+                            {{-- لا شيء --}}
+                        @endforelse
                     </div>
-                    <!-- Why Choose Box Start -->
                 </div>
 
                 <div class="col-lg-4 order-lg-1 order-md-2 order-1">
-                    <!-- Why Choose Image Start -->
                     <div class="why-choose-image wow fadeInUp">
                         <figure>
                             <img src="{{ asset('assets/images/why-choose-us-img.png') }}" alt="">
                         </figure>
                     </div>
-                    <!-- Why Choose Image End -->
                 </div>
 
                 <div class="col-lg-4 col-md-6 order-lg-2 order-md-1 order-2">
-                    <!-- Why Choose Box Start -->
                     <div class="why-choose-box-2">
-                        <!-- Why Choose Item Start -->
-                        <div class="why-choose-item wow fadeInUp">
-                            <!-- Icon Box Start -->
-                            <div class="icon-box">
-                                <img src="{{ asset('assets/images/icon-why-us-4.svg') }}" alt="">
-                            </div>  
-                            <!-- Icon Box End -->
-
-                            <!-- Why Choose Content Start -->
-                            <div class="why-choose-content">
-                                <h3>emergency services</h3>
-                                <p>The goal of our clinic is to provide friendly, caring dentistry and the.</p>
+                        @php $delay = 0; @endphp
+                        @forelse ($whyRight as $item)
+                            <div class="why-choose-item wow fadeInUp" @if($delay) data-wow-delay="{{ $delay }}s" @endif>
+                                <div class="icon-box">
+                                    <img src="{{ $item->icon_url }}" alt="{{ $item->getText('title') }}">
+                                </div>
+                                <div class="why-choose-content">
+                                    <h3>{{ $item->getText('title') }}</h3>
+                                    <p>{!! $item->getText('description') !!}</p>
+                                </div>
                             </div>
-                            <!-- Why Choose Content End -->
-                        </div>
-                        <!-- Why Choose Item End -->
-
-                        <!-- Why Choose Item Start -->
-                        <div class="why-choose-item wow fadeInUp" data-wow-delay="0.25s">
-                            <!-- Icon Box Start -->
-                            <div class="icon-box">
-                                <img src="{{ asset('assets/images/icon-why-us-5.svg') }}" alt="">
-                            </div>  
-                            <!-- Icon Box End -->
-
-                            <!-- Why Choose Content Start -->
-                            <div class="why-choose-content">
-                                <h3>positive patient reviews</h3>
-                                <p>The goal of our clinic is to provide friendly, caring dentistry and the.</p>
-                            </div>
-                            <!-- Why Choose Content End -->
-                        </div>
-                        <!-- Why Choose Item End -->
-
-                        <!-- Why Choose Item Start -->
-                        <div class="why-choose-item wow fadeInUp" data-wow-delay="0.5s">
-                            <!-- Icon Box Start -->
-                            <div class="icon-box">
-                                <img src="{{ asset('assets/images/icon-why-us-6.svg') }}" alt="">
-                            </div>  
-                            <!-- Icon Box End -->
-
-                            <!-- Why Choose Content Start -->
-                            <div class="why-choose-content">
-                                <h3>latest technology</h3>
-                                <p>The goal of our clinic is to provide friendly, caring dentistry and the.</p>
-                            </div>
-                            <!-- Why Choose Content End -->
-                        </div>
-                        <!-- Why Choose Item End -->
+                            @php $delay += 0.25; @endphp
+                        @empty
+                            {{-- لا شيء --}}
+                        @endforelse
                     </div>
-                    <!-- Why Choose Box Start -->
                 </div>
             </div>
+
         </div>
         <!-- Icon Start Image Start -->
         <div class="icon-star-image">

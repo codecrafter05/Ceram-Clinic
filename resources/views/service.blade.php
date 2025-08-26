@@ -113,129 +113,54 @@
 
             <div class="row">
                 <div class="col-lg-4 col-md-6 order-1">
-                    <!-- Why Choose Box Start -->
                     <div class="why-choose-box-1">
-                        <!-- Why Choose Item Start -->
-                        <div class="why-choose-item wow fadeInUp">
-                            <!-- Icon Box Start -->
-                            <div class="icon-box">
-                                <img src="images/icon-why-us-1.svg" alt="">
-                            </div>  
-                            <!-- Icon Box End -->
-
-                            <!-- Why Choose Content Start -->
-                            <div class="why-choose-content">
-                                <h3>experienced doctor</h3>
-                                <p>The goal of our clinic is to provide friendly, caring dentistry and the.</p>
+                        @php $delay = 0; @endphp
+                        @forelse ($whyLeft as $item)
+                            <div class="why-choose-item wow fadeInUp" @if($delay) data-wow-delay="{{ $delay }}s" @endif>
+                                <div class="icon-box">
+                                    <img src="{{ $item->icon_url }}" alt="{{ $item->getText('title') }}">
+                                </div>
+                                <div class="why-choose-content">
+                                    <h3>{{ $item->getText('title') }}</h3>
+                                    <p>{!! $item->getText('description') !!}</p>
+                                </div>
                             </div>
-                            <!-- Why Choose Content End -->
-                        </div>
-                        <!-- Why Choose Item End -->
-
-                        <!-- Why Choose Item Start -->
-                        <div class="why-choose-item wow fadeInUp" data-wow-delay="0.25s">
-                            <!-- Icon Box Start -->
-                            <div class="icon-box">
-                                <img src="images/icon-why-us-2.svg" alt="">
-                            </div>  
-                            <!-- Icon Box End -->
-
-                            <!-- Why Choose Content Start -->
-                            <div class="why-choose-content">
-                                <h3>personalized care</h3>
-                                <p>The goal of our clinic is to provide friendly, caring dentistry and the.</p>
-                            </div>
-                            <!-- Why Choose Content End -->
-                        </div>
-                        <!-- Why Choose Item End -->
-
-                        <!-- Why Choose Item Start -->
-                        <div class="why-choose-item wow fadeInUp" data-wow-delay="0.5s">
-                            <!-- Icon Box Start -->
-                            <div class="icon-box">
-                                <img src="images/icon-why-us-3.svg" alt="">
-                            </div>  
-                            <!-- Icon Box End -->
-
-                            <!-- Why Choose Content Start -->
-                            <div class="why-choose-content">
-                                <h3>flexible payment options</h3>
-                                <p>The goal of our clinic is to provide friendly, caring dentistry and the.</p>
-                            </div>
-                            <!-- Why Choose Content End -->
-                        </div>
-                        <!-- Why Choose Item End -->
+                            @php $delay += 0.25; @endphp
+                        @empty
+                            {{-- لا شيء --}}
+                        @endforelse
                     </div>
-                    <!-- Why Choose Box Start -->
                 </div>
 
                 <div class="col-lg-4 order-lg-1 order-md-2 order-1">
-                    <!-- Why Choose Image Start -->
                     <div class="why-choose-image wow fadeInUp">
                         <figure>
-                            <img src="images/why-choose-us-img.png" alt="">
+                            <img src="{{ asset('assets/images/why-choose-us-img.png') }}" alt="">
                         </figure>
                     </div>
-                    <!-- Why Choose Image End -->
                 </div>
 
                 <div class="col-lg-4 col-md-6 order-lg-2 order-md-1 order-2">
-                    <!-- Why Choose Box Start -->
                     <div class="why-choose-box-2">
-                        <!-- Why Choose Item Start -->
-                        <div class="why-choose-item wow fadeInUp">
-                            <!-- Icon Box Start -->
-                            <div class="icon-box">
-                                <img src="images/icon-why-us-4.svg" alt="">
-                            </div>  
-                            <!-- Icon Box End -->
-
-                            <!-- Why Choose Content Start -->
-                            <div class="why-choose-content">
-                                <h3>emergency services</h3>
-                                <p>The goal of our clinic is to provide friendly, caring dentistry and the.</p>
+                        @php $delay = 0; @endphp
+                        @forelse ($whyRight as $item)
+                            <div class="why-choose-item wow fadeInUp" @if($delay) data-wow-delay="{{ $delay }}s" @endif>
+                                <div class="icon-box">
+                                    <img src="{{ $item->icon_url }}" alt="{{ $item->getText('title') }}">
+                                </div>
+                                <div class="why-choose-content">
+                                    <h3>{{ $item->getText('title') }}</h3>
+                                    <p>{!! $item->getText('description') !!}</p>
+                                </div>
                             </div>
-                            <!-- Why Choose Content End -->
-                        </div>
-                        <!-- Why Choose Item End -->
-
-                        <!-- Why Choose Item Start -->
-                        <div class="why-choose-item wow fadeInUp" data-wow-delay="0.25s">
-                            <!-- Icon Box Start -->
-                            <div class="icon-box">
-                                <img src="images/icon-why-us-5.svg" alt="">
-                            </div>  
-                            <!-- Icon Box End -->
-
-                            <!-- Why Choose Content Start -->
-                            <div class="why-choose-content">
-                                <h3>positive patient reviews</h3>
-                                <p>The goal of our clinic is to provide friendly, caring dentistry and the.</p>
-                            </div>
-                            <!-- Why Choose Content End -->
-                        </div>
-                        <!-- Why Choose Item End -->
-
-                        <!-- Why Choose Item Start -->
-                        <div class="why-choose-item wow fadeInUp" data-wow-delay="0.5s">
-                            <!-- Icon Box Start -->
-                            <div class="icon-box">
-                                <img src="images/icon-why-us-6.svg" alt="">
-                            </div>  
-                            <!-- Icon Box End -->
-
-                            <!-- Why Choose Content Start -->
-                            <div class="why-choose-content">
-                                <h3>latest technology</h3>
-                                <p>The goal of our clinic is to provide friendly, caring dentistry and the.</p>
-                            </div>
-                            <!-- Why Choose Content End -->
-                        </div>
-                        <!-- Why Choose Item End -->
+                            @php $delay += 0.25; @endphp
+                        @empty
+                            {{-- لا شيء --}}
+                        @endforelse
                     </div>
-                    <!-- Why Choose Box Start -->
                 </div>
             </div>
+
         </div>
     </div>
     <!-- Why Choose Us Section End -->

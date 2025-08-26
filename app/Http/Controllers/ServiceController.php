@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Setting;
 use App\Models\Service;
 use Illuminate\Http\Request;
+use App\Models\WhyChoose;
 
 class ServiceController extends Controller
 {
@@ -13,14 +14,16 @@ class ServiceController extends Controller
     {
         $setting  = Setting::firstOrCreate([]);
         $locale   = session('locale', 'en');
-
+        $whyLeft  = WhyChoose::where('position', 'left')->orderBy('sort_order')->get();
+        $whyRight = WhyChoose::where('position', 'right')->orderBy('sort_order')->get();
+        
         // اجلب كل الخدمات (تقدر تبدّل إلى paginate لو حبيت)
         $services = Service::query()
             ->latest('id')
             ->get();
 
-        return view('service', compact('setting', 'locale', 'services'));
-    }
+        return view('service', compact('setting', 'locale', 'services', 'whyLeft', 'whyRight'));
+        }
 
     // صفحة تفاصيل خدمة معينة (Route Model Binding)
     public function single(Service $service)
