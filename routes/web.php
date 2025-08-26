@@ -8,6 +8,7 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\FAQPageController;
 
 Route::get('/', [IndexController::class, 'index'])->name('home');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
@@ -24,3 +25,4 @@ Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery');
 // Language Routes
 Route::post('/switch-language', [App\Http\Controllers\LanguageController::class, 'switchLanguage'])->name('switch.language');
 Route::get('/current-language', [App\Http\Controllers\LanguageController::class, 'getCurrentLanguage'])->name('current.language');
+Route::get('/faqs', [FAQPageController::class, 'index'])->name('faqs.index');
