@@ -14,7 +14,7 @@ Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 
 // الخدمات
-Route::get('/service', [ServiceController::class, 'index'])->name('service');
+Route::get('/services', [ServiceController::class, 'index'])->name('services.index');
 Route::get('/service-single', [ServiceController::class, 'single'])->name('service.single');
 
 Route::get('/team', [TeamController::class, 'index'])->name('team');

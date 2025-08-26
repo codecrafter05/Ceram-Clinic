@@ -32,73 +32,8 @@
 </head>
 <body>
 
-    <!-- Preloader Start -->
-	<div class="preloader">
-		<div class="loading-container">
-			<div class="loading"></div>
-			<div id="loading-icon"><img src="images/loader.svg" alt=""></div>
-		</div>
-	</div>
-	<!-- Preloader End -->
-
-    <!-- Header Start -->
-	<header class="main-header">
-		<div class="header-sticky">
-			<nav class="navbar navbar-expand-lg">
-				<div class="container">
-					<!-- Logo Start -->
-					<a class="navbar-brand" href="./">
-						<img src="images/logo.svg" alt="Logo">
-					</a>
-					<!-- Logo End -->
-
-					<!-- Main Menu Start -->
-					<div class="collapse navbar-collapse main-menu">
-                        <div class="nav-menu-wrapper">
-                            <ul class="navbar-nav mr-auto" id="menu">
-                                <li class="nav-item submenu"><a class="nav-link" href="./">Home</a>
-                                    <ul class="sub-menu">
-                                        <li class="nav-item"><a class="nav-link" href="index.html">Home - Hero Version 1</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="index-2.html">Home - Hero Version 2</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="index-3.html">Home - Hero Version 3</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="index-4.html">Home - Hero Version 4</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="index-5.html">Home - Hero Version 5</a></li>
-                                    </ul>
-                                </li>                                
-                                <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
-                                <li class="nav-item"><a class="nav-link" href="service.html">Services</a></li>
-                                <li class="nav-item submenu"><a class="nav-link" href="#">Pages</a>
-                                    <ul>                                        
-                                        <li class="nav-item"><a class="nav-link" href="service-single.html">Service Details</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="blog.html">Our Blog</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="blog-single.html">Blog Details</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="team.html">Our Team</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="team-single.html">Team Details</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="technology.html">Technology</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="testimonials.html">testimonials</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="faqs.html">FAQ's</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="404.html">404</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
-                                <li class="nav-item highlighted-menu"><a class="nav-link" href="appointment.html">book appointment</a></li>                               
-                            </ul>
-                        </div>
-                        <!-- Let’s Start Button Start -->
-                        <div class="header-btn d-inline-flex">
-                            <a href="appointment.html" class="btn-default">book appointment</a>
-                        </div>
-                        <!-- Let’s Start Button End -->
-					</div>
-					<!-- Main Menu End -->
-					<div class="navbar-toggle"></div>
-				</div>
-			</nav>
-			<div class="responsive-menu"></div>
-		</div>
-	</header>
-	<!-- Header End -->
+    <x-preloader />
+    <x-header />
 
     <!-- Page Header Start -->
 	<div class="page-header">
@@ -126,161 +61,40 @@
     <div class="page-services">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-md-6">
-                    <!-- Service Item Start -->
-                    <div class="service-item wow fadeInUp">
-                        <div class="icon-box">
-                            <div class="img">
-                                <img src="images/icon-services-1.svg" alt="">
-                            </div>
-                        </div>
-                        <div class="service-body">
-                            <h3>general dental care</h3>
-                            <p>We are excited to meet you and provide the best dental care for your family.</p>
-                        </div>
-                        <div class="read-more-btn">
-                            <a href="#">read more</a>
-                        </div>
-                    </div>
-                    <!-- Service Item End -->
-                </div>
+                @php
+                    use Illuminate\Support\Facades\Storage;
+                @endphp
 
-                <div class="col-lg-3 col-md-6">
-                    <!-- Service Item Start -->
-                    <div class="service-item wow fadeInUp" data-wow-delay="0.2s">
-                        <div class="icon-box">
-                            <div class="img">
-                                <img src="images/icon-services-2.svg" alt="">
+                @forelse ($services as $service)
+                    <div class="col-lg-3 col-md-6">
+                        <div class="service-item wow fadeInUp">
+                            <div class="icon-box">
+                                <div class="img">
+                                    <img
+                                        src="{{ $service->icon ? Storage::url($service->icon) : asset('images/icon-services-1.svg') }}"
+                                        alt="{{ $service->getText('title') }}">
+                                </div>
                             </div>
-                        </div>
-                        <div class="service-body">
-                            <h3>dental implants</h3>
-                            <p>We are excited to meet you and provide the best dental care for your family.</p>
-                        </div>
-                        <div class="read-more-btn">
-                            <a href="#">read more</a>
-                        </div>
-                    </div>
-                    <!-- Service Item End -->
-                </div>
 
-                <div class="col-lg-3 col-md-6">
-                    <!-- Service Item Start -->
-                    <div class="service-item wow fadeInUp" data-wow-delay="0.4s">
-                        <div class="icon-box">
-                            <div class="img">
-                                <img src="images/icon-services-3.svg" alt="">
+                            <div class="service-body">
+                                <h3>{{ $service->getText('title') }}</h3>
+                                <p>{!! $service->getText('description') !!}</p>
+                                {{-- <p>{!! nl2br(e($service->getText('description'))) !!}</p> --}}
                             </div>
                         </div>
-                        <div class="service-body">
-                            <h3>cosmetic dentistry</h3>
-                            <p>We are excited to meet you and provide the best dental care for your family.</p>
-                        </div>
-                        <div class="read-more-btn">
-                            <a href="#">read more</a>
-                        </div>
                     </div>
-                    <!-- Service Item End -->
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <!-- Service Item Start -->
-                    <div class="service-item wow fadeInUp" data-wow-delay="0.6s">
-                        <div class="icon-box">
-                            <div class="img">
-                                <img src="images/icon-services-4.svg" alt="">
-                            </div>
-                        </div>
-                        <div class="service-body">
-                            <h3>teeth whitening</h3>
-                            <p>We are excited to meet you and provide the best dental care for your family.</p>
-                        </div>
-                        <div class="read-more-btn">
-                            <a href="#">read more</a>
-                        </div>
+                @empty
+                    <div class="col-12">
+                        <p class="text-center m-0">
+                            {{ $locale === 'ar' ? 'لا توجد خدمات متاحة حالياً.' : 'No services available at the moment.' }}
+                        </p>
                     </div>
-                    <!-- Service Item End -->
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <!-- Service Item Start -->
-                    <div class="service-item wow fadeInUp" data-wow-delay="0.8s">
-                        <div class="icon-box">
-                            <div class="img">
-                                <img src="images/icon-services-5.svg" alt="">
-                            </div>
-                        </div>
-                        <div class="service-body">
-                            <h3>pediatric dental care</h3>
-                            <p>We are excited to meet you and provide the best dental care for your family.</p>
-                        </div>
-                        <div class="read-more-btn">
-                            <a href="#">read more</a>
-                        </div>
-                    </div>
-                    <!-- Service Item End -->
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <!-- Service Item Start -->
-                    <div class="service-item wow fadeInUp" data-wow-delay="1s">
-                        <div class="icon-box">
-                            <div class="img">
-                                <img src="images/icon-services-6.svg" alt="">
-                            </div>
-                        </div>
-                        <div class="service-body">
-                            <h3>advanced oral care</h3>
-                            <p>We are excited to meet you and provide the best dental care for your family.</p>
-                        </div>
-                        <div class="read-more-btn">
-                            <a href="#">read more</a>
-                        </div>
-                    </div>
-                    <!-- Service Item End -->
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <!-- Service Item Start -->
-                    <div class="service-item wow fadeInUp" data-wow-delay="1.2s">
-                        <div class="icon-box">
-                            <div class="img">
-                                <img src="images/icon-services-7.svg" alt="">
-                            </div>
-                        </div>
-                        <div class="service-body">
-                            <h3>comfort dentistry</h3>
-                            <p>We are excited to meet you and provide the best dental care for your family.</p>
-                        </div>
-                        <div class="read-more-btn">
-                            <a href="#">read more</a>
-                        </div>
-                    </div>
-                    <!-- Service Item End -->
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <!-- Service Item Start -->
-                    <div class="service-item wow fadeInUp" data-wow-delay="1.4s">
-                        <div class="icon-box">
-                            <div class="img">
-                                <img src="images/icon-services-8.svg" alt="">
-                            </div>
-                        </div>
-                        <div class="service-body">
-                            <h3>smile renewal</h3>
-                            <p>We are excited to meet you and provide the best dental care for your family.</p>
-                        </div>
-                        <div class="read-more-btn">
-                            <a href="#">read more</a>
-                        </div>
-                    </div>
-                    <!-- Service Item End -->
-                </div>
+                @endforelse
             </div>
         </div>
     </div>
     <!-- Page Services End -->
+
 
     <!-- Why Choose Us Section Start -->
     <div class="why-choose-us">
@@ -426,84 +240,7 @@
     </div>
     <!-- Why Choose Us Section End -->
 
-    <!-- Footer Start -->
-    <footer class="main-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4">
-                    <!-- About Footer Start -->
-                    <div class="about-footer">
-                        <!-- Footer Logo Start -->
-                        <div class="footer-logo">
-                            <img src="images/footer-logo.svg" alt="">
-                        </div>
-                        <!-- Footer Logo End -->
-
-                        <!-- About Footer Content Start -->
-                        <div class="about-footer-content">
-                            <p>The goal our clinic is provide friendly, caring dentistry and highest level of general, cosmetic, and specialist dental treatments.</p>
-                         </div>
-                         <!-- About Footer Content End -->
-                     </div>
-                    <!-- About Footer End -->
-                </div>
-                <div class="col-lg-3 col-md-4">
-                    <!-- Footer Quick Links Start -->
-                    <div class="footer-links footer-quick-links">
-                        <h3>quick links</h3>
-                        <ul>                            
-                            <li><a href="#">home</a></li>
-                            <li><a href="#">about us</a></li>
-                            <li><a href="#">services</a></li>
-                            <li><a href="#">book apoointment</a></li>
-                        </ul>
-                    </div>
-                    <!-- Footer Quick Links End -->
-                </div>
-
-                <div class="col-lg-3 col-md-4">
-                    <!-- Footer Social Links Start -->
-                    <div class="footer-links footer-social-links">
-                        <h3>social media</h3>
-                        <ul>                            
-                            <li><a href="#">facebook</a></li>
-                            <li><a href="#">instagram</a></li>
-                            <li><a href="#">youtube</a></li>
-                            <li><a href="#">twitter</a></li>
-                        </ul>
-                    </div>
-                    <!-- Footer Social Links End -->
-                </div>
-
-                <div class="col-lg-2 col-md-4">
-                    <!-- Footer Contact Links Start -->
-                    <div class="footer-links footer-contact-links">
-                        <h3>contact us</h3>
-                        <ul>                            
-                            <li><a href="#">info@domain.com</a></li>
-                            <li><a href="#">+(123) 698-5245</a></li>
-                        </ul>
-                    </div>
-                    <!-- Footer Contact Links End -->
-                </div>                
-            </div>
-
-            <!-- Footer Copyright Section Start -->
-            <div class="footer-copyright">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <!-- Footer Copyright Start -->
-                        <div class="footer-copyright-text">
-                            <p>Copyright © 2024 All Rights Reserved.</p>
-                        </div>
-                        <!-- Footer Copyright End -->
-                    </div>
-                </div>
-            </div>
-            <!-- Footer Copyright Section End -->
-        </div>
-    </footer>
-    <!-- Footer End -->
+    <x-footer />
 
     <script src="{{ asset('assets/js/jquery-3.7.1.min.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
