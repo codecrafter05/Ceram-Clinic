@@ -218,7 +218,7 @@ body{
 	height: 30px;
 	border-radius: 50%;
 	background-color: var(--white-color);
-	background-image: url('../images/arrow-blue.svg');
+	background-image: url('../images/global.png');
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: 10px auto;

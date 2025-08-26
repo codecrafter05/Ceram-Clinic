@@ -8,6 +8,7 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\CustomPageController;
 
 Route::get('/', [IndexController::class, 'index'])->name('home');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
@@ -20,6 +21,8 @@ Route::get('/service-single', [ServiceController::class, 'single'])->name('servi
 Route::get('/team', [TeamController::class, 'index'])->name('team');
 Route::get('/blog', [BlogController::class, 'index'])->name('blog');
 Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery');
+Route::get('/page/{slug}', [CustomPageController::class, 'show']);
+Route::get('/page', [CustomPageController::class, 'index']);
 
 // Language Routes
 Route::post('/switch-language', [App\Http\Controllers\LanguageController::class, 'switchLanguage'])->name('switch.language');

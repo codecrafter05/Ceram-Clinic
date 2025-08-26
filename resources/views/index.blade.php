@@ -12,7 +12,7 @@
 
     <title>CERAM CLINIC</title>
 
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/images/favicon.png') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ $setting?->site_icon ? asset('storage/' . $setting->site_icon) : asset('assets/images/favicon.png') }}">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -143,7 +143,7 @@
                         </div>
                         <div class="cta-box-content">
                             <h3>need dental services ?</h3>
-                            <p>Call on : (+01) 987 828 745</p>
+                            <p>{{ $setting?->contact_number }}</p>
                         </div>
                     </div>
                 </div>
@@ -184,20 +184,24 @@
                     <div class="about-image">
                         <div class="about-img-1">
                             <figure class="image-anime reveal">
-                                <img src="{{ asset('assets/images/about-us-img-1.jpg') }}" alt="">
+                                @if($about && $about->about_img1)
+                                <img src="{{ asset('storage/' . $about->about_img1) }}" alt="About Image 1">
+                                @endif
                             </figure>
                         </div>
 
                         <div class="about-img-2">
                             <figure class="image-anime reveal">
-                                <img src="{{ asset('assets/images/about-us-img-2.jpg') }}" alt="">
+                                @if($about && $about->about_img2)
+                                <img src="{{ asset('storage/' . $about->about_img2) }}" alt="About Image 2">
+                                @endif
                             </figure>
                         </div>
 
                         <!-- About Experience Circle Start -->
                         <div class="about-experience">
                             <figure>
-                                <img src="{{ asset('assets/images/about-experience-circle.png') }}" alt="">
+                                <img src="{{ asset('assets/images/log.png') }}" alt="">
                             </figure>
                         </div>
                         <!-- About Experience Circle End -->
@@ -211,19 +215,22 @@
                         <!-- Section Title Start -->
                         <div class="section-title">
                             <h3 class="wow fadeInUp">about us</h3>
-                            <h2 class="text-anime-style-2" data-cursor="-opaque"><span>Your Journey</span> to a Healthier Smile Begins Here</h2>
-                            <p class="wow fadeInUp" data-wow-delay="0.25s">The goal of our clinic is to provide friendly, caring dentistry and the highest level of general, cosmetic, and specialist dental treatments. With dental practices throughout the world.</p>
+                            <h2 class="text-anime-style-2" data-cursor="-opaque">{{ $about?->getText('title') }}</h2>
+                            <p class="wow fadeInUp" data-wow-delay="0.25s">{{ $about?->getText('subTitle') }}</p>
                         </div>
                         <!-- Section Title End -->
 
                         <!-- About Us Body Start -->
                         <div class="about-us-body wow fadeInUp" data-wow-delay="0.5s">
-                            <ul>
-                                <li>experienced team</li>
-                                <li>comprehensive services</li>
-                                <li>state-of-the-art technology</li>
-                                <li>emergency dental services</li>
-                            </ul>
+                            @if($about && is_array($about->goals))
+                                <ul>
+                                @foreach($about->goals as $goal)
+                                    <li>
+                                    {{ app()->getLocale() === 'ar' ? ($goal['text_ar'] ?? '') : ($goal['text_en'] ?? '') }}
+                                    </li>
+                                @endforeach
+                                </ul>
+                            @endif
                         </div>
                         <!-- About Us Body End -->
 
@@ -539,7 +546,7 @@
                     <!-- How It Work Image Start -->
                     <div class="how-it-work-img">
                         <figure class="reveal image-anime">
-                            <img src="{{ asset('assets/images/how-it-work-img.jpg') }}" alt="">
+                            <img src="{{ asset('storage/' . $about->faq_img) }}" alt="">
                         </figure>
                     </div>
                     <!-- How It Work Image End -->
@@ -550,8 +557,8 @@
                         <!-- Section Title Start -->
                         <div class="section-title">
                             <h3 class="wow fadeInUp">how it work</h3>
-                            <h2 class="text-anime-style-2" data-cursor="-opaque"><span>What We Do</span> for Your Teeth</h2>
-                            <p class="wow fadeInUp" data-wow-delay="0.25s">We are committed to sustainability. Our clinic practices eco-friendly initiatives like digital records to reduce paper waste and energy-efficient equipment.</p>
+                            <h2 class="text-anime-style-2" data-cursor="-opaque">{{ $about?->getText('faq_title') }}</h2>
+                            <p class="wow fadeInUp" data-wow-delay="0.25s">{{ $about?->getText('faq_subTitle') }}</p>
                         </div>
                         <!-- Section Title End -->
 
@@ -559,66 +566,68 @@
                         
                         <!-- FAQ Accordion Start -->
                         <div class="faq-accordion how-work-accordion" id="accordion">
-                            <!-- FAQ Item Start -->
-                            <div class="accordion-item wow fadeInUp">
-                                <div class="icon-box">
-                                    <img src="images/icon-how-it-work-1.svg" alt="">
-                                </div>
-                                <h2 class="accordion-header" id="heading1">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
-                                        book an appointment
-                                    </button>
-                                </h2>
-                                <div id="collapse1" class="accordion-collapse collapse show" aria-labelledby="heading1"
-                                    data-bs-parent="#accordion">
-                                    <div class="accordion-body">
-                                        <p>The goal of our clinic is to provide friendly, caring dentistry and the highest level of general, cosmetic, ents.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- FAQ Item End -->
+                            @if($about && is_array($about->faq) && count($about->faq))
+                                @foreach($about->faq as $index => $item)
+                                @php
+                                    // IDs فريدة لكل عنصر
+                                    $headingId = 'heading' . $index;
+                                    $collapseId = 'collapse' . $index;
 
-                            <!-- FAQ Item Start -->
-                            <div class="accordion-item wow fadeInUp" data-wow-delay="0.25s">
-                                <div class="icon-box">
-                                    <img src="{{ asset('assets/images/icon-how-it-work-2.svg') }}" alt="">
-                                </div>
-                                <h2 class="accordion-header" id="heading2">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
-                                        What conditions can manual therapy treat?
+                                    // أول عنصر مفتوح
+                                    $isFirst = $index === 0;
+
+                                    // اختيار أيقونة (تدوير 1..3)
+                                    $iconNumber = ($index % 3) + 1;
+                                @endphp
+
+                                <div class="accordion-item wow fadeInUp" data-wow-delay="0.{{ $index+1 }}s">
+                                    <div class="icon-box">
+                                    <img src="{{ asset('images/icon-how-it-work-' . $iconNumber . '.svg') }}" alt="">
+                                    </div>
+
+                                    <h2 class="accordion-header" id="{{ $headingId }}">
+                                    <button
+                                        class="accordion-button {{ $isFirst ? '' : 'collapsed' }}"
+                                        type="button"
+                                        data-bs-toggle="collapse"
+                                        data-bs-target="#{{ $collapseId }}"
+                                        aria-expanded="{{ $isFirst ? 'true' : 'false' }}"
+                                        aria-controls="{{ $collapseId }}"
+                                    >
+                                        {{ app()->getLocale() === 'ar' ? ($item['question_ar'] ?? '') : ($item['question_en'] ?? '') }}
                                     </button>
-                                </h2>
-                                <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2"
-                                    data-bs-parent="#accordion">
+                                    </h2>
+
+                                    <div
+                                    id="{{ $collapseId }}"
+                                    class="accordion-collapse collapse {{ $isFirst ? 'show' : '' }}"
+                                    aria-labelledby="{{ $headingId }}"
+                                    data-bs-parent="#accordion"
+                                    >
                                     <div class="accordion-body">
-                                        <p>The goal of our clinic is to provide friendly, caring dentistry and the highest level of general, cosmetic, ents.</p>
+                                        <p>
+                                        {{ app()->getLocale() === 'ar' ? ($item['answer_ar'] ?? '') : ($item['answer_en'] ?? '') }}
+                                        </p>
+                                    </div>
                                     </div>
                                 </div>
-                            </div>
-                            <!-- FAQ Item End -->
-                            
-                            <!-- FAQ Item Start -->
-                            <div class="accordion-item wow fadeInUp" data-wow-delay="0.5s">
-                                <div class="icon-box">
-                                    <img src="{{ asset('assets/images/icon-how-it-work-3.svg') }}" alt="">
-                                </div>
-                                <h2 class="accordion-header" id="heading3">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
-                                        expert care
+                                @endforeach
+                            @else
+                                <!-- في حال ما في بيانات -->
+                                <div class="accordion-item">
+                                <h2 class="accordion-header" id="heading-empty">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-empty" aria-expanded="true" aria-controls="collapse-empty">
+                                    {{ app()->getLocale() === 'ar' ? 'لا توجد أسئلة شائعة بعد' : 'No FAQs yet' }}
                                     </button>
                                 </h2>
-                                <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="heading3"
-                                    data-bs-parent="#accordion">
+                                <div id="collapse-empty" class="accordion-collapse collapse show" aria-labelledby="heading-empty" data-bs-parent="#accordion">
                                     <div class="accordion-body">
-                                        <p>The goal of our clinic is to provide friendly, caring dentistry and the highest level of general, cosmetic, ents.</p>
+                                    <p>{{ app()->getLocale() === 'ar' ? 'أضِف الأسئلة من لوحة التحكم.' : 'Add FAQs from the admin panel.' }}</p>
                                     </div>
                                 </div>
+                                </div>
+                            @endif
                             </div>
-                            <!-- FAQ Item End -->
-                        </div>
                         <!-- FAQ Accordion End -->
                         <!-- How Work Accordion End -->
                     </div>

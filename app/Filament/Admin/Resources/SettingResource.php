@@ -40,6 +40,7 @@ class SettingResource extends Resource
                         ->image()
                         ->directory('settings')
                         ->disk('public')
+                        ->helperText('Recommended size: 189x49 pixels')
                         ->maxSize(2048),
 
                     FileUpload::make('site_icon')
