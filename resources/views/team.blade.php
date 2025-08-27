@@ -33,73 +33,8 @@
 </head>
 <body>
 
-    <!-- Preloader Start -->
-	<div class="preloader">
-		<div class="loading-container">
-			<div class="loading"></div>
-			<div id="loading-icon"><img src="images/loader.svg" alt=""></div>
-		</div>
-	</div>
-	<!-- Preloader End -->
-
-    <!-- Header Start -->
-	<header class="main-header">
-		<div class="header-sticky">
-			<nav class="navbar navbar-expand-lg">
-				<div class="container">
-					<!-- Logo Start -->
-					<a class="navbar-brand" href="./">
-						<img src="images/logo.svg" alt="Logo">
-					</a>
-					<!-- Logo End -->
-
-					<!-- Main Menu Start -->
-					<div class="collapse navbar-collapse main-menu">
-                        <div class="nav-menu-wrapper">
-                            <ul class="navbar-nav mr-auto" id="menu">
-                                <li class="nav-item submenu"><a class="nav-link" href="./">Home</a>
-                                    <ul class="sub-menu">
-                                        <li class="nav-item"><a class="nav-link" href="index.html">Home - Hero Version 1</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="index-2.html">Home - Hero Version 2</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="index-3.html">Home - Hero Version 3</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="index-4.html">Home - Hero Version 4</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="index-5.html">Home - Hero Version 5</a></li>
-                                    </ul>
-                                </li>                                
-                                <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
-                                <li class="nav-item"><a class="nav-link" href="service.html">Services</a></li>
-                                <li class="nav-item submenu"><a class="nav-link" href="#">Pages</a>
-                                    <ul>                                        
-                                        <li class="nav-item"><a class="nav-link" href="service-single.html">Service Details</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="blog.html">Our Blog</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="blog-single.html">Blog Details</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="team.html">Our Team</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="team-single.html">Team Details</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="technology.html">Technology</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="testimonials.html">testimonials</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="faqs.html">FAQ's</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="404.html">404</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
-                                <li class="nav-item highlighted-menu"><a class="nav-link" href="appointment.html">book appointment</a></li>                               
-                            </ul>
-                        </div>
-                        <!-- Let’s Start Button Start -->
-                        <div class="header-btn d-inline-flex">
-                            <a href="appointment.html" class="btn-default">book appointment</a>
-                        </div>
-                        <!-- Let’s Start Button End -->
-					</div>
-					<!-- Main Menu End -->
-					<div class="navbar-toggle"></div>
-				</div>
-			</nav>
-			<div class="responsive-menu"></div>
-		</div>
-	</header>
-	<!-- Header End -->
+    <x-preloader />
+    <x-header />
 
     <!-- Page Header Start -->
 	<div class="page-header">
@@ -125,346 +60,81 @@
 
     <!-- Page Team Start -->
     <div class="page-team">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-6">
-                    <!-- Team Member Item Start -->
-                    <div class="team-member-item wow fadeInUp">
-                        <!-- Team Image Start -->
-                        <div class="team-image">
-                            <figure class="image-anime">
-                                <img src="images/team-1.jpg" alt="">
-                            </figure>
-                
-                            <!-- Team Social Icon Start -->
-                            <div class="team-social-icon">
-                                <ul>
-                                    <li><a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a></li>
-                                    <li><a href="#" class="social-icon"><i class="fa-brands fa-youtube"></i></a></li>
-                                    <li><a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a></li>
-                                    <li><a href="#" class="social-icon"><i class="fa-brands fa-x-twitter"></i></a></li>
-                                </ul>
-                            </div>
-                            <!-- Team Social Icon End -->
-                        </div>
-                        <!-- Team Image End -->
-                
-                        <!-- Team Content Start -->
-                        <div class="team-content">
-                            <h3>dr.johan joe</h3>
-                            <p>lead dentist</p>
-                        </div>
-                        <!-- Team Content End -->
+    <div class="container">
+        <div class="row">
+        @php
+            use Illuminate\Support\Facades\Storage;
+            use Illuminate\Support\Str;
+
+            $faMap = [
+            'facebook'  => 'fa-facebook-f',
+            'instagram' => 'fa-instagram',
+            'x'         => 'fa-x-twitter',
+            'twitter'   => 'fa-x-twitter',
+            'youtube'   => 'fa-youtube',
+            'linkedin'  => 'fa-linkedin-in',
+            'tiktok'    => 'fa-tiktok',
+            'snapchat'  => 'fa-snapchat-ghost',
+            'whatsapp'  => 'fa-whatsapp',
+            'website'   => 'fa-globe',
+            'email'     => 'fa-envelope',
+            'phone'     => 'fa-phone',
+            ];
+        @endphp
+
+        @forelse($team as $member)
+            <div class="col-lg-3 col-md-6">
+            <div class="team-member-item wow fadeInUp">
+                <div class="team-image">
+                <figure class="image-anime">
+                    <img src="{{ $member->photo ? Storage::url($member->photo) : asset('images/team-1.jpg') }}"
+                        alt="{{ $member->getText('name') }}">
+                </figure>
+
+                @if(!empty($member->social_links))
+                    <div class="team-social-icon">
+                    <ul>
+                        @foreach($member->social_links as $link)
+                        @php
+                            $platform = strtolower($link['platform'] ?? '');
+                            $url = $link['url'] ?? '#';
+                            if ($platform === 'email' && $url && !Str::startsWith($url, 'mailto:')) $url = 'mailto:'.$url;
+                            if ($platform === 'phone' && $url && !Str::startsWith($url, 'tel:')) $url = 'tel:'.preg_replace('/\s+/', '', $url);
+                            $icon = $faMap[$platform] ?? 'fa-link';
+                        @endphp
+                        <li>
+                            <a href="{{ $url }}" class="social-icon" target="_blank" rel="noopener">
+                            <i class="fa-brands {{ $icon }}"></i>
+                            </a>
+                        </li>
+                        @endforeach
+                    </ul>
                     </div>
-                    <!-- Team Member Item End -->
+                @endif
                 </div>
 
-                <div class="col-lg-3 col-md-6">
-                    <!-- Team Member Item Start -->
-                    <div class="team-member-item wow fadeInUp" data-wow-delay="0.2s">
-                        <!-- Team Image Start -->
-                        <div class="team-image">
-                            <figure class="image-anime">
-                                <img src="images/team-2.jpg" alt="">
-                            </figure>
-                
-                            <!-- Team Social Icon Start -->
-                            <div class="team-social-icon">
-                                <ul>
-                                    <li><a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a></li>
-                                    <li><a href="#" class="social-icon"><i class="fa-brands fa-youtube"></i></a></li>
-                                    <li><a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a></li>
-                                    <li><a href="#" class="social-icon"><i class="fa-brands fa-x-twitter"></i></a></li>
-                                </ul>
-                            </div>
-                            <!-- Team Social Icon End -->
-                        </div>
-                        <!-- Team Image End -->
-                
-                        <!-- Team Content Start -->
-                        <div class="team-content">
-                            <h3>dr.mike johnson</h3>
-                            <p>senior dantist</p>
-                        </div>
-                        <!-- Team Content End -->
-                    </div>
-                    <!-- Team Member Item End -->
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <!-- Team Member Item Start -->
-                    <div class="team-member-item wow fadeInUp" data-wow-delay="0.4s">
-                        <!-- Team Image Start -->
-                        <div class="team-image">
-                            <figure class="image-anime">
-                                <img src="images/team-3.jpg" alt="">
-                            </figure>
-                
-                            <!-- Team Social Icon Start -->
-                            <div class="team-social-icon">
-                                <ul>
-                                    <li><a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a></li>
-                                    <li><a href="#" class="social-icon"><i class="fa-brands fa-youtube"></i></a></li>
-                                    <li><a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a></li>
-                                    <li><a href="#" class="social-icon"><i class="fa-brands fa-x-twitter"></i></a></li>
-                                </ul>
-                            </div>
-                            <!-- Team Social Icon End -->
-                        </div>
-                        <!-- Team Image End -->
-                
-                        <!-- Team Content Start -->
-                        <div class="team-content">
-                            <h3>dr. alison banson</h3>
-                            <p>orthodontist</p>
-                        </div>
-                        <!-- Team Content End -->
-                    </div>
-                    <!-- Team Member Item End -->
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <!-- Team Member Item Start -->
-                    <div class="team-member-item wow fadeInUp" data-wow-delay="0.6s">
-                        <!-- Team Image Start -->
-                        <div class="team-image">
-                            <figure class="image-anime">
-                                <img src="images/team-4.jpg" alt="">
-                            </figure>
-                
-                            <!-- Team Social Icon Start -->
-                            <div class="team-social-icon">
-                                <ul>
-                                    <li><a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a></li>
-                                    <li><a href="#" class="social-icon"><i class="fa-brands fa-youtube"></i></a></li>
-                                    <li><a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a></li>
-                                    <li><a href="#" class="social-icon"><i class="fa-brands fa-x-twitter"></i></a></li>
-                                </ul>
-                            </div>
-                            <!-- Team Social Icon End -->
-                        </div>
-                        <!-- Team Image End -->
-                
-                        <!-- Team Content Start -->
-                        <div class="team-content">
-                            <h3>dr.christopher case</h3>
-                            <p>periodontist</p>
-                        </div>
-                        <!-- Team Content End -->
-                    </div>
-                    <!-- Team Member Item End -->
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <!-- Team Member Item Start -->
-                    <div class="team-member-item wow fadeInUp" data-wow-delay="0.8s">
-                        <!-- Team Image Start -->
-                        <div class="team-image">
-                            <figure class="image-anime">
-                                <img src="images/team-5.jpg" alt="">
-                            </figure>
-                
-                            <!-- Team Social Icon Start -->
-                            <div class="team-social-icon">
-                                <ul>
-                                    <li><a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a></li>
-                                    <li><a href="#" class="social-icon"><i class="fa-brands fa-youtube"></i></a></li>
-                                    <li><a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a></li>
-                                    <li><a href="#" class="social-icon"><i class="fa-brands fa-x-twitter"></i></a></li>
-                                </ul>
-                            </div>
-                            <!-- Team Social Icon End -->
-                        </div>
-                        <!-- Team Image End -->
-                
-                        <!-- Team Content Start -->
-                        <div class="team-content">
-                            <h3>dr. smithi emily</h3>
-                            <p>pediatric dentist</p>
-                        </div>
-                        <!-- Team Content End -->
-                    </div>
-                    <!-- Team Member Item End -->
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <!-- Team Member Item Start -->
-                    <div class="team-member-item wow fadeInUp" data-wow-delay="1s">
-                        <!-- Team Image Start -->
-                        <div class="team-image">
-                            <figure class="image-anime">
-                                <img src="images/team-6.jpg" alt="">
-                            </figure>
-                
-                            <!-- Team Social Icon Start -->
-                            <div class="team-social-icon">
-                                <ul>
-                                    <li><a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a></li>
-                                    <li><a href="#" class="social-icon"><i class="fa-brands fa-youtube"></i></a></li>
-                                    <li><a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a></li>
-                                    <li><a href="#" class="social-icon"><i class="fa-brands fa-x-twitter"></i></a></li>
-                                </ul>
-                            </div>
-                            <!-- Team Social Icon End -->
-                        </div>
-                        <!-- Team Image End -->
-                
-                        <!-- Team Content Start -->
-                        <div class="team-content">
-                            <h3>dr. emma brown</h3>
-                            <p> oral surgeon</p>
-                        </div>
-                        <!-- Team Content End -->
-                    </div>
-                    <!-- Team Member Item End -->
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <!-- Team Member Item Start -->
-                    <div class="team-member-item wow fadeInUp" data-wow-delay="1.2s">
-                        <!-- Team Image Start -->
-                        <div class="team-image">
-                            <figure class="image-anime">
-                                <img src="images/team-7.jpg" alt="">
-                            </figure>
-                
-                            <!-- Team Social Icon Start -->
-                            <div class="team-social-icon">
-                                <ul>
-                                    <li><a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a></li>
-                                    <li><a href="#" class="social-icon"><i class="fa-brands fa-youtube"></i></a></li>
-                                    <li><a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a></li>
-                                    <li><a href="#" class="social-icon"><i class="fa-brands fa-x-twitter"></i></a></li>
-                                </ul>
-                            </div>
-                            <!-- Team Social Icon End -->
-                        </div>
-                        <!-- Team Image End -->
-                
-                        <!-- Team Content Start -->
-                        <div class="team-content">
-                            <h3>amelia wilson</h3>
-                            <p>dental assistant</p>
-                        </div>
-                        <!-- Team Content End -->
-                    </div>
-                    <!-- Team Member Item End -->
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <!-- Team Member Item Start -->
-                    <div class="team-member-item wow fadeInUp" data-wow-delay="1.4s">
-                        <!-- Team Image Start -->
-                        <div class="team-image">
-                            <figure class="image-anime">
-                                <img src="images/team-8.jpg" alt="">
-                            </figure>
-                
-                            <!-- Team Social Icon Start -->
-                            <div class="team-social-icon">
-                                <ul>
-                                    <li><a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a></li>
-                                    <li><a href="#" class="social-icon"><i class="fa-brands fa-youtube"></i></a></li>
-                                    <li><a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a></li>
-                                    <li><a href="#" class="social-icon"><i class="fa-brands fa-x-twitter"></i></a></li>
-                                </ul>
-                            </div>
-                            <!-- Team Social Icon End -->
-                        </div>
-                        <!-- Team Image End -->
-                
-                        <!-- Team Content Start -->
-                        <div class="team-content">
-                            <h3>sophia nguyen</h3>
-                            <p>receptionist</p>
-                        </div>
-                        <!-- Team Content End -->
-                    </div>
-                    <!-- Team Member Item End -->
+                <div class="team-content">
+                <h3>{{ $member->getText('name') }}</h3>
+                @if($member->getText('position'))
+                    <p>{{ $member->getText('position') }}</p>
+                @endif
                 </div>
             </div>
+            </div>
+        @empty
+            <div class="col-12">
+            <p class="text-center m-0">
+                {{ session('locale','en') === 'ar' ? 'لا يوجد أعضاء فريق حالياً.' : 'No team members yet.' }}
+            </p>
+            </div>
+        @endforelse
         </div>
     </div>
-    <!-- Page Blog End -->
+    </div>
+    <!-- Page Team End -->
 
-    <!-- Footer Start -->
-    <footer class="main-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4">
-                    <!-- About Footer Start -->
-                    <div class="about-footer">
-                        <!-- Footer Logo Start -->
-                        <div class="footer-logo">
-                            <img src="images/footer-logo.svg" alt="">
-                        </div>
-                        <!-- Footer Logo End -->
 
-                        <!-- About Footer Content Start -->
-                        <div class="about-footer-content">
-                            <p>The goal our clinic is provide friendly, caring dentistry and highest level of general, cosmetic, and specialist dental treatments.</p>
-                         </div>
-                         <!-- About Footer Content End -->
-                     </div>
-                    <!-- About Footer End -->
-                </div>
-                <div class="col-lg-3 col-md-4">
-                    <!-- Footer Quick Links Start -->
-                    <div class="footer-links footer-quick-links">
-                        <h3>quick links</h3>
-                        <ul>                            
-                            <li><a href="#">home</a></li>
-                            <li><a href="#">about us</a></li>
-                            <li><a href="#">services</a></li>
-                            <li><a href="#">book apoointment</a></li>
-                        </ul>
-                    </div>
-                    <!-- Footer Quick Links End -->
-                </div>
-
-                <div class="col-lg-3 col-md-4">
-                    <!-- Footer Social Links Start -->
-                    <div class="footer-links footer-social-links">
-                        <h3>social media</h3>
-                        <ul>                            
-                            <li><a href="#">facebook</a></li>
-                            <li><a href="#">instagram</a></li>
-                            <li><a href="#">youtube</a></li>
-                            <li><a href="#">twitter</a></li>
-                        </ul>
-                    </div>
-                    <!-- Footer Social Links End -->
-                </div>
-
-                <div class="col-lg-2 col-md-4">
-                    <!-- Footer Contact Links Start -->
-                    <div class="footer-links footer-contact-links">
-                        <h3>contact us</h3>
-                        <ul>                            
-                            <li><a href="#">info@domain.com</a></li>
-                            <li><a href="#">+(123) 698-5245</a></li>
-                        </ul>
-                    </div>
-                    <!-- Footer Contact Links End -->
-                </div>                
-            </div>
-
-            <!-- Footer Copyright Section Start -->
-            <div class="footer-copyright">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <!-- Footer Copyright Start -->
-                        <div class="footer-copyright-text">
-                            <p>Copyright © 2024 All Rights Reserved.</p>
-                        </div>
-                        <!-- Footer Copyright End -->
-                    </div>
-                </div>
-            </div>
-            <!-- Footer Copyright Section End -->
-        </div>
-    </footer>
-    <!-- Footer End -->
+    <x-footer />
 
     <script src="{{ asset('assets/js/jquery-3.7.1.min.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
