@@ -7,7 +7,9 @@
                     <div class="about-footer">
                         <!-- Footer Logo Start -->
                         <div class="footer-logo">
-                            <img src="{{ asset('assets/images/logo.png') }}" alt="">
+                            @if($setting?->site_logo)
+                            <img src="{{ asset('storage/' . $setting->site_logo) }}" alt="Site Logo">
+                            @endif
                         </div>
                         <!-- Footer Logo End -->
 
@@ -37,23 +39,39 @@
                     <!-- Footer Social Links Start -->
                     <div class="footer-links footer-social-links">
                         <h3>social media</h3>
-                        <ul>                            
-                            <li><a href="#">facebook</a></li>
-                            <li><a href="#">instagram</a></li>
-                            <li><a href="#">youtube</a></li>
-                            <li><a href="#">twitter</a></li>
-                        </ul>
-                    </div>
+                            @if(!empty($setting?->social_media) && is_array($setting->social_media))
+                                <ul>
+                                @foreach($setting->social_media as $item)
+                                    @php
+                                    $text = app()->getLocale() === 'ar'
+                                        ? ($item['text_ar'] ?? '')
+                                        : ($item['text_en'] ?? '');
+                                    $link = $item['link'] ?? '#';
+                                    @endphp
+                                    <li>
+                                    <a href="{{ $link }}" target="_blank" rel="noopener">
+                                        {{ $text }}
+                                    </a>
+                                    </li>
+                                @endforeach
+                                </ul>
+                            @endif
+                        </div>
                     <!-- Footer Social Links End -->
                 </div>
 
                 <div class="col-lg-2 col-md-4">
                     <!-- Footer Contact Links Start -->
                     <div class="footer-links footer-contact-links">
-                        <h3>contact us</h3>
-                        <ul>                            
-                            <li><a href="#">info@domain.com</a></li>
-                            <li><a href="#">+(123) 698-5245</a></li>
+                        <h3>Useful Links</h3>
+                        <ul>
+                            @foreach($customPage as $page)
+                                <li>
+                                    <a href="{{ url('/page/' . $page->slug) }}">
+                                        {{ $page->getText('page_name') }}
+                                    </a>
+                                </li>
+                            @endforeach
                         </ul>
                     </div>
                     <!-- Footer Contact Links End -->

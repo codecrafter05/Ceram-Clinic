@@ -5,13 +5,15 @@ namespace App\Http\Controllers;
 use App\Models\Setting;
 use App\Models\WhyChoose;
 use App\Models\Service;
-use App\Models\Team; // ⬅️ أضف هذا
+use App\Models\Team; 
 use Illuminate\Http\Request;
+use App\Models\About;
 
 class IndexController extends Controller
 {
     public function index()
     {
+        $about = About::first();
         $setting = Setting::firstOrCreate([]);
         $locale  = session('locale', 'en');
 
@@ -29,6 +31,8 @@ class IndexController extends Controller
             'whyRight',
             'services',
             'teamHome',
+            'about',
         ));
+
     }
 }
