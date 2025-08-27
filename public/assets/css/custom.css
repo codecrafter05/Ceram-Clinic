@@ -47,6 +47,7 @@
 	--secondary-color		: #f4efeb;
 	--text-color			: #234165;
 	--accent-color			: #234165;
+	--accent-color2		    : #d2b48b;
 	--white-color			: #FFFFFF;
 	--divider-color			: #595959;
 	--dark-divider-color	: #0E384C1A;
@@ -218,7 +219,7 @@ body{
 	height: 30px;
 	border-radius: 50%;
 	background-color: var(--white-color);
-	background-image: url('../images/global.png');
+	background-image: url('../images/arrow-blue.svg');
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: 10px auto;
@@ -495,7 +496,7 @@ header.main-header .header-sticky.active{
 
 .main-menu ul li a:hover,
 .main-menu ul li a:focus{
-	color: var(--accent-color);
+	color: var(--accent-color2);
 }
 
 .main-menu ul ul{
@@ -551,7 +552,7 @@ header.main-header .header-sticky.active{
 
 .main-menu ul ul li a:hover,
 .main-menu ul ul li a:focus{
-	color: var(--accent-color);
+	color: var(--accent-color2);
 	background-color: transparent;
 	padding: 8px 20px 8px 23px !important;
 }
@@ -646,7 +647,7 @@ header.main-header .header-sticky.active{
 .slicknav_nav a:focus,
 .slicknav_nav .slicknav_row:hover{
 	background-color: transparent;
-	color: var(--accent-color);
+	color: var(--accent-color2);
 }
 
 .slicknav_menu ul ul li a{
@@ -2215,7 +2216,7 @@ footer.main-footer{
 }
 
 .footer-links ul li:hover a{
-	color: var(--accent-color);
+	color: var(--accent-color2);
 }
 
 .footer-quick-links,

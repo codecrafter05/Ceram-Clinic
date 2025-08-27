@@ -9,10 +9,36 @@
 	<meta name="keywords" content="">
 	<meta name="author" content="Awaiken">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-	<!-- Page Title -->
-    <title>CERAM CLINIC - Our Team</title>
+    @php
+        $seo = \App\Models\SeoSetting::first();
+    @endphp
+
+    @if($seo)
+        <!-- Dynamic SEO Meta -->
+        <title>{{ $seo->title_team ?? 'CERAM CLINIC - Our Team' }}</title>
+        <meta name="description" content="{{ $seo->description_team }}">
+        <meta name="keywords" content="{{ $seo->key_team }}">
+
+        <!-- Open Graph -->
+        <meta property="og:title" content="{{ $seo->title_team }}">
+        <meta property="og:description" content="{{ $seo->description_team }}">
+        @if($seo->image_team)
+            <meta property="og:image" content="{{ asset('storage/'.$seo->image_team) }}">
+        @endif
+
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="{{ $seo->title_team }}">
+        <meta name="twitter:description" content="{{ $seo->description_team }}">
+        @if($seo->image_team)
+            <meta name="twitter:image" content="{{ asset('storage/'.$seo->image_team) }}">
+        @endif
+    @else
+        <!-- Default fallback -->
+        <title>CERAM CLINIC - Our Team</title>
+    @endif
 	<!-- Favicon Icon -->
-	<link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/images/favicon.png') }}">
+	<link rel="shortcut icon" type="image/x-icon" src="{{ $setting?->site_icon ? asset('storage/' . $setting->site_icon) : asset('assets/images/favicon.png') }}">
 	<!-- Google Fonts Css-->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -43,7 +69,7 @@
 				<div class="col-lg-12">
 					<!-- Page Header Box Start -->
 					<div class="page-header-box">
-						<h1 class="text-anime-style-2" data-cursor="-opaque"><span>Our</span> Team</h1>
+						<h1 data-cursor="-opaque"><span>Our</span> Team</h1>
 						<nav class="wow fadeInUp">
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item"><a href="./">home</a></li>

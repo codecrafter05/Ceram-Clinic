@@ -8,8 +8,34 @@
 	<meta name="keywords" content="">
 	<meta name="author" content="Awaiken">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    @php
+        $seo = \App\Models\SeoSetting::first();
+    @endphp
 
-    <title>CERAM CLINIC - About Us</title>
+    @if($seo)
+        <!-- Dynamic SEO Meta -->
+        <title>{{ $seo->title_about ?? 'CERAM CLINIC - About Us' }}</title>
+        <meta name="description" content="{{ $seo->description_about }}">
+        <meta name="keywords" content="{{ $seo->key_about }}">
+
+        <!-- Open Graph -->
+        <meta property="og:title" content="{{ $seo->title_about }}">
+        <meta property="og:description" content="{{ $seo->description_about }}">
+        @if($seo->image_about)
+            <meta property="og:image" content="{{ asset('storage/'.$seo->image_about) }}">
+        @endif
+
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="{{ $seo->title_about }}">
+        <meta name="twitter:description" content="{{ $seo->description_about }}">
+        @if($seo->image_about)
+            <meta name="twitter:image" content="{{ asset('storage/'.$seo->image_about) }}">
+        @endif
+    @else
+        <!-- Default fallback -->
+        <title>CERAM CLINIC - About Us</title>
+    @endif
 
     <link rel="shortcut icon" type="image/x-icon" href="{{ $setting?->site_icon ? asset('storage/' . $setting->site_icon) : asset('assets/images/favicon.png') }}">
 
@@ -40,7 +66,7 @@
 				<div class="col-lg-12">
 					<!-- Page Header Box Start -->
 					<div class="page-header-box">
-						<h1 class="text-anime-style-2" data-cursor="-opaque"><span>About</span> Us</h1>
+						<h1 data-cursor="-opaque"><span>About</span> Us</h1>
 						<nav class="wow fadeInUp">
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item"><a href="./">home</a></li>
@@ -95,7 +121,7 @@
                         <!-- Section Title Start -->
                         <div class="section-title">
                             <h3 class="wow fadeInUp">about us</h3>
-                            <h2 class="text-anime-style-2" data-cursor="-opaque">{{ $about?->getText('title') }}</h2>
+                            <h2 data-cursor="-opaque">{{ $about?->getText('title') }}</h2>
                             <p class="wow fadeInUp" data-wow-delay="0.25s">{{ $about?->getText('subTitle') }}</p>
                         </div>
                         <!-- Section Title End -->
@@ -131,7 +157,7 @@
                     <!-- Section Title Start -->
                     <div class="section-title">
                     <h3 class="wow fadeInUp">how it work</h3>
-                    <h2 class="text-anime-style-2" data-cursor="-opaque">{{ $about?->getText('faq_title') }}</h2>
+                    <h2 data-cursor="-opaque">{{ $about?->getText('faq_title') }}</h2>
                     <p class="wow fadeInUp" data-wow-delay="0.25s">{{ $about?->getText('faq_subTitle') }}</p>
                     </div>
                     <!-- Section Title End -->

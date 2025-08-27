@@ -17,6 +17,8 @@ class Setting extends Model
         'social_media',
         'copyright_en',
         'copyright_ar',
+        'working_hours_en',
+        'working_hours_ar',
     ];
 
     protected $casts = [

@@ -9,10 +9,36 @@
 	<meta name="keywords" content="">
 	<meta name="author" content="Awaiken">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-	<!-- Page Title -->
-    <title>Dentaire - Dentist & Dental Clinic HTML Template</title>
+    @php
+        $seo = \App\Models\SeoSetting::first();
+    @endphp
+
+    @if($seo)
+        <!-- Dynamic SEO Meta -->
+        <title>{{ $seo->title_service ?? 'Services - CERAM CLINIC' }}</title>
+        <meta name="description" content="{{ $seo->description_service }}">
+        <meta name="keywords" content="{{ $seo->key_service }}">
+
+        <!-- Open Graph -->
+        <meta property="og:title" content="{{ $seo->title_service }}">
+        <meta property="og:description" content="{{ $seo->description_service }}">
+        @if($seo->image_service)
+            <meta property="og:image" content="{{ asset('storage/'.$seo->image_service) }}">
+        @endif
+
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="{{ $seo->title_service }}">
+        <meta name="twitter:description" content="{{ $seo->description_service }}">
+        @if($seo->image_service)
+            <meta name="twitter:image" content="{{ asset('storage/'.$seo->image_service) }}">
+        @endif
+    @else
+        <!-- Default fallback -->
+        <title>Services - CERAM CLINIC</title>
+    @endif
 	<!-- Favicon Icon -->
-	<link rel="shortcut icon" type="image/x-icon" href="images/favicon.png">
+	<link rel="shortcut icon" type="image/x-icon" src="{{ $setting?->site_icon ? asset('storage/' . $setting->site_icon) : asset('assets/images/favicon.png') }}">
 	<!-- Google Fonts Css-->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,7 +68,7 @@
 				<div class="col-lg-12">
 					<!-- Page Header Box Start -->
 					<div class="page-header-box">
-						<h1 class="text-anime-style-2" data-cursor="-opaque"><span>Our</span> Services</h1>
+						<h1 data-cursor="-opaque"><span>Our</span> Services</h1>
 						<nav class="wow fadeInUp">
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item"><a href="./">home</a></li>
@@ -104,7 +130,7 @@
                     <!-- Section Title Start -->
                     <div class="section-title">
                         <h3 class="wow fadeInUp">why choose us</h3>
-                        <h2 class="text-anime-style-2" data-cursor="-opaque"><span>Diagnosis of</span> Dental Diseases</h2>
+                        <h2 data-cursor="-opaque"><span>Diagnosis of</span> Dental Diseases</h2>
                         <p class="wow fadeInUp" data-wow-delay="0.25s">We are committed to sustainability. eco-friendly initiatives.</p>
                     </div>
                     <!-- Section Title End -->

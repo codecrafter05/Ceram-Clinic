@@ -9,8 +9,34 @@
 	<meta name="keywords" content="">
 	<meta name="author" content="Awaiken">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-	<!-- Page Title -->
-    <title>CERAM CLINIC - Contact Us</title>
+    @php
+        $seo = \App\Models\SeoSetting::first();
+    @endphp
+
+    @if($seo)
+        <!-- Dynamic SEO Meta -->
+        <title>{{ $seo->title_contact ?? 'CERAM CLINIC - Contact Us' }}</title>
+        <meta name="description" content="{{ $seo->description_contact }}">
+        <meta name="keywords" content="{{ $seo->key_contact }}">
+
+        <!-- Open Graph -->
+        <meta property="og:title" content="{{ $seo->title_contact }}">
+        <meta property="og:description" content="{{ $seo->description_contact }}">
+        @if($seo->image_contact)
+            <meta property="og:image" content="{{ asset('storage/'.$seo->image_contact) }}">
+        @endif
+
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="{{ $seo->title_contact }}">
+        <meta name="twitter:description" content="{{ $seo->description_contact }}">
+        @if($seo->image_contact)
+            <meta name="twitter:image" content="{{ asset('storage/'.$seo->image_contact) }}">
+        @endif
+    @else
+        <!-- Default fallback -->
+        <title>CERAM CLINIC - Contact Us</title>
+    @endif
 	<!-- Favicon Icon -->
 	<link rel="shortcut icon" type="image/x-icon" src="{{ $setting?->site_icon ? asset('storage/' . $setting->site_icon) : asset('assets/images/favicon.png') }}">
 	<!-- Google Fonts Css-->
@@ -41,7 +67,7 @@
 				<div class="col-lg-12">
 					<!-- Page Header Box Start -->
 					<div class="page-header-box">
-						<h1 class="text-anime-style-2" data-cursor="-opaque">Contact<span> Us</span></h1>
+						<h1 data-cursor="-opaque">Contact<span> Us</span></h1>
 						<nav class="wow fadeInUp">
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item"><a href="./">home</a></li>
@@ -65,7 +91,7 @@
                         <!-- Section Title Start -->
                         <div class="section-title">
                             <h3 class="wow fadeInUp">contact info</h3>
-                            <h2 class="text-anime-style-2" data-cursor="-opaque"><span>Connecting</span> Near & Far </h2>
+                            <h2 data-cursor="-opaque"><span>Connecting</span> Near & Far </h2>
                             <p class="wow fadeInUp" data-wow-delay="0.25s">For emergency dental care or to schedule an appointment, contact our office at visit our clinic.</p>
                         </div>
                         <!-- Section Title End -->
@@ -123,8 +149,7 @@
                                         <!-- Contact Us Content Start -->
                                         <div class="contact-info-content">
                                             <h3>working hours</h3>
-                                            <p>Mon to Fri : 10:00 To 6:00</p>
-                                            <p>Sat : 10:00AM To 3:00PM</p>
+                                            <p>{{ $setting?->getText('working_hours') }}</p>
                                         </div>
                                         <!-- Contact Us Content End -->
                                     </div>
