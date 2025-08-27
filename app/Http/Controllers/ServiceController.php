@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Setting;
 use App\Models\Service;
+use App\Models\SeoSetting;
 use Illuminate\Http\Request;
 use App\Models\WhyChoose;
+
 
 class ServiceController extends Controller
 {
@@ -13,6 +15,7 @@ class ServiceController extends Controller
     public function index()
     {
         $setting  = Setting::firstOrCreate([]);
+        $seo = SeoSetting::first();
         $locale   = session('locale', 'en');
         $whyLeft  = WhyChoose::where('position', 'left')->orderBy('sort_order')->get();
         $whyRight = WhyChoose::where('position', 'right')->orderBy('sort_order')->get();

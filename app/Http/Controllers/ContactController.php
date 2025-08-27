@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Setting;
+use App\Models\SeoSetting;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
@@ -11,7 +12,8 @@ class ContactController extends Controller
     {
         $setting = Setting::firstOrCreate([]);
         $locale = session('locale', 'en');
-        
-        return view('contact', compact('setting', 'locale'));
+        $seo = SeoSetting::first();
+
+        return view('contact', compact('setting', 'locale', 'seo'));
     }
 }

@@ -46,7 +46,7 @@
                 </div>
                 <div class="error-page-content">
                     <div class="error-page-content-heading">
-                        <h2 class="text-anime-style-2" data-cursor="-opaque"><span>Oops!</span> Page Not Found</h2>
+                        <h2 data-cursor="-opaque"><span>Oops!</span> Page Not Found</h2>
                     </div>
                     <div class="error-page-content-body">
                         <p class="wow fadeInUp" data-wow-delay="0.5s">The page you are looking for does not exist</p>

@@ -40,7 +40,7 @@
 				<div class="col-lg-12">
 					<!-- Page Header Box Start -->
 					<div class="page-header-box">
-						<h1 class="text-anime-style-2" data-cursor="-opaque"><span>{{ $customPage?->getText('page_name') }}</span></h1>
+						<h1 data-cursor="-opaque"><span>{{ $customPage?->getText('page_name') }}</span></h1>
 						<nav class="wow fadeInUp">
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item"><a href="./">home</a></li>
@@ -65,7 +65,7 @@
                     <div class="about-content">
                         <!-- Section Title Start -->
                         <div class="section-title">
-                            <h2 class="text-anime-style-2" data-cursor="-opaque">{{ $customPage?->getText('title') }}</h2>
+                            <h2 data-cursor="-opaque">{{ $customPage?->getText('title') }}</h2>
                             <p class="wow fadeInUp" data-wow-delay="0.25s">{{ $customPage?->getText('description') }}</p>
                         </div>
                         <!-- Section Title End -->

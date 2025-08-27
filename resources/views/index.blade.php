@@ -6,11 +6,38 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
-	    <meta name="keywords" content="">
+	<meta name="keywords" content="">
 	<meta name="author" content="Awaiken">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>CERAM CLINIC</title>
+        <!-- SEO Meta -->
+    @php
+        $seo = \App\Models\SeoSetting::first();
+    @endphp
+
+    @if($seo)
+        <title>{{ $seo->title_home ?? 'CERAM CLINIC' }}</title>
+
+        <meta name="description" content="{{ $seo->description_home }}">
+        <meta name="keywords" content="{{ $seo->key_home }}">
+
+        <!-- OG Meta -->
+        <meta property="og:title" content="{{ $seo->title_home }}">
+        <meta property="og:description" content="{{ $seo->description_home }}">
+        @if($seo->image_home)
+            <meta property="og:image" content="{{ asset('storage/'.$seo->image_home) }}">
+        @endif
+
+        <!-- Twitter Meta -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="{{ $seo->title_home }}">
+        <meta name="twitter:description" content="{{ $seo->description_home }}">
+        @if($seo->image_home)
+            <meta name="twitter:image" content="{{ asset('storage/'.$seo->image_home) }}">
+        @endif
+    @else
+        <title>CERAM CLINIC</title>
+    @endif
 
     <link rel="shortcut icon" type="image/x-icon" href="{{ $setting?->site_icon ? asset('storage/' . $setting->site_icon) : asset('assets/images/favicon.png') }}">
 
@@ -45,7 +72,7 @@
                     <div class="hero-content">
                         <!-- Section Title Start -->
                         <div class="section-title">
-                            <h1 class="text-anime-style-2" data-cursor="-opaque">
+                            <h1 data-cursor="-opaque">
                                 @if($locale === 'ar')
                                     مرحباً بكم في <span>عيادة سيرام</span> للاسنان الرائعة
                                 @else
@@ -157,7 +184,7 @@
                         </div>
                         <div class="cta-box-content">
                             <h3>opening hours</h3>
-                            <p>Mon to Sat 9:00AM to 9:00PM</p>
+                            <p>{{ $setting?->getText('working_hours') }}</p>
                         </div>
                     </div>
                 </div>
@@ -215,7 +242,7 @@
                         <!-- Section Title Start -->
                         <div class="section-title">
                             <h3 class="wow fadeInUp">about us</h3>
-                            <h2 class="text-anime-style-2" data-cursor="-opaque">{{ $about?->getText('title') }}</h2>
+                            <h2 data-cursor="-opaque">{{ $about?->getText('title') }}</h2>
                             <p class="wow fadeInUp" data-wow-delay="0.25s">{{ $about?->getText('subTitle') }}</p>
                         </div>
                         <!-- Section Title End -->
@@ -255,7 +282,7 @@
                     <!-- Section Title Start -->
                     <div class="section-title">
                         <h3 class="wow fadeInUp">our services</h3>
-                        <h2 class="text-anime-style-2" data-cursor="-opaque"><span>Hight Quality</span> Services for You.</h2>
+                        <h2 data-cursor="-opaque"><span>Hight Quality</span> Services for You.</h2>
                         <p class="wow fadeInUp" data-wow-delay="0.25s">We are committed to sustainability. eco-friendly initiatives.</p>
                     </div>
                     <!-- Section Title End -->
@@ -318,7 +345,7 @@
                                 <!-- Section Title Start -->
                                 <div class="section-title">
                                     <h3 class="wow fadeInUp">visit clinic</h3>
-                                    <h2 class="text-anime-style-2" data-cursor="-opaque">Comprehensive Dental Care For All Ages</h2>
+                                    <h2 data-cursor="-opaque">Comprehensive Dental Care For All Ages</h2>
                                 </div>
                                 <!-- Section Title End -->
     
@@ -353,7 +380,7 @@
                     <!-- Section Title Start -->
                     <div class="section-title">
                         <h3 class="wow fadeInUp">why choose us</h3>
-                        <h2 class="text-anime-style-2" data-cursor="-opaque"><span>Diagnosis of</span> Dental Diseases</h2>
+                        <h2 data-cursor="-opaque"><span>Diagnosis of</span> Dental Diseases</h2>
                         <p class="wow fadeInUp" data-wow-delay="0.25s">We are committed to sustainability. eco-friendly initiatives.</p>
                     </div>
                     <!-- Section Title End -->
@@ -438,7 +465,7 @@
                         <!-- Section Title Start -->
                         <div class="section-title">
                             <h3 class="wow fadeInUp">how it work</h3>
-                            <h2 class="text-anime-style-2" data-cursor="-opaque">{{ $about?->getText('faq_title') }}</h2>
+                            <h2 data-cursor="-opaque">{{ $about?->getText('faq_title') }}</h2>
                             <p class="wow fadeInUp" data-wow-delay="0.25s">{{ $about?->getText('faq_subTitle') }}</p>
                         </div>
                         <!-- Section Title End -->
@@ -527,7 +554,7 @@
             <h3 class="wow fadeInUp">
                 {{ $locale === 'ar' ? 'فريقنا' : 'our team' }}
             </h3>
-            <h2 class="text-anime-style-2" data-cursor="-opaque">
+            <h2 data-cursor="-opaque">
                 <span>{{ $locale === 'ar' ? 'فريقنا اللطيف' : 'Our Friendly' }}</span>
                 {{ $locale === 'ar' ? 'من أطباء الأسنان' : 'Dentists Team' }}
             </h2>

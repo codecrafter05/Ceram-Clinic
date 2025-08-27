@@ -58,6 +58,8 @@ class SettingResource extends Resource
                     TextInput::make('contact_email')
                         ->label('Contact Email')
                         ->email(),
+                    TextInput::make('working_hours_en')->label('Working Hours (EN)'),
+                    TextInput::make('working_hours_ar')->label('ساعات العمل (AR)'),
                 ])->columns(2),
 
                 // Location
