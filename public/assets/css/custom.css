@@ -5333,9 +5333,22 @@ footer.main-footer{
 	color: var(--white-color);
 }
 
-/* Mobile Controls */
+/* Mobile Controls - Hidden by default */
 .mobile-controls{
 	gap: 10px;
+	display: none;
+}
+
+/* Ensure mobile controls are hidden on larger screens */
+@media only screen and (min-width: 992px) {
+	.mobile-controls,
+	.mobile-controls.d-flex{
+		display: none !important;
+	}
+	
+	.btn-lang-mobile{
+		display: none !important;
+	}
 }
 
 /* Mobile Language Button */
