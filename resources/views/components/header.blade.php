@@ -20,7 +20,6 @@
                                     <ul>
                                         <li class="nav-item"><a class="nav-link" href="/gallery">Gallery</a></li>
                                         <li class="nav-item"><a class="nav-link" href="/faqs">FAQ's</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="/404">404</a></li>
                                     </ul>
                                 </li>
                                 <li class="nav-item"><a class="nav-link" href="/contact">Contact Us</a></li>

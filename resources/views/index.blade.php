@@ -73,17 +73,25 @@
                         <!-- Section Title Start -->
                         <div class="section-title">
                             <h1 data-cursor="-opaque">
-                                @if($locale === 'ar')
-                                    مرحباً بكم في <span>عيادة سيرام</span> للاسنان الرائعة
+                                @if($home && $home->hero_title)
+                                    {!! $home->hero_title !!}
                                 @else
-                                    Welcome to <span>Ceram Clinic</span> for Excellent Dental Care
+                                    @if($locale === 'ar')
+                                        مرحباً بكم في <span>عيادة سيرام</span> للاسنان الرائعة
+                                    @else
+                                        Welcome to <span>Ceram Clinic</span> for Excellent Dental Care
+                                    @endif
                                 @endif
                             </h1>
                             <p class="wow fadeInUp" data-wow-delay="0.25s">
-                                @if($locale === 'ar')
-                                    عيادة سيرام هي وجهتك المثالية للعناية بصحة أسنانك. نقدم أفضل الخدمات الطبية بأحدث التقنيات وأعلى معايير الجودة.
+                                @if($home && $home->hero_description)
+                                    {!! $home->hero_description !!}
                                 @else
-                                    Ceram Clinic is your ideal destination for dental care. We provide the best medical services with the latest technologies and highest quality standards.
+                                    @if($locale === 'ar')
+                                        عيادة سيرام هي وجهتك المثالية للعناية بصحة أسنانك. نقدم أفضل الخدمات الطبية بأحدث التقنيات وأعلى معايير الجودة.
+                                    @else
+                                        Ceram Clinic is your ideal destination for dental care. We provide the best medical services with the latest technologies and highest quality standards.
+                                    @endif
                                 @endif
                             </p>
                         </div>
@@ -110,7 +118,11 @@
                         <!-- Hero Img Start -->
                         <div class="hero-img">
                             <figure>
-                                <img src="{{ asset('assets/images/hero-img.png') }}" alt="">
+                                @if($home && $home->hero_image)
+                                    <img src="{{ $home->hero_image_url }}" alt="Hero Image">
+                                @else
+                                    <img src="{{ asset('assets/images/hero-img.png') }}" alt="">
+                                @endif
                             </figure>
                         </div>
                         <!-- Hero Img End -->
@@ -339,19 +351,31 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <!-- Visit Clinic Start -->
-                        <div class="visit-clinic parallaxie">
+                        <div class="visit-clinic parallaxie" @if($home && $home->video_background_image) style="background-image: url('{{ $home->video_background_image_url }}');" @endif>
                             <!-- Visit Clinic Content Start -->
                             <div class="visit-clinic-content">
                                 <!-- Section Title Start -->
                                 <div class="section-title">
-                                    <h3 class="wow fadeInUp">visit clinic</h3>
-                                    <h2 data-cursor="-opaque">Comprehensive Dental Care For All Ages</h2>
+                                    <h3 class="wow fadeInUp">
+                                        @if($home && $home->video_title)
+                                            {{ $home->video_title }}
+                                        @else
+                                            visit clinic
+                                        @endif
+                                    </h3>
+                                    <h2 data-cursor="-opaque">
+                                        @if($home && $home->video_subtitle)
+                                            {{ $home->video_subtitle }}
+                                        @else
+                                            Comprehensive Dental Care For All Ages
+                                        @endif
+                                    </h2>
                                 </div>
                                 <!-- Section Title End -->
     
                                 <!-- Visit Clinic Btn Start -->
                                 <div class="visit-clinic-btn wow fadeInUp" data-wow-delay="0.25s" data-cursor-text="Play">
-                                    <a href="https://www.youtube.com/watch?v=Y-x0efG1seA" class="popup-video play-btn">play video</a>
+                                    <a href="{{ $home && $home->video_url ? $home->video_url : 'https://www.youtube.com/watch?v=Y-x0efG1seA' }}" class="popup-video play-btn">play video</a>
                                 </div>
                                 <!-- Visit Clinic Btn End -->
                             </div>
@@ -468,11 +492,7 @@
                             <h2 data-cursor="-opaque">{{ $about?->getText('faq_title') }}</h2>
                             <p class="wow fadeInUp" data-wow-delay="0.25s">{{ $about?->getText('faq_subTitle') }}</p>
                         </div>
-                        <!-- Section Title End -->
 
-                        <!-- How Work Accordion Start -->
-                        
-                        <!-- FAQ Accordion Start -->
                         <div class="faq-accordion how-work-accordion" id="accordion">
                             @if($about && is_array($about->faq) && count($about->faq))
                                 @foreach($about->faq as $index => $item)
@@ -547,114 +567,114 @@
 
     <!-- Our Team Start -->
     <div class="our-team">
-    <div class="container">
-        <div class="row section-row">
-        <div class="col-lg-12">
-            <div class="section-title">
-            <h3 class="wow fadeInUp">
-                {{ $locale === 'ar' ? 'فريقنا' : 'our team' }}
-            </h3>
-            <h2 data-cursor="-opaque">
-                <span>{{ $locale === 'ar' ? 'فريقنا اللطيف' : 'Our Friendly' }}</span>
-                {{ $locale === 'ar' ? 'من أطباء الأسنان' : 'Dentists Team' }}
-            </h2>
-            <p class="wow fadeInUp" data-wow-delay="0.25s">
-                {{ $locale === 'ar' ? 'نلتزم بالاستدامة ومبادرات صديقة للبيئة.' : 'We are committed to sustainability. eco-friendly initiatives.' }}
-            </p>
-            </div>
-        </div>
-        </div>
-
-        <div class="row">
-        @php
-            use Illuminate\Support\Facades\Storage;
-            use Illuminate\Support\Str;
-
-            $faMap = [
-            'facebook'  => 'fa-facebook-f',
-            'instagram' => 'fa-instagram',
-            'x'         => 'fa-x-twitter',
-            'twitter'   => 'fa-x-twitter',
-            'youtube'   => 'fa-youtube',
-            'linkedin'  => 'fa-linkedin-in',
-            'tiktok'    => 'fa-tiktok',
-            'snapchat'  => 'fa-snapchat-ghost',
-            'whatsapp'  => 'fa-whatsapp',
-            'website'   => 'fa-globe',
-            'email'     => 'fa-envelope',
-            'phone'     => 'fa-phone',
-            ];
-            $delay = 0;
-        @endphp
-
-        @forelse($teamHome as $member)
-            <div class="col-lg-3 col-md-6">
-            <!-- Team Member Item Start -->
-            <div class="team-member-item wow fadeInUp" @if($delay) data-wow-delay="{{ $delay }}s" @endif>
-                <!-- Team Image Start -->
-                <div class="team-image">
-                <figure class="image-anime">
-                    <img src="{{ $member->photo ? Storage::url($member->photo) : asset('assets/images/team-1.jpg') }}"
-                        alt="{{ $member->getText('name') }}">
-                </figure>
-
-                @if(!empty($member->social_links))
-                    <div class="team-social-icon">
-                    <ul>
-                        @foreach($member->social_links as $link)
-                        @php
-                            $platform = strtolower($link['platform'] ?? '');
-                            $url = $link['url'] ?? '#';
-                            if ($platform === 'email' && $url && !Str::startsWith($url, 'mailto:')) $url = 'mailto:'.$url;
-                            if ($platform === 'phone' && $url && !Str::startsWith($url, 'tel:')) $url = 'tel:'.preg_replace('/\s+/', '', $url);
-                            $icon = $faMap[$platform] ?? 'fa-link';
-                        @endphp
-                        <li>
-                            <a href="{{ $url }}" class="social-icon" target="_blank" rel="noopener">
-                            <i class="fa-brands {{ $icon }}"></i>
-                            </a>
-                        </li>
-                        @endforeach
-                    </ul>
+        <div class="container">
+            <div class="row section-row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                    <h3 class="wow fadeInUp">
+                        {{ $locale === 'ar' ? 'فريقنا' : 'our team' }}
+                    </h3>
+                    <h2 data-cursor="-opaque">
+                        <span>{{ $locale === 'ar' ? 'فريقنا اللطيف' : 'Our Friendly' }}</span>
+                        {{ $locale === 'ar' ? 'من أطباء الأسنان' : 'Dentists Team' }}
+                    </h2>
+                    <p class="wow fadeInUp" data-wow-delay="0.25s">
+                        {{ $locale === 'ar' ? 'نلتزم بالاستدامة ومبادرات صديقة للبيئة.' : 'We are committed to sustainability. eco-friendly initiatives.' }}
+                    </p>
                     </div>
-                @endif
                 </div>
-                <!-- Team Image End -->
+            </div>
 
-                <!-- Team Content Start -->
-                <div class="team-content">
-                <h3>{{ $member->getText('name') }}</h3>
-                @if($member->getText('position'))
-                    <p>{{ $member->getText('position') }}</p>
-                @endif
+            <div class="row">
+                @php
+                    use Illuminate\Support\Facades\Storage;
+                    use Illuminate\Support\Str;
+
+                    $faMap = [
+                    'facebook'  => 'fa-facebook-f',
+                    'instagram' => 'fa-instagram',
+                    'x'         => 'fa-x-twitter',
+                    'twitter'   => 'fa-x-twitter',
+                    'youtube'   => 'fa-youtube',
+                    'linkedin'  => 'fa-linkedin-in',
+                    'tiktok'    => 'fa-tiktok',
+                    'snapchat'  => 'fa-snapchat-ghost',
+                    'whatsapp'  => 'fa-whatsapp',
+                    'website'   => 'fa-globe',
+                    'email'     => 'fa-envelope',
+                    'phone'     => 'fa-phone',
+                    ];
+                    $delay = 0;
+                @endphp
+
+                @forelse($teamHome as $member)
+                    <div class="col-lg-3 col-md-6">
+                    <!-- Team Member Item Start -->
+                    <div class="team-member-item wow fadeInUp" @if($delay) data-wow-delay="{{ $delay }}s" @endif>
+                        <!-- Team Image Start -->
+                        <div class="team-image">
+                        <figure class="image-anime">
+                            <img src="{{ $member->photo ? Storage::url($member->photo) : asset('assets/images/team-1.jpg') }}"
+                                alt="{{ $member->getText('name') }}">
+                        </figure>
+
+                        @if(!empty($member->social_links))
+                            <div class="team-social-icon">
+                            <ul>
+                                @foreach($member->social_links as $link)
+                                @php
+                                    $platform = strtolower($link['platform'] ?? '');
+                                    $url = $link['url'] ?? '#';
+                                    if ($platform === 'email' && $url && !Str::startsWith($url, 'mailto:')) $url = 'mailto:'.$url;
+                                    if ($platform === 'phone' && $url && !Str::startsWith($url, 'tel:')) $url = 'tel:'.preg_replace('/\s+/', '', $url);
+                                    $icon = $faMap[$platform] ?? 'fa-link';
+                                @endphp
+                                <li>
+                                    <a href="{{ $url }}" class="social-icon" target="_blank" rel="noopener">
+                                    <i class="fa-brands {{ $icon }}"></i>
+                                    </a>
+                                </li>
+                                @endforeach
+                            </ul>
+                            </div>
+                        @endif
+                        </div>
+                        <!-- Team Image End -->
+
+                        <!-- Team Content Start -->
+                        <div class="team-content">
+                        <h3>{{ $member->getText('name') }}</h3>
+                        @if($member->getText('position'))
+                            <p>{{ $member->getText('position') }}</p>
+                        @endif
+                        </div>
+                        <!-- Team Content End -->
+                    </div>
+                    <!-- Team Member Item End -->
+                    </div>
+                    @php $delay += 0.25; @endphp
+                @empty
+                    <div class="col-12">
+                    <p class="text-center">
+                        {{ $locale === 'ar' ? 'لا يوجد أعضاء فريق حالياً.' : 'No team members yet.' }}
+                    </p>
+                    </div>
+                @endforelse
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-12 text-center">
+                    <a href="{{ route('team.index') }}" class="btn-default">
+                    {{ $locale === 'ar' ? 'عرض كل الفريق' : 'View full team' }}
+                    </a>
                 </div>
-                <!-- Team Content End -->
             </div>
-            <!-- Team Member Item End -->
-            </div>
-            @php $delay += 0.25; @endphp
-        @empty
-            <div class="col-12">
-            <p class="text-center">
-                {{ $locale === 'ar' ? 'لا يوجد أعضاء فريق حالياً.' : 'No team members yet.' }}
-            </p>
-            </div>
-        @endforelse
         </div>
 
-        <div class="row mt-3">
-        <div class="col-12 text-center">
-            <a href="{{ route('team.index') }}" class="btn-default">
-            {{ $locale === 'ar' ? 'عرض كل الفريق' : 'View full team' }}
-            </a>
+        <!-- Icon Star Image -->
+        <div class="icon-star-image">
+            <img src="{{ asset('assets/images/icon-star.png') }}" alt="">
         </div>
-        </div>
-    </div>
-
-    <!-- Icon Star Image -->
-    <div class="icon-star-image">
-        <img src="{{ asset('assets/images/icon-star.png') }}" alt="">
-    </div>
     </div>
     <!-- Our Team End -->
 
