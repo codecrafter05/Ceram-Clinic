@@ -5305,3 +5305,26 @@ footer.main-footer{
         font-size: 28px;
     }
 }
+
+/* Language Button Styles */
+.btn-lang{
+	display: inline-block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 1.5em;
+	color: var(--white-color);
+	background: var(--accent-color);
+	text-transform: capitalize;
+	padding: 14px 20px;
+	border-radius: 99px;
+	border: none;
+	transition: all 0.5s ease-in-out;
+	position: relative;
+	overflow: hidden;
+	z-index: 1;
+}
+
+.btn-lang:hover{
+	background-color: var(--primary-color);
+	color: var(--white-color);
+}

@@ -28,7 +28,7 @@
                         </div>
                         <!-- Let’s Start Button Start -->
                         <div class="header-btn d-inline-flex">
-                            <button id="langBtn" class="btn-default" data-current-lang="{{ session('locale', 'en') }}">{{ session('locale', 'en') === 'ar' ? 'English' : 'عربي' }}</button>
+                            <button id="langBtn" class="btn-lang" data-current-lang="{{ session('locale', 'en') }}">{{ session('locale', 'en') === 'ar' ? 'English' : 'عربي' }}</button>
                         </div>
                         <!-- Let’s Start Button End -->
 					</div>
