@@ -175,7 +175,7 @@ class HomeResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListHomes::route('/'),
+            'index' => Pages\ManageHome::route('/'),
             'create' => Pages\CreateHome::route('/create'),
             'edit' => Pages\EditHome::route('/{record}/edit'),
         ];

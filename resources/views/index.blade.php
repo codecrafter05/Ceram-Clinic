@@ -127,19 +127,7 @@
                         </div>
                         <!-- Hero Img End -->
 
-                        <!-- Hero Image Tag Start -->
-                        <div class="export-dantist-box">
-                            <div class="icon-box">
-                                <figure class="image-anime">
-                                    <img src="{{ asset('assets/images/dantist-doctor-img.jpg') }}" alt="">
-                                </figure>
-                            </div>
-                            <div class="export-dantist-content">
-                                <h3>dr. Khalid Al Mansoor</h3>
-                                <p>dantist</p>
-                            </div>
-                        </div>  
-                        <!-- Hero Image Tag End -->
+
 
                         <!-- Hero Icon List Start -->
                         <div class="hero-icon-list">
