@@ -15,7 +15,7 @@
 
     @if($seo)
         <!-- Dynamic SEO Meta -->
-        <title>{{ $seo->title_contact ?? 'CERAM CLINIC - Contact Us' }}</title>
+        <title data-translate="Contact Us">{{ $seo->title_contact ?? 'CERAM CLINIC - Contact Us' }}</title>
         <meta name="description" content="{{ $seo->description_contact }}">
         <meta name="keywords" content="{{ $seo->key_contact }}">
 
@@ -35,7 +35,7 @@
         @endif
     @else
         <!-- Default fallback -->
-        <title>CERAM CLINIC - Contact Us</title>
+        <title data-translate="Contact Us">CERAM CLINIC - Contact Us</title>
     @endif
 	<!-- Favicon Icon -->
 	<link rel="shortcut icon" type="image/x-icon" src="{{ $setting?->site_icon ? asset('storage/' . $setting->site_icon) : asset('assets/images/favicon.png') }}">
@@ -67,11 +67,11 @@
 				<div class="col-lg-12">
 					<!-- Page Header Box Start -->
 					<div class="page-header-box">
-						<h1 data-cursor="-opaque">Contact<span> Us</span></h1>
+						<h1 data-cursor="-opaque" data-translate="Contact Us">Contact Us</h1>
 						<nav class="wow fadeInUp">
 							<ol class="breadcrumb">
-								<li class="breadcrumb-item"><a href="./">home</a></li>
-								<li class="breadcrumb-item active" aria-current="page">contact us</li>
+								<li class="breadcrumb-item"><a href="./" data-translate="home">home</a></li>
+								<li class="breadcrumb-item active" aria-current="page" data-translate="contact us">contact us</li>
 							</ol>
 						</nav>
 					</div>
@@ -90,9 +90,9 @@
                     <div class="contact-us-content">
                         <!-- Section Title Start -->
                         <div class="section-title">
-                            <h3 class="wow fadeInUp">contact info</h3>
-                            <h2 data-cursor="-opaque"><span>Connecting</span> Near & Far </h2>
-                            <p class="wow fadeInUp" data-wow-delay="0.25s">For emergency dental care or to schedule an appointment, contact our office at visit our clinic.</p>
+                            <h3 class="wow fadeInUp" data-translate="contact info">contact info</h3>
+                            <h2 data-cursor="-opaque"><span data-translate="Connecting">Connecting</span> <span data-translate="Near & Far">Near & Far</span></h2>
+                            <p class="wow fadeInUp" data-wow-delay="0.25s" data-translate="For emergency dental care or to schedule an appointment, contact our office at visit our clinic.">For emergency dental care or to schedule an appointment, contact our office at visit our clinic.</p>
                         </div>
                         <!-- Section Title End -->
 
@@ -110,7 +110,7 @@
 
                                         <!-- Contact Us Content Start -->
                                         <div class="contact-info-content">
-                                            <h3>visit us on</h3>
+                                            <h3 data-translate="visit us on">visit us on</h3>
                                             <p>{{ $setting?->getText('location_text') }}</p>
                                         </div>
                                         <!-- Contact Us Content End -->
@@ -129,7 +129,7 @@
 
                                     <!-- Contact Us Content Start -->
                                     <div class="contact-info-content">
-                                        <h3>contact us</h3>
+                                        <h3 data-translate="contact us">contact us</h3>
                                         <p>{{ $setting?->contact_number }}</p>
                                     </div>
                                     <!-- Contact Us Content End -->
@@ -148,7 +148,7 @@
 
                                         <!-- Contact Us Content Start -->
                                         <div class="contact-info-content">
-                                            <h3>working hours</h3>
+                                            <h3 data-translate="working hours">working hours</h3>
                                             <p>{{ $setting?->getText('working_hours') }}</p>
                                         </div>
                                         <!-- Contact Us Content End -->
@@ -167,7 +167,7 @@
 
                                         <!-- Contact Us Content Start -->
                                         <div class="contact-info-content">
-                                            <h3>email us</h3>
+                                            <h3 data-translate="email us">email us</h3>
                                             <p>{{ $setting?->contact_email }}</p>
                                         </div>
                                         <!-- Contact Us Content End -->
@@ -215,7 +215,7 @@
     <script src="{{ asset('assets/js/wow.js') }}"></script>
     <script src="{{ asset('assets/js/function.js') }}"></script>
     <script src="{{ asset('assets/js/language-switcher.js') }}"></script>
-    <script src="{{ asset('assets/js/language-switcher.js') }}"></script>
+    <script src="{{ asset('assets/js/translator.js') }}"></script>
 
 </body>
 </html>

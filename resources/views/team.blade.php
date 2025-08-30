@@ -35,7 +35,7 @@
         @endif
     @else
         <!-- Default fallback -->
-        <title>CERAM CLINIC - Our Team</title>
+        <title data-translate="Team">CERAM CLINIC - Our Team</title>
     @endif
 	<!-- Favicon Icon -->
 	<link rel="shortcut icon" type="image/x-icon" src="{{ $setting?->site_icon ? asset('storage/' . $setting->site_icon) : asset('assets/images/favicon.png') }}">
@@ -180,7 +180,9 @@
     <script src="{{ asset('assets/js/wow.js') }}"></script>
     <script src="{{ asset('assets/js/function.js') }}"></script>
     <script src="{{ asset('assets/js/language-switcher.js') }}"></script>
+    <script src="{{ asset('assets/js/translator.js') }}"></script>
     <script src="{{ asset('assets/js/language-switcher.js') }}"></script>
+    <script src="{{ asset('assets/js/translator.js') }}"></script>
     
 </body>
 </html>

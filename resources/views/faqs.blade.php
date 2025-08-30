@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="{{ session('locale', 'en') }}" dir="{{ session('locale', 'en') === 'ar' ? 'rtl' : 'ltr' }}">
 <head>
 	<!-- Meta -->
 	<meta charset="utf-8">
@@ -8,10 +8,11 @@
 	<meta name="description" content="">
 	<meta name="keywords" content="">
 	<meta name="author" content="Awaiken">
-	<!-- Page Title -->
-    <title>Dentaire - Dentist & Dental Clinic HTML Template</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+	    <!-- Page Title -->
+    <title data-translate="FAQs">FAQs - CERAM CLINIC</title>
 	<!-- Favicon Icon -->
-	<link rel="shortcut icon" type="image/x-icon" href="images/favicon.png">
+	<link rel="shortcut icon" type="image/x-icon" href="{{ $setting?->site_icon ? asset('storage/' . $setting->site_icon) : asset('assets/images/favicon.png') }}">
 	<!-- Google Fonts Css-->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,6 +27,7 @@
     <link href="{{ asset('assets/css/magnific-popup.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/mousecursor.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/custom.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/rtl.css') }}" rel="stylesheet">
 
 </head>
 <body>
@@ -40,11 +42,11 @@
 				<div class="col-lg-12">
 					<!-- Page Header Box Start -->
 					<div class="page-header-box">
-						<h1 data-cursor="-opaque"><span>Frequently</span> Asked Questions</h1>
+						<h1 data-cursor="-opaque"><span data-translate="Frequently">Frequently</span> <span data-translate="Asked">Asked</span> <span data-translate="Questions">Questions</span></h1>
 						<nav class="wow fadeInUp">
 							<ol class="breadcrumb">
-								<li class="breadcrumb-item"><a href="./">home</a></li>
-								<li class="breadcrumb-item active" aria-current="page">faqs</li>
+								<li class="breadcrumb-item"><a href="./" data-translate="home">home</a></li>
+								<li class="breadcrumb-item active" aria-current="page" data-translate="faqs">faqs</li>
 							</ol>
 						</nav>
 					</div>
@@ -176,6 +178,8 @@
     <script src="{{ asset('assets/js/wow.js') }}"></script>
     <script src="{{ asset('assets/js/function.js') }}"></script>
     <script src="{{ asset('assets/js/lang.js') }}"></script>
+    <script src="{{ asset('assets/js/language-switcher.js') }}"></script>
+    <script src="{{ asset('assets/js/translator.js') }}"></script>
 
 </body>
 </html>

@@ -9,8 +9,8 @@
 	<meta name="keywords" content="">
 	<meta name="author" content="Awaiken">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-	<!-- Page Title -->
-    <title>Ceramic Clinic - Gallery</title>
+	    <!-- Page Title -->
+    <title data-translate="Ceramic Clinic - Gallery">Ceramic Clinic - Gallery</title>
 	<!-- Favicon Icon -->
 	<link rel="shortcut icon" type="image/x-icon" href="{{ $setting?->site_icon ? asset('storage/' . $setting->site_icon) : asset('assets/images/favicon.png') }}">
 	<!-- Google Fonts Css-->
@@ -41,11 +41,11 @@
 				<div class="col-lg-12">
 					<!-- Page Header Box Start -->
 					<div class="page-header-box">
-						<h1 data-cursor="-opaque">Gallery</h1>
+						<h1 data-cursor="-opaque" data-translate="Gallery">Gallery</h1>
 						<nav class="wow fadeInUp">
 							<ol class="breadcrumb">
-								<li class="breadcrumb-item"><a href="./">home</a></li>
-								<li class="breadcrumb-item active" aria-current="page">gallery</li>
+								<li class="breadcrumb-item"><a href="./" data-translate="home">home</a></li>
+								<li class="breadcrumb-item active" aria-current="page" data-translate="gallery">gallery</li>
 							</ol>
 						</nav>
 					</div>
@@ -103,7 +103,9 @@
     <script src="{{ asset('assets/js/wow.js') }}"></script>
     <script src="{{ asset('assets/js/function.js') }}"></script>
     <script src="{{ asset('assets/js/language-switcher.js') }}"></script>
+    <script src="{{ asset('assets/js/translator.js') }}"></script>
     <script src="{{ asset('assets/js/language-switcher.js') }}"></script>
+    <script src="{{ asset('assets/js/translator.js') }}"></script>
 
 </body>
 </html>

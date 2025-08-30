@@ -13,16 +13,16 @@
 					<div class="collapse navbar-collapse main-menu">
                         <div class="nav-menu-wrapper">
                             <ul class="navbar-nav mr-auto" id="menu">
-                                <li class="nav-item"><a class="nav-link" href="./">Home</a></li>                                
-                                <li class="nav-item"><a class="nav-link" href="/about">About Us</a></li>
-                                <li class="nav-item"><a class="nav-link" href="/services">Services</a></li>
-                                <li class="nav-item submenu"><a class="nav-link" href="#">Pages</a>
+                                <li class="nav-item"><a class="nav-link" href="./" data-translate="Home">Home</a></li>                                
+                                <li class="nav-item"><a class="nav-link" href="/about" data-translate="About Us">About Us</a></li>
+                                <li class="nav-item"><a class="nav-link" href="/services" data-translate="Services">Services</a></li>
+                                <li class="nav-item submenu"><a class="nav-link" href="#" data-translate="Pages">Pages</a>
                                     <ul>
-                                        <li class="nav-item"><a class="nav-link" href="/gallery">Gallery</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="/faqs">FAQ's</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="/gallery" data-translate="Gallery">Gallery</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="/faqs" data-translate="FAQ's">FAQ's</a></li>
                                     </ul>
                                 </li>
-                                <li class="nav-item"><a class="nav-link" href="/contact">Contact Us</a></li>      
+                                <li class="nav-item"><a class="nav-link" href="/contact" data-translate="Contact Us">Contact Us</a></li>      
                             </ul>
                         </div>
                         <!-- Let’s Start Button Start -->

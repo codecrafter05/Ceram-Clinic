@@ -99,7 +99,7 @@
 
                         <!-- Hero Content Body Start -->
                         <div class="hero-content-body wow fadeInUp" data-wow-delay="0.5s">
-                            <a href="/about" class="btn-default">
+                            <a href="/about" class="btn-default" data-translate="More About Us">
                                 @if($locale === 'ar')
                                     المزيد عنا
                                 @else
@@ -169,7 +169,7 @@
                             <img src="{{ asset('assets/images/icon-cta-phone.svg') }}" alt="">
                         </div>
                         <div class="cta-box-content">
-                            <h3>need dental services ?</h3>
+                            <h3 data-translate="need dental services ?">need dental services ?</h3>
                             <p>{{ $setting?->contact_number }}</p>
                         </div>
                     </div>
@@ -183,7 +183,7 @@
                             <img src="{{ asset('assets/images/icon-cta-time.svg') }}" alt="">
                         </div>
                         <div class="cta-box-content">
-                            <h3>opening hours</h3>
+                            <h3 data-translate="opening hours">opening hours</h3>
                             <p>{{ $setting?->getText('working_hours') }}</p>
                         </div>
                     </div>
@@ -193,7 +193,7 @@
                 <div class="col-lg-4 col-md-12 col-12">
                     <!-- Cta Box Btn Start -->
                     <div class="cta-box-btn wow fadeInUp" data-wow-delay="0.5s">
-                        <a href="/about" class="btn-default btn-highlighted">More details</a>
+                        <a href="/about" class="btn-default btn-highlighted" data-translate="More details">More details</a>
                     </div>
                     <!-- Cta Box Btn End -->
                 </div>
@@ -241,7 +241,7 @@
                     <div class="about-content">
                         <!-- Section Title Start -->
                         <div class="section-title">
-                            <h3 class="wow fadeInUp">about us</h3>
+                            <h3 class="wow fadeInUp" data-translate="about us">about us</h3>
                             <h2 data-cursor="-opaque">{{ $about?->getText('title') }}</h2>
                             <p class="wow fadeInUp" data-wow-delay="0.25s">{{ $about?->getText('subTitle') }}</p>
                         </div>
@@ -263,7 +263,7 @@
 
                         <!-- About Us Footer Start -->
                         <div class="about-us-footer wow fadeInUp" data-wow-delay="0.75s">
-                            <a href="#" class="btn-default">read more about us</a>
+                            <a href="#" class="btn-default" data-translate="read more about us">read more about us</a>
                         </div>
                         <!-- About Us Footer End -->
                     </div>
@@ -281,9 +281,9 @@
                 <div class="col-lg-12">
                     <!-- Section Title Start -->
                     <div class="section-title">
-                        <h3 class="wow fadeInUp">our services</h3>
-                        <h2 data-cursor="-opaque"><span>Hight Quality</span> Services for You.</h2>
-                        <p class="wow fadeInUp" data-wow-delay="0.25s">We are committed to sustainability. eco-friendly initiatives.</p>
+                        <h3 class="wow fadeInUp" data-translate="our services">our services</h3>
+                        <h2 data-cursor="-opaque"><span data-translate="Hight Quality">Hight Quality</span> <span data-translate="Services for You.">Services for You.</span></h2>
+                        <p class="wow fadeInUp" data-wow-delay="0.25s" data-translate="We are committed to sustainability. eco-friendly initiatives.">We are committed to sustainability. eco-friendly initiatives.</p>
                     </div>
                     <!-- Section Title End -->
                 </div>
@@ -363,7 +363,7 @@
     
                                 <!-- Visit Clinic Btn Start -->
                                 <div class="visit-clinic-btn wow fadeInUp" data-wow-delay="0.25s" data-cursor-text="Play">
-                                    <a href="{{ $home && $home->video_url ? $home->video_url : 'https://www.youtube.com/watch?v=Y-x0efG1seA' }}" class="popup-video play-btn">play video</a>
+                                    <a href="{{ $home && $home->video_url ? $home->video_url : 'https://www.youtube.com/watch?v=Y-x0efG1seA' }}" class="popup-video play-btn" data-translate="play video">play video</a>
                                 </div>
                                 <!-- Visit Clinic Btn End -->
                             </div>
@@ -391,9 +391,9 @@
                 <div class="col-lg-12">
                     <!-- Section Title Start -->
                     <div class="section-title">
-                        <h3 class="wow fadeInUp">why choose us</h3>
-                        <h2 data-cursor="-opaque"><span>Diagnosis of</span> Dental Diseases</h2>
-                        <p class="wow fadeInUp" data-wow-delay="0.25s">We are committed to sustainability. eco-friendly initiatives.</p>
+                        <h3 class="wow fadeInUp" data-translate="why choose us">why choose us</h3>
+                        <h2 data-cursor="-opaque"><span data-translate="Diagnosis of">Diagnosis of</span> <span data-translate="Dental Diseases">Dental Diseases</span></h2>
+                        <p class="wow fadeInUp" data-wow-delay="0.25s" data-translate="We are committed to sustainability. eco-friendly initiatives.">We are committed to sustainability. eco-friendly initiatives.</p>
                     </div>
                     <!-- Section Title End -->
                 </div>
@@ -476,7 +476,7 @@
                     <div class="how-it-work-content">
                         <!-- Section Title Start -->
                         <div class="section-title">
-                            <h3 class="wow fadeInUp">how it work</h3>
+                            <h3 class="wow fadeInUp" data-translate="how it work">how it work</h3>
                             <h2 data-cursor="-opaque">{{ $about?->getText('faq_title') }}</h2>
                             <p class="wow fadeInUp" data-wow-delay="0.25s">{{ $about?->getText('faq_subTitle') }}</p>
                         </div>
@@ -559,14 +559,14 @@
             <div class="row section-row">
                 <div class="col-lg-12">
                     <div class="section-title">
-                    <h3 class="wow fadeInUp">
+                    <h3 class="wow fadeInUp" data-translate="our team">
                         {{ $locale === 'ar' ? 'فريقنا' : 'our team' }}
                     </h3>
                     <h2 data-cursor="-opaque">
-                        <span>{{ $locale === 'ar' ? 'فريقنا اللطيف' : 'Our Friendly' }}</span>
-                        {{ $locale === 'ar' ? 'من أطباء الأسنان' : 'Dentists Team' }}
+                        <span data-translate="Our Friendly">{{ $locale === 'ar' ? 'فريقنا اللطيف' : 'Our Friendly' }}</span>
+                        <span data-translate="Dentists Team">{{ $locale === 'ar' ? 'من أطباء الأسنان' : 'Dentists Team' }}</span>
                     </h2>
-                    <p class="wow fadeInUp" data-wow-delay="0.25s">
+                    <p class="wow fadeInUp" data-wow-delay="0.25s" data-translate="We are committed to sustainability. eco-friendly initiatives.">
                         {{ $locale === 'ar' ? 'نلتزم بالاستدامة ومبادرات صديقة للبيئة.' : 'We are committed to sustainability. eco-friendly initiatives.' }}
                     </p>
                     </div>
@@ -652,7 +652,7 @@
 
             <div class="row mt-3">
                 <div class="col-12 text-center">
-                    <a href="{{ route('team.index') }}" class="btn-default">
+                    <a href="{{ route('team.index') }}" class="btn-default" data-translate="View full team">
                     {{ $locale === 'ar' ? 'عرض كل الفريق' : 'View full team' }}
                     </a>
                 </div>
@@ -687,6 +687,7 @@
     <script src="{{ asset('assets/js/wow.js') }}"></script>
     <script src="{{ asset('assets/js/function.js') }}"></script>
     <script src="{{ asset('assets/js/language-switcher.js') }}"></script>
+    <script src="{{ asset('assets/js/translator.js') }}"></script>
 
 
 </body>

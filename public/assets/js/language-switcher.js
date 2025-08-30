@@ -30,6 +30,9 @@
                         // Add RTL/LTR classes to body
                         $('body').removeClass('rtl ltr').addClass(response.direction);
                         
+                        // Trigger translation update
+                        $(document).trigger('languageChanged');
+                        
                         // Reload page to apply all changes
                         setTimeout(function() {
                             window.location.reload();
