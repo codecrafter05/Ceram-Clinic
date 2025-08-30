@@ -3893,6 +3893,10 @@ footer.main-footer{
         display: block;
     }
 
+	.mobile-controls{
+		display: flex !important;
+	}
+
 	.section-row{
 		margin-bottom: 40px;
 	}
@@ -5325,6 +5329,35 @@ footer.main-footer{
 }
 
 .btn-lang:hover{
+	background-color: var(--primary-color);
+	color: var(--white-color);
+}
+
+/* Mobile Controls */
+.mobile-controls{
+	gap: 10px;
+}
+
+/* Mobile Language Button */
+.btn-lang-mobile{
+	display: inline-block;
+	font-size: 12px;
+	font-weight: 600;
+	line-height: 1.5em;
+	color: var(--white-color);
+	background: var(--accent-color);
+	text-transform: capitalize;
+	padding: 8px 12px;
+	border-radius: 99px;
+	border: none;
+	transition: all 0.5s ease-in-out;
+	position: relative;
+	overflow: hidden;
+	z-index: 1;
+	min-width: 60px;
+}
+
+.btn-lang-mobile:hover{
 	background-color: var(--primary-color);
 	color: var(--white-color);
 }

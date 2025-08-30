@@ -22,8 +22,7 @@
                                         <li class="nav-item"><a class="nav-link" href="/faqs">FAQ's</a></li>
                                     </ul>
                                 </li>
-                                <li class="nav-item"><a class="nav-link" href="/contact">Contact Us</a></li>
-                                <li class="nav-item highlighted-menu"><a class="nav-link" id="langBtn" href="#">{{ session('locale', 'en') === 'ar' ? 'English' : 'عربي' }}</a></li>      
+                                <li class="nav-item"><a class="nav-link" href="/contact">Contact Us</a></li>      
                             </ul>
                         </div>
                         <!-- Let’s Start Button Start -->
@@ -33,7 +32,10 @@
                         <!-- Let’s Start Button End -->
 					</div>
 					<!-- Main Menu End -->
-					<div class="navbar-toggle"></div>
+					<div class="mobile-controls d-flex align-items-center">
+						<button id="langBtnMobile" class="btn-lang-mobile" data-current-lang="{{ session('locale', 'en') }}">{{ session('locale', 'en') === 'ar' ? 'English' : 'عربي' }}</button>
+						<div class="navbar-toggle"></div>
+					</div>
 				</div>
 			</nav>
 			<div class="responsive-menu"></div>

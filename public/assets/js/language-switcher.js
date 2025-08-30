@@ -24,8 +24,8 @@
                         
                         // Update button text
                         const newText = response.language === 'ar' ? 'English' : 'عربي';
-                        $('.nav-link#langBtn, .btn-default#langBtn').text(newText);
-                        $('.nav-link#langBtn, .btn-default#langBtn').attr('data-current-lang', response.language);
+                        $('.nav-link#langBtn, .btn-lang#langBtn, .btn-lang-mobile#langBtnMobile').text(newText);
+                        $('.nav-link#langBtn, .btn-lang#langBtn, .btn-lang-mobile#langBtnMobile').attr('data-current-lang', response.language);
                         
                         // Add RTL/LTR classes to body
                         $('body').removeClass('rtl ltr').addClass(response.direction);
@@ -43,7 +43,7 @@
         }
 
         // Handle language button clicks
-        $(document).on('click', '#langBtn', function(e) {
+        $(document).on('click', '#langBtn, #langBtnMobile', function(e) {
             e.preventDefault();
             
             const currentLang = $(this).attr('data-current-lang') || 'en';
@@ -64,8 +64,8 @@
                     
                     // Update button text
                     const buttonText = response.language === 'ar' ? 'English' : 'عربي';
-                    $('.nav-link#langBtn, .btn-default#langBtn').text(buttonText);
-                    $('.nav-link#langBtn, .btn-default#langBtn').attr('data-current-lang', response.language);
+                    $('.nav-link#langBtn, .btn-lang#langBtn, .btn-lang-mobile#langBtnMobile').text(buttonText);
+                    $('.nav-link#langBtn, .btn-lang#langBtn, .btn-lang-mobile#langBtnMobile').attr('data-current-lang', response.language);
                 },
                 error: function(xhr, status, error) {
                     console.error('Error getting current language:', error);
