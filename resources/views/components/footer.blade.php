@@ -15,7 +15,7 @@
 
                         <!-- About Footer Content Start -->
                         <div class="about-footer-content">
-                            <p>The goal our clinic is provide friendly, caring dentistry and highest level of general, cosmetic, and specialist dental treatments.</p>
+                            <p data-translate="The goal our clinic is provide friendly, caring dentistry and highest level of general, cosmetic, and specialist dental treatments.">The goal our clinic is provide friendly, caring dentistry and highest level of general, cosmetic, and specialist dental treatments.</p>
                          </div>
                          <!-- About Footer Content End -->
                      </div>
@@ -24,12 +24,12 @@
                 <div class="col-lg-3 col-md-4">
                     <!-- Footer Quick Links Start -->
                     <div class="footer-links footer-quick-links">
-                        <h3>quick links</h3>
+                        <h3 data-translate="quick links">quick links</h3>
                         <ul>                            
-                            <li><a href="{{ url('/') }}">home</a></li>
-                            <li><a href="{{ url('/about') }}">about us</a></li>
-                            <li><a href="{{ url('/services') }}">services</a></li>
-                            <li><a href="{{ url('/contact') }}">contact us</a></li>
+                            <li><a href="{{ url('/') }}" data-translate="home">home</a></li>
+                            <li><a href="{{ url('/about') }}" data-translate="about us">about us</a></li>
+                            <li><a href="{{ url('/services') }}" data-translate="services">services</a></li>
+                            <li><a href="{{ url('/contact') }}" data-translate="contact us">contact us</a></li>
                         </ul>
                     </div>
                     <!-- Footer Quick Links End -->
@@ -38,7 +38,7 @@
                 <div class="col-lg-3 col-md-4">
                     <!-- Footer Social Links Start -->
                     <div class="footer-links footer-social-links">
-                        <h3>social media</h3>
+                        <h3 data-translate="social media">social media</h3>
                             @if(!empty($setting?->social_media) && is_array($setting->social_media))
                                 <ul>
                                 @foreach($setting->social_media as $item)
@@ -63,7 +63,7 @@
                 <div class="col-lg-2 col-md-4">
                     <!-- Footer Contact Links Start -->
                     <div class="footer-links footer-contact-links">
-                        <h3>Useful Links</h3>
+                        <h3 data-translate="Useful Links">Useful Links</h3>
                         <ul>
                             @foreach($customPage as $page)
                                 <li>

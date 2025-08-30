@@ -504,7 +504,9 @@
     <script src="{{ asset('assets/js/wow.js') }}"></script>
     <script src="{{ asset('assets/js/function.js') }}"></script>
     <script src="{{ asset('assets/js/language-switcher.js') }}"></script>
+    <script src="{{ asset('assets/js/translator.js') }}"></script>
     <script src="{{ asset('assets/js/language-switcher.js') }}"></script>
+    <script src="{{ asset('assets/js/translator.js') }}"></script>
 
 </body>
 </html>

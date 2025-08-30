@@ -15,7 +15,7 @@
 
     @if($seo)
         <!-- Dynamic SEO Meta -->
-        <title>{{ $seo->title_service ?? 'Services - CERAM CLINIC' }}</title>
+        <title data-translate="Services">{{ $seo->title_service ?? 'Services - CERAM CLINIC' }}</title>
         <meta name="description" content="{{ $seo->description_service }}">
         <meta name="keywords" content="{{ $seo->key_service }}">
 
@@ -35,7 +35,7 @@
         @endif
     @else
         <!-- Default fallback -->
-        <title>Services - CERAM CLINIC</title>
+        <title data-translate="Services">Services - CERAM CLINIC</title>
     @endif
 	<!-- Favicon Icon -->
 	<link rel="shortcut icon" type="image/x-icon" src="{{ $setting?->site_icon ? asset('storage/' . $setting->site_icon) : asset('assets/images/favicon.png') }}">
@@ -68,11 +68,11 @@
 				<div class="col-lg-12">
 					<!-- Page Header Box Start -->
 					<div class="page-header-box">
-						<h1 data-cursor="-opaque"><span>Our</span> Services</h1>
+						<h1 data-cursor="-opaque"><span data-translate="Our">Our</span> <span data-translate="Services">Services</span></h1>
 						<nav class="wow fadeInUp">
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item"><a href="./">home</a></li>
-								<li class="breadcrumb-item active" aria-current="page">our services</li>
+								<li class="breadcrumb-item active" aria-current="page" data-translate="our services">our services</li>
 							</ol>
 						</nav>
 					</div>
@@ -211,7 +211,9 @@
     <script src="{{ asset('assets/js/wow.js') }}"></script>
     <script src="{{ asset('assets/js/function.js') }}"></script>
     <script src="{{ asset('assets/js/language-switcher.js') }}"></script>
+    <script src="{{ asset('assets/js/translator.js') }}"></script>
     <script src="{{ asset('assets/js/language-switcher.js') }}"></script>
+    <script src="{{ asset('assets/js/translator.js') }}"></script>
     
 </body>
 </html>

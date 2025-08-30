@@ -33,6 +33,68 @@
 
 [dir="rtl"] .navbar-nav {
     padding-right: 0;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+
+/* Ensure menu items are properly ordered from right to left */
+[dir="rtl"] .main-menu .nav-menu-wrapper > ul {
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+
+[dir="rtl"] .main-menu .nav-menu-wrapper > ul li {
+    order: unset;
+}
+
+[dir="rtl"] .main-menu .nav-menu-wrapper > ul li:nth-child(1) {
+    order: 5;
+}
+
+[dir="rtl"] .main-menu .nav-menu-wrapper > ul li:nth-child(2) {
+    order: 4;
+}
+
+[dir="rtl"] .main-menu .nav-menu-wrapper > ul li:nth-child(3) {
+    order: 3;
+}
+
+[dir="rtl"] .main-menu .nav-menu-wrapper > ul li:nth-child(4) {
+    order: 2;
+}
+
+[dir="rtl"] .main-menu .nav-menu-wrapper > ul li:nth-child(5) {
+    order: 1;
+}
+
+[dir="rtl"] .main-menu ul li {
+    margin: 0 9px;
+}
+
+[dir="rtl"] .main-menu ul li.submenu > a:after {
+    margin-left: 0;
+    margin-right: 8px;
+}
+
+[dir="rtl"] .main-menu ul ul {
+    left: auto;
+    right: 0;
+    text-align: right;
+}
+
+[dir="rtl"] .main-menu ul ul ul {
+    left: auto;
+    right: 100%;
+}
+
+[dir="rtl"] .main-menu ul li.submenu ul li.submenu > a:after {
+    content: '\f104';
+    float: left;
+}
+
+[dir="rtl"] .main-menu ul ul li a:hover,
+[dir="rtl"] .main-menu ul ul li a:focus {
+    padding: 8px 23px 8px 20px !important;
 }
 
 /* Button RTL */
@@ -184,9 +246,21 @@
 }
 
 /* Page Header RTL */
-[dir="rtl"] .page-header-box h1,
+[dir="rtl"] .page-header-box h1 {
+    text-align: center !important;
+}
+
 [dir="rtl"] .page-header-box nav {
     text-align: right;
+}
+
+/* Ensure all page titles stay centered in RTL */
+[dir="rtl"] h1[data-translate] {
+    text-align: center !important;
+}
+
+[dir="rtl"] .page-header h1 {
+    text-align: center !important;
 }
 
 /* Responsive RTL */
@@ -232,6 +306,17 @@
     direction: rtl;
 }
 
+/* About Us Body RTL - Fix checkmark positioning */
+[dir="rtl"] .about-us-body ul li {
+    padding-left: 0;
+    padding-right: 30px;
+}
+
+[dir="rtl"] .about-us-body ul li:before {
+    left: auto;
+    right: 0;
+}
+
 /* Feature List RTL */
 [dir="rtl"] .about-feature-list {
     direction: rtl;
@@ -270,4 +355,83 @@
     margin-bottom: 0;
     color: var(--text-color);
     line-height: 1.6;
+}
+
+/* About Experience Circle RTL - Fix positioning */
+[dir="rtl"] .about-experience {
+    right: auto;
+    left: 0;
+    transform: translate(50%, 50%);
+}
+
+/* CTA Box RTL - Fix layout and positioning */
+[dir="rtl"] .cta-box-item {
+    border-right: none;
+    border-left: 1px solid var(--divider-color);
+    margin-right: 0;
+    margin-left: 15px;
+    padding-right: 0;
+    padding-left: 15px;
+}
+
+[dir="rtl"] .cta-box .col-lg-4:nth-child(2) .cta-box-item {
+    border: none;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+[dir="rtl"] .cta-box-item .icon-box {
+    margin-right: 0;
+    margin-left: 20px;
+}
+
+[dir="rtl"] .cta-box-btn {
+    text-align: left;
+}
+
+/* Why Choose Us Section RTL */
+[dir="rtl"] .why-choose-us .icon-star-image {
+    left: auto;
+    right: 0;
+    transform: translate(-10px, -50%);
+}
+
+/* Keep the original column order but fix the content layout */
+[dir="rtl"] .why-choose-us .col-lg-4:nth-child(1) {
+    order: 1;
+}
+
+[dir="rtl"] .why-choose-us .col-lg-4:nth-child(2) {
+    order: 2;
+}
+
+[dir="rtl"] .why-choose-us .col-lg-4:nth-child(3) {
+    order: 3;
+}
+
+/* Fix why-choose-item layout for RTL - keep icons in their original positions */
+[dir="rtl"] .why-choose-box-1 .why-choose-item {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .why-choose-box-1 .why-choose-item .icon-box {
+    margin-left: 15px;
+    margin-right: 0;
+}
+
+[dir="rtl"] .why-choose-box-1 .why-choose-item .why-choose-content {
+    text-align: right;
+}
+
+[dir="rtl"] .why-choose-box-2 .why-choose-item {
+    flex-direction: row;
+}
+
+[dir="rtl"] .why-choose-box-2 .why-choose-item .icon-box {
+    margin-right: 15px;
+    margin-left: 0;
+}
+
+[dir="rtl"] .why-choose-box-2 .why-choose-item .why-choose-content {
+    text-align: left;
 }

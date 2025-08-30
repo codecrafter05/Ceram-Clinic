@@ -6,6 +6,7 @@ use App\Models\Setting;
 use App\Models\WhyChoose;
 use App\Models\Service;
 use App\Models\Team; 
+use App\Models\Home;
 use Illuminate\Http\Request;
 use App\Models\About;
 
@@ -16,6 +17,7 @@ class IndexController extends Controller
         $about = About::first();
         $setting = Setting::firstOrCreate([]);
         $locale  = session('locale', 'en');
+        $home = Home::first();
 
         $whyLeft  = WhyChoose::where('position', 'left')->orderBy('sort_order')->get();
         $whyRight = WhyChoose::where('position', 'right')->orderBy('sort_order')->get();
@@ -32,6 +34,7 @@ class IndexController extends Controller
             'services',
             'teamHome',
             'about',
+            'home',
         ));
 
     }

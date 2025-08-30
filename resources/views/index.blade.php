@@ -73,17 +73,25 @@
                         <!-- Section Title Start -->
                         <div class="section-title">
                             <h1 data-cursor="-opaque">
-                                @if($locale === 'ar')
-                                    مرحباً بكم في <span>عيادة سيرام</span> للاسنان الرائعة
+                                @if($home && $home->hero_title)
+                                    {!! $home->hero_title !!}
                                 @else
-                                    Welcome to <span>Ceram Clinic</span> for Excellent Dental Care
+                                    @if($locale === 'ar')
+                                        مرحباً بكم في <span>عيادة سيرام</span> للاسنان الرائعة
+                                    @else
+                                        Welcome to <span>Ceram Clinic</span> for Excellent Dental Care
+                                    @endif
                                 @endif
                             </h1>
                             <p class="wow fadeInUp" data-wow-delay="0.25s">
-                                @if($locale === 'ar')
-                                    عيادة سيرام هي وجهتك المثالية للعناية بصحة أسنانك. نقدم أفضل الخدمات الطبية بأحدث التقنيات وأعلى معايير الجودة.
+                                @if($home && $home->hero_description)
+                                    {!! $home->hero_description !!}
                                 @else
-                                    Ceram Clinic is your ideal destination for dental care. We provide the best medical services with the latest technologies and highest quality standards.
+                                    @if($locale === 'ar')
+                                        عيادة سيرام هي وجهتك المثالية للعناية بصحة أسنانك. نقدم أفضل الخدمات الطبية بأحدث التقنيات وأعلى معايير الجودة.
+                                    @else
+                                        Ceram Clinic is your ideal destination for dental care. We provide the best medical services with the latest technologies and highest quality standards.
+                                    @endif
                                 @endif
                             </p>
                         </div>
@@ -91,7 +99,7 @@
 
                         <!-- Hero Content Body Start -->
                         <div class="hero-content-body wow fadeInUp" data-wow-delay="0.5s">
-                            <a href="/about" class="btn-default">
+                            <a href="/about" class="btn-default" data-translate="More About Us">
                                 @if($locale === 'ar')
                                     المزيد عنا
                                 @else
@@ -110,24 +118,16 @@
                         <!-- Hero Img Start -->
                         <div class="hero-img">
                             <figure>
-                                <img src="{{ asset('assets/images/hero-img.png') }}" alt="">
+                                @if($home && $home->hero_image)
+                                    <img src="{{ $home->hero_image_url }}" alt="Hero Image">
+                                @else
+                                    <img src="{{ asset('assets/images/hero-img.png') }}" alt="">
+                                @endif
                             </figure>
                         </div>
                         <!-- Hero Img End -->
 
-                        <!-- Hero Image Tag Start -->
-                        <div class="export-dantist-box">
-                            <div class="icon-box">
-                                <figure class="image-anime">
-                                    <img src="{{ asset('assets/images/dantist-doctor-img.jpg') }}" alt="">
-                                </figure>
-                            </div>
-                            <div class="export-dantist-content">
-                                <h3>dr. Khalid Al Mansoor</h3>
-                                <p>dantist</p>
-                            </div>
-                        </div>  
-                        <!-- Hero Image Tag End -->
+
 
                         <!-- Hero Icon List Start -->
                         <div class="hero-icon-list">
@@ -169,7 +169,7 @@
                             <img src="{{ asset('assets/images/icon-cta-phone.svg') }}" alt="">
                         </div>
                         <div class="cta-box-content">
-                            <h3>need dental services ?</h3>
+                            <h3 data-translate="need dental services ?">need dental services ?</h3>
                             <p>{{ $setting?->contact_number }}</p>
                         </div>
                     </div>
@@ -183,7 +183,7 @@
                             <img src="{{ asset('assets/images/icon-cta-time.svg') }}" alt="">
                         </div>
                         <div class="cta-box-content">
-                            <h3>opening hours</h3>
+                            <h3 data-translate="opening hours">opening hours</h3>
                             <p>{{ $setting?->getText('working_hours') }}</p>
                         </div>
                     </div>
@@ -193,7 +193,7 @@
                 <div class="col-lg-4 col-md-12 col-12">
                     <!-- Cta Box Btn Start -->
                     <div class="cta-box-btn wow fadeInUp" data-wow-delay="0.5s">
-                        <a href="/about" class="btn-default btn-highlighted">More details</a>
+                        <a href="/about" class="btn-default btn-highlighted" data-translate="More details">More details</a>
                     </div>
                     <!-- Cta Box Btn End -->
                 </div>
@@ -241,7 +241,7 @@
                     <div class="about-content">
                         <!-- Section Title Start -->
                         <div class="section-title">
-                            <h3 class="wow fadeInUp">about us</h3>
+                            <h3 class="wow fadeInUp" data-translate="about us">about us</h3>
                             <h2 data-cursor="-opaque">{{ $about?->getText('title') }}</h2>
                             <p class="wow fadeInUp" data-wow-delay="0.25s">{{ $about?->getText('subTitle') }}</p>
                         </div>
@@ -263,7 +263,7 @@
 
                         <!-- About Us Footer Start -->
                         <div class="about-us-footer wow fadeInUp" data-wow-delay="0.75s">
-                            <a href="#" class="btn-default">read more about us</a>
+                            <a href="#" class="btn-default" data-translate="read more about us">read more about us</a>
                         </div>
                         <!-- About Us Footer End -->
                     </div>
@@ -281,9 +281,9 @@
                 <div class="col-lg-12">
                     <!-- Section Title Start -->
                     <div class="section-title">
-                        <h3 class="wow fadeInUp">our services</h3>
-                        <h2 data-cursor="-opaque"><span>Hight Quality</span> Services for You.</h2>
-                        <p class="wow fadeInUp" data-wow-delay="0.25s">We are committed to sustainability. eco-friendly initiatives.</p>
+                        <h3 class="wow fadeInUp" data-translate="our services">our services</h3>
+                        <h2 data-cursor="-opaque"><span data-translate="Hight Quality">Hight Quality</span> <span data-translate="Services for You.">Services for You.</span></h2>
+                        <p class="wow fadeInUp" data-wow-delay="0.25s" data-translate="We are committed to sustainability. eco-friendly initiatives.">We are committed to sustainability. eco-friendly initiatives.</p>
                     </div>
                     <!-- Section Title End -->
                 </div>
@@ -339,19 +339,31 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <!-- Visit Clinic Start -->
-                        <div class="visit-clinic parallaxie">
+                        <div class="visit-clinic parallaxie" @if($home && $home->video_background_image) style="background-image: url('{{ $home->video_background_image_url }}');" @endif>
                             <!-- Visit Clinic Content Start -->
                             <div class="visit-clinic-content">
                                 <!-- Section Title Start -->
                                 <div class="section-title">
-                                    <h3 class="wow fadeInUp">visit clinic</h3>
-                                    <h2 data-cursor="-opaque">Comprehensive Dental Care For All Ages</h2>
+                                    <h3 class="wow fadeInUp">
+                                        @if($home && $home->video_title)
+                                            {{ $home->video_title }}
+                                        @else
+                                            visit clinic
+                                        @endif
+                                    </h3>
+                                    <h2 data-cursor="-opaque">
+                                        @if($home && $home->video_subtitle)
+                                            {{ $home->video_subtitle }}
+                                        @else
+                                            Comprehensive Dental Care For All Ages
+                                        @endif
+                                    </h2>
                                 </div>
                                 <!-- Section Title End -->
     
                                 <!-- Visit Clinic Btn Start -->
                                 <div class="visit-clinic-btn wow fadeInUp" data-wow-delay="0.25s" data-cursor-text="Play">
-                                    <a href="https://www.youtube.com/watch?v=Y-x0efG1seA" class="popup-video play-btn">play video</a>
+                                    <a href="{{ $home && $home->video_url ? $home->video_url : 'https://www.youtube.com/watch?v=Y-x0efG1seA' }}" class="popup-video play-btn" data-translate="play video">play video</a>
                                 </div>
                                 <!-- Visit Clinic Btn End -->
                             </div>
@@ -379,9 +391,9 @@
                 <div class="col-lg-12">
                     <!-- Section Title Start -->
                     <div class="section-title">
-                        <h3 class="wow fadeInUp">why choose us</h3>
-                        <h2 data-cursor="-opaque"><span>Diagnosis of</span> Dental Diseases</h2>
-                        <p class="wow fadeInUp" data-wow-delay="0.25s">We are committed to sustainability. eco-friendly initiatives.</p>
+                        <h3 class="wow fadeInUp" data-translate="why choose us">why choose us</h3>
+                        <h2 data-cursor="-opaque"><span data-translate="Diagnosis of">Diagnosis of</span> <span data-translate="Dental Diseases">Dental Diseases</span></h2>
+                        <p class="wow fadeInUp" data-wow-delay="0.25s" data-translate="We are committed to sustainability. eco-friendly initiatives.">We are committed to sustainability. eco-friendly initiatives.</p>
                     </div>
                     <!-- Section Title End -->
                 </div>
@@ -464,15 +476,11 @@
                     <div class="how-it-work-content">
                         <!-- Section Title Start -->
                         <div class="section-title">
-                            <h3 class="wow fadeInUp">how it work</h3>
+                            <h3 class="wow fadeInUp" data-translate="how it work">how it work</h3>
                             <h2 data-cursor="-opaque">{{ $about?->getText('faq_title') }}</h2>
                             <p class="wow fadeInUp" data-wow-delay="0.25s">{{ $about?->getText('faq_subTitle') }}</p>
                         </div>
-                        <!-- Section Title End -->
 
-                        <!-- How Work Accordion Start -->
-                        
-                        <!-- FAQ Accordion Start -->
                         <div class="faq-accordion how-work-accordion" id="accordion">
                             @if($about && is_array($about->faq) && count($about->faq))
                                 @foreach($about->faq as $index => $item)
@@ -547,114 +555,114 @@
 
     <!-- Our Team Start -->
     <div class="our-team">
-    <div class="container">
-        <div class="row section-row">
-        <div class="col-lg-12">
-            <div class="section-title">
-            <h3 class="wow fadeInUp">
-                {{ $locale === 'ar' ? 'فريقنا' : 'our team' }}
-            </h3>
-            <h2 data-cursor="-opaque">
-                <span>{{ $locale === 'ar' ? 'فريقنا اللطيف' : 'Our Friendly' }}</span>
-                {{ $locale === 'ar' ? 'من أطباء الأسنان' : 'Dentists Team' }}
-            </h2>
-            <p class="wow fadeInUp" data-wow-delay="0.25s">
-                {{ $locale === 'ar' ? 'نلتزم بالاستدامة ومبادرات صديقة للبيئة.' : 'We are committed to sustainability. eco-friendly initiatives.' }}
-            </p>
-            </div>
-        </div>
-        </div>
-
-        <div class="row">
-        @php
-            use Illuminate\Support\Facades\Storage;
-            use Illuminate\Support\Str;
-
-            $faMap = [
-            'facebook'  => 'fa-facebook-f',
-            'instagram' => 'fa-instagram',
-            'x'         => 'fa-x-twitter',
-            'twitter'   => 'fa-x-twitter',
-            'youtube'   => 'fa-youtube',
-            'linkedin'  => 'fa-linkedin-in',
-            'tiktok'    => 'fa-tiktok',
-            'snapchat'  => 'fa-snapchat-ghost',
-            'whatsapp'  => 'fa-whatsapp',
-            'website'   => 'fa-globe',
-            'email'     => 'fa-envelope',
-            'phone'     => 'fa-phone',
-            ];
-            $delay = 0;
-        @endphp
-
-        @forelse($teamHome as $member)
-            <div class="col-lg-3 col-md-6">
-            <!-- Team Member Item Start -->
-            <div class="team-member-item wow fadeInUp" @if($delay) data-wow-delay="{{ $delay }}s" @endif>
-                <!-- Team Image Start -->
-                <div class="team-image">
-                <figure class="image-anime">
-                    <img src="{{ $member->photo ? Storage::url($member->photo) : asset('assets/images/team-1.jpg') }}"
-                        alt="{{ $member->getText('name') }}">
-                </figure>
-
-                @if(!empty($member->social_links))
-                    <div class="team-social-icon">
-                    <ul>
-                        @foreach($member->social_links as $link)
-                        @php
-                            $platform = strtolower($link['platform'] ?? '');
-                            $url = $link['url'] ?? '#';
-                            if ($platform === 'email' && $url && !Str::startsWith($url, 'mailto:')) $url = 'mailto:'.$url;
-                            if ($platform === 'phone' && $url && !Str::startsWith($url, 'tel:')) $url = 'tel:'.preg_replace('/\s+/', '', $url);
-                            $icon = $faMap[$platform] ?? 'fa-link';
-                        @endphp
-                        <li>
-                            <a href="{{ $url }}" class="social-icon" target="_blank" rel="noopener">
-                            <i class="fa-brands {{ $icon }}"></i>
-                            </a>
-                        </li>
-                        @endforeach
-                    </ul>
+        <div class="container">
+            <div class="row section-row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                    <h3 class="wow fadeInUp" data-translate="our team">
+                        {{ $locale === 'ar' ? 'فريقنا' : 'our team' }}
+                    </h3>
+                    <h2 data-cursor="-opaque">
+                        <span data-translate="Our Friendly">{{ $locale === 'ar' ? 'فريقنا اللطيف' : 'Our Friendly' }}</span>
+                        <span data-translate="Dentists Team">{{ $locale === 'ar' ? 'من أطباء الأسنان' : 'Dentists Team' }}</span>
+                    </h2>
+                    <p class="wow fadeInUp" data-wow-delay="0.25s" data-translate="We are committed to sustainability. eco-friendly initiatives.">
+                        {{ $locale === 'ar' ? 'نلتزم بالاستدامة ومبادرات صديقة للبيئة.' : 'We are committed to sustainability. eco-friendly initiatives.' }}
+                    </p>
                     </div>
-                @endif
                 </div>
-                <!-- Team Image End -->
+            </div>
 
-                <!-- Team Content Start -->
-                <div class="team-content">
-                <h3>{{ $member->getText('name') }}</h3>
-                @if($member->getText('position'))
-                    <p>{{ $member->getText('position') }}</p>
-                @endif
+            <div class="row">
+                @php
+                    use Illuminate\Support\Facades\Storage;
+                    use Illuminate\Support\Str;
+
+                    $faMap = [
+                    'facebook'  => 'fa-facebook-f',
+                    'instagram' => 'fa-instagram',
+                    'x'         => 'fa-x-twitter',
+                    'twitter'   => 'fa-x-twitter',
+                    'youtube'   => 'fa-youtube',
+                    'linkedin'  => 'fa-linkedin-in',
+                    'tiktok'    => 'fa-tiktok',
+                    'snapchat'  => 'fa-snapchat-ghost',
+                    'whatsapp'  => 'fa-whatsapp',
+                    'website'   => 'fa-globe',
+                    'email'     => 'fa-envelope',
+                    'phone'     => 'fa-phone',
+                    ];
+                    $delay = 0;
+                @endphp
+
+                @forelse($teamHome as $member)
+                    <div class="col-lg-3 col-md-6">
+                    <!-- Team Member Item Start -->
+                    <div class="team-member-item wow fadeInUp" @if($delay) data-wow-delay="{{ $delay }}s" @endif>
+                        <!-- Team Image Start -->
+                        <div class="team-image">
+                        <figure class="image-anime">
+                            <img src="{{ $member->photo ? Storage::url($member->photo) : asset('assets/images/team-1.jpg') }}"
+                                alt="{{ $member->getText('name') }}">
+                        </figure>
+
+                        @if(!empty($member->social_links))
+                            <div class="team-social-icon">
+                            <ul>
+                                @foreach($member->social_links as $link)
+                                @php
+                                    $platform = strtolower($link['platform'] ?? '');
+                                    $url = $link['url'] ?? '#';
+                                    if ($platform === 'email' && $url && !Str::startsWith($url, 'mailto:')) $url = 'mailto:'.$url;
+                                    if ($platform === 'phone' && $url && !Str::startsWith($url, 'tel:')) $url = 'tel:'.preg_replace('/\s+/', '', $url);
+                                    $icon = $faMap[$platform] ?? 'fa-link';
+                                @endphp
+                                <li>
+                                    <a href="{{ $url }}" class="social-icon" target="_blank" rel="noopener">
+                                    <i class="fa-brands {{ $icon }}"></i>
+                                    </a>
+                                </li>
+                                @endforeach
+                            </ul>
+                            </div>
+                        @endif
+                        </div>
+                        <!-- Team Image End -->
+
+                        <!-- Team Content Start -->
+                        <div class="team-content">
+                        <h3>{{ $member->getText('name') }}</h3>
+                        @if($member->getText('position'))
+                            <p>{{ $member->getText('position') }}</p>
+                        @endif
+                        </div>
+                        <!-- Team Content End -->
+                    </div>
+                    <!-- Team Member Item End -->
+                    </div>
+                    @php $delay += 0.25; @endphp
+                @empty
+                    <div class="col-12">
+                    <p class="text-center">
+                        {{ $locale === 'ar' ? 'لا يوجد أعضاء فريق حالياً.' : 'No team members yet.' }}
+                    </p>
+                    </div>
+                @endforelse
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-12 text-center">
+                    <a href="{{ route('team.index') }}" class="btn-default" data-translate="View full team">
+                    {{ $locale === 'ar' ? 'عرض كل الفريق' : 'View full team' }}
+                    </a>
                 </div>
-                <!-- Team Content End -->
             </div>
-            <!-- Team Member Item End -->
-            </div>
-            @php $delay += 0.25; @endphp
-        @empty
-            <div class="col-12">
-            <p class="text-center">
-                {{ $locale === 'ar' ? 'لا يوجد أعضاء فريق حالياً.' : 'No team members yet.' }}
-            </p>
-            </div>
-        @endforelse
         </div>
 
-        <div class="row mt-3">
-        <div class="col-12 text-center">
-            <a href="{{ route('team.index') }}" class="btn-default">
-            {{ $locale === 'ar' ? 'عرض كل الفريق' : 'View full team' }}
-            </a>
+        <!-- Icon Star Image -->
+        <div class="icon-star-image">
+            <img src="{{ asset('assets/images/icon-star.png') }}" alt="">
         </div>
-        </div>
-    </div>
-
-    <!-- Icon Star Image -->
-    <div class="icon-star-image">
-        <img src="{{ asset('assets/images/icon-star.png') }}" alt="">
-    </div>
     </div>
     <!-- Our Team End -->
 
@@ -679,6 +687,7 @@
     <script src="{{ asset('assets/js/wow.js') }}"></script>
     <script src="{{ asset('assets/js/function.js') }}"></script>
     <script src="{{ asset('assets/js/language-switcher.js') }}"></script>
+    <script src="{{ asset('assets/js/translator.js') }}"></script>
 
 
 </body>
