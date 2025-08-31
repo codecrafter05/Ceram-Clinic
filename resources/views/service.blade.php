@@ -71,7 +71,7 @@
 						<h1 data-cursor="-opaque"><span data-translate="Our">Our</span> <span data-translate="Services">Services</span></h1>
 						<nav class="wow fadeInUp">
 							<ol class="breadcrumb">
-								<li class="breadcrumb-item"><a href="./">home</a></li>
+								<li class="breadcrumb-item"><a href="./" data-translate="home">home</a></li>
 								<li class="breadcrumb-item active" aria-current="page" data-translate="our services">our services</li>
 							</ol>
 						</nav>
@@ -129,9 +129,9 @@
                 <div class="col-lg-12">
                     <!-- Section Title Start -->
                     <div class="section-title">
-                        <h3 class="wow fadeInUp">why choose us</h3>
-                        <h2 data-cursor="-opaque"><span>Diagnosis of</span> Dental Diseases</h2>
-                        <p class="wow fadeInUp" data-wow-delay="0.25s">We are committed to sustainability. eco-friendly initiatives.</p>
+                        <h3 class="wow fadeInUp" data-translate="why choose us">why choose us</h3>
+                        <h2 data-cursor="-opaque"><span data-translate="Diagnosis of">Diagnosis of</span> <span data-translate="Dental Diseases">Dental Diseases</span></h2>
+                        <p class="wow fadeInUp" data-wow-delay="0.25s" data-translate="We are committed to sustainability. eco-friendly initiatives.">We are committed to sustainability. eco-friendly initiatives.</p>
                     </div>
                     <!-- Section Title End -->
                 </div>

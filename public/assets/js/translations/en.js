@@ -4,6 +4,7 @@ const translations = {
     'home': 'Home',
     'About Us': 'About Us',
     'Services': 'Services',
+    'services': 'services',
     'Pages': 'Pages',
     'Gallery': 'Gallery',
     'FAQ\'s': 'FAQ\'s',
@@ -20,6 +21,7 @@ const translations = {
     
     // Services Section
     'Our': 'Our',
+    'Our Team': 'Our Team',
     'our services': 'our services',
     'Hight Quality': 'High Quality',
     'Services for You.': 'Services for You.',
@@ -102,6 +104,8 @@ const translations = {
     // Team Page
     'Meet Our Team': 'Meet Our Team',
     'Professional Staff': 'Professional Staff',
+    'Our Team': 'Our Team',
+    'team': 'team',
     
     // Gallery Page
     'Our Gallery': 'Our Gallery',

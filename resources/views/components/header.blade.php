@@ -18,6 +18,7 @@
                                 <li class="nav-item"><a class="nav-link" href="/services" data-translate="Services">Services</a></li>
                                 <li class="nav-item submenu"><a class="nav-link" href="#" data-translate="Pages">Pages</a>
                                     <ul>
+										<li class="nav-item"><a class="nav-link" href="/team" data-translate="Our Team">Our Team</a></li>
                                         <li class="nav-item"><a class="nav-link" href="/gallery" data-translate="Gallery">Gallery</a></li>
                                         <li class="nav-item"><a class="nav-link" href="/faqs" data-translate="FAQ's">FAQ's</a></li>
                                     </ul>

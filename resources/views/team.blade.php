@@ -69,11 +69,11 @@
 				<div class="col-lg-12">
 					<!-- Page Header Box Start -->
 					<div class="page-header-box">
-						<h1 data-cursor="-opaque"><span>Our</span> Team</h1>
+						<h1 data-cursor="-opaque"><span data-translate="Our Team">Our Team</span></h1>
 						<nav class="wow fadeInUp">
 							<ol class="breadcrumb">
-								<li class="breadcrumb-item"><a href="./">home</a></li>
-								<li class="breadcrumb-item active" aria-current="page">team</li>
+								<li class="breadcrumb-item"><a href="./" data-translate="home">home</a></li>
+								<li class="breadcrumb-item active" aria-current="page" data-translate="team">team</li>
 							</ol>
 						</nav>
 					</div>

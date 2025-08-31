@@ -4,6 +4,7 @@ const translations = {
     'home': 'الرئيسية',
     'About Us': 'من نحن',
     'Services': 'الخدمات',
+    'services': 'الخدمات',
     'Pages': 'الصفحات',
     'Gallery': 'المعرض',
     'FAQ\'s': 'الأسئلة الشائعة',
@@ -20,6 +21,7 @@ const translations = {
     
     // Services Section
     'Our': 'خدماتنا',
+    'Our Team': 'فريق',
     'our services': 'خدماتنا',
     'Hight Quality': 'جودة عالية',
     'Services for You.': 'الخدمات لك.',
@@ -102,6 +104,8 @@ const translations = {
     // Team Page
     'Meet Our Team': 'تعرف على فريقنا',
     'Professional Staff': 'طاقم مهني',
+    'Our Team': 'فريق العمل',
+    'team': 'الفريق',
     
     // Gallery Page
     'Our Gallery': 'معرضنا',

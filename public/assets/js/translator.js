@@ -8,20 +8,22 @@
         // Load appropriate translation file
         const script = document.createElement('script');
         script.src = `/assets/js/translations/${currentLang}.js`;
-        script.onload = function() {
-            console.log(`Translation file loaded: ${currentLang}.js`);
-        };
         script.onerror = function() {
             console.error(`Failed to load translation file: ${currentLang}.js`);
             return;
         };
         script.onload = function() {
+            console.log(`Translation file loaded: ${currentLang}.js`);
+            console.log('Available translations:', Object.keys(translations));
             // Translate all elements with data-translate attribute
             $('[data-translate]').each(function() {
                 const key = $(this).attr('data-translate');
                 const translation = translations[key];
                 if (translation) {
                     $(this).text(translation);
+                    console.log(`Translated: ${key} -> ${translation}`);
+                } else {
+                    console.warn(`Translation not found for key: ${key}`);
                 }
             });
             
