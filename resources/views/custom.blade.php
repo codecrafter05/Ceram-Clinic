@@ -9,7 +9,7 @@
 	<meta name="author" content="Awaiken">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>CERAM CLINIC - About Us</title>
+    <title>CERAM CLINIC - {{ isset($customPage) && $customPage && !$customPage instanceof \Illuminate\Database\Eloquent\Collection && method_exists($customPage, 'getText') ? $customPage->getText('page_name') : 'Custom Pages' }}</title>
 
     <link rel="shortcut icon" type="image/x-icon" href="{{ $setting?->site_icon ? asset('storage/' . $setting->site_icon) : asset('assets/images/favicon.png') }}">
 
@@ -40,11 +40,11 @@
 				<div class="col-lg-12">
 					<!-- Page Header Box Start -->
 					<div class="page-header-box">
-						<h1 data-cursor="-opaque"><span>{{ $customPage?->getText('page_name') }}</span></h1>
+						<h1 data-cursor="-opaque"><span>{{ isset($customPage) && $customPage && !$customPage instanceof \Illuminate\Database\Eloquent\Collection && method_exists($customPage, 'getText') ? $customPage->getText('page_name') : 'Custom Pages' }}</span></h1>
 						<nav class="wow fadeInUp">
 							<ol class="breadcrumb">
-								<li class="breadcrumb-item"><a href="./">home</a></li>
-								<li class="breadcrumb-item active" aria-current="page">{{ $customPage?->getText('page_name') }}</li>
+								<li class="breadcrumb-item" data-translate="home"><a href="{{ route('home') }}">home</a></li>
+								<li class="breadcrumb-item active" aria-current="page">{{ isset($customPage) && $customPage && !$customPage instanceof \Illuminate\Database\Eloquent\Collection && method_exists($customPage, 'getText') ? $customPage->getText('page_name') : 'Custom Pages' }}</li>
 							</ol>
 						</nav>
 					</div>
@@ -65,8 +65,8 @@
                     <div class="about-content">
                         <!-- Section Title Start -->
                         <div class="section-title">
-                            <h2 data-cursor="-opaque">{{ $customPage?->getText('title') }}</h2>
-                            <p class="wow fadeInUp" data-wow-delay="0.25s">{{ $customPage?->getText('description') }}</p>
+                            <h2 data-cursor="-opaque">{{ isset($customPage) && $customPage && !$customPage instanceof \Illuminate\Database\Eloquent\Collection && method_exists($customPage, 'getText') ? $customPage->getText('title') : 'Custom Pages' }}</h2>
+                            <p class="wow fadeInUp" data-wow-delay="0.25s">{{ isset($customPage) && $customPage && !$customPage instanceof \Illuminate\Database\Eloquent\Collection && method_exists($customPage, 'getText') ? $customPage->getText('description') : 'Browse through our custom pages.' }}</p>
                         </div>
                         <!-- Section Title End -->
                     </div>

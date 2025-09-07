@@ -120,7 +120,7 @@
                     <div class="about-content">
                         <!-- Section Title Start -->
                         <div class="section-title">
-                            <h3 class="wow fadeInUp">about us</h3>
+                            <h3 class="wow fadeInUp" data-translate="about us">about us</h3>
                             <h2 data-cursor="-opaque">{{ $about?->getText('title') }}</h2>
                             <p class="wow fadeInUp" data-wow-delay="0.25s">{{ $about?->getText('subTitle') }}</p>
                         </div>
@@ -156,7 +156,7 @@
                 <div class="how-it-work-content">
                     <!-- Section Title Start -->
                     <div class="section-title">
-                    <h3 class="wow fadeInUp">how it work</h3>
+                    <h3 class="wow fadeInUp" data-translate="how it work">how it work</h3>
                     <h2 data-cursor="-opaque">{{ $about?->getText('faq_title') }}</h2>
                     <p class="wow fadeInUp" data-wow-delay="0.25s">{{ $about?->getText('faq_subTitle') }}</p>
                     </div>

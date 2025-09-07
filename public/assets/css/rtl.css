@@ -396,6 +396,31 @@
     transform: translate(-10px, -50%);
 }
 
+/* Keep specific section titles centered in RTL */
+[dir="rtl"] .why-choose-us .section-title,
+[dir="rtl"] .why-choose-us .section-title h1,
+[dir="rtl"] .why-choose-us .section-title h2,
+[dir="rtl"] .why-choose-us .section-title h3,
+[dir="rtl"] .why-choose-us .section-title p {
+    text-align: center !important;
+}
+
+[dir="rtl"] .our-team .section-title,
+[dir="rtl"] .our-team .section-title h1,
+[dir="rtl"] .our-team .section-title h2,
+[dir="rtl"] .our-team .section-title h3,
+[dir="rtl"] .our-team .section-title p {
+    text-align: center !important;
+}
+
+[dir="rtl"] .our-services .section-title,
+[dir="rtl"] .our-services .section-title h1,
+[dir="rtl"] .our-services .section-title h2,
+[dir="rtl"] .our-services .section-title h3,
+[dir="rtl"] .our-services .section-title p {
+    text-align: center !important;
+}
+
 /* Keep the original column order but fix the content layout */
 [dir="rtl"] .why-choose-us .col-lg-4:nth-child(1) {
     order: 1;
