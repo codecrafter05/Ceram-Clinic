@@ -460,3 +460,21 @@
 [dir="rtl"] .why-choose-box-2 .why-choose-item .why-choose-content {
     text-align: left;
 }
+
+/* Video Section RTL - Ensure content stays centered */
+[dir="rtl"] .visit-clinic-content {
+    text-align: center !important;
+}
+
+[dir="rtl"] .visit-clinic-content .section-title {
+    text-align: center !important;
+}
+
+[dir="rtl"] .visit-clinic-content .section-title h3,
+[dir="rtl"] .visit-clinic-content .section-title h2 {
+    text-align: center !important;
+}
+
+[dir="rtl"] .visit-clinic-btn {
+    text-align: center !important;
+}
