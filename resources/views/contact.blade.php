@@ -92,7 +92,7 @@
                         <div class="section-title">
                             <h3 class="wow fadeInUp" data-translate="contact info">contact info</h3>
                             <h2 data-cursor="-opaque"><span data-translate="Connecting">Connecting</span> <span data-translate="Near & Far">Near & Far</span></h2>
-                            <p class="wow fadeInUp" data-wow-delay="0.25s" data-translate="For emergency dental care or to schedule an appointment, contact our office at visit our center.">For emergency dental care or to schedule an appointment, contact our office at visit our center.</p>
+                            <p class="wow fadeInUp" data-wow-delay="0.25s" data-translate="For emergency dental care or to schedule an appointment, contact our office at visit our center.">For emergency dental care or to schedule an appointment, contact our office or visit our center.</p>
                         </div>
                         <!-- Section Title End -->
 
