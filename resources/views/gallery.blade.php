@@ -10,7 +10,7 @@
 	<meta name="author" content="Awaiken">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 	    <!-- Page Title -->
-    <title data-translate="Ceramic Clinic - Gallery">Ceramic Clinic - Gallery</title>
+    <title data-translate="Ceramic Clinic - Gallery">Ceramic Center - Gallery</title>
 	<!-- Favicon Icon -->
 	<link rel="shortcut icon" type="image/x-icon" href="{{ $setting?->site_icon ? asset('storage/' . $setting->site_icon) : asset('assets/images/favicon.png') }}">
 	<!-- Google Fonts Css-->

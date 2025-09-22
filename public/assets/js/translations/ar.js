@@ -31,7 +31,7 @@ const translations = {
     'View all services': 'عرض جميع الخدمات',
     
     // Video Section
-    'visit clinic': 'زيارة العيادة',
+    'visit clinic': 'زيارة المركز',
     'Comprehensive Dental Care For All Ages': 'رعاية شاملة للأسنان لجميع الأعمار',
     'play video': 'تشغيل الفيديو',
     
@@ -76,6 +76,7 @@ const translations = {
     'Privacy Policy': 'سياسة الخصوصية',
     'Terms of Service': 'شروط الخدمة',
     'All Rights Reserved': 'جميع الحقوق محفوظة',
+    'Healthy Teeth, Beautiful Smile.': 'أسنان صحية … ابتسامة أجمل',
     'The goal our clinic is provide friendly, caring dentistry and highest level of general, cosmetic, and specialist dental treatments.': 'هدف عيادتنا هو تقديم طب أسنان ودود ومهتم وأعلى مستوى من العلاجات العامة والتجميلية والمتخصصة للأسنان.',
     
     // Contact Page
@@ -91,7 +92,7 @@ const translations = {
     'Your Message': 'رسالتك',
     
     // About Page
-    'About Our Clinic': 'عن عيادتنا',
+    'About Our Clinic': 'عن مركزنا',
     'Our Mission': 'مهمتنا',
     'Our Vision': 'رؤيتنا',
     'Our Values': 'قيمنا',
@@ -112,7 +113,7 @@ const translations = {
     'Photo Gallery': 'معرض الصور',
     'Gallery': 'المعرض',
     'gallery': 'المعرض',
-    'Ceramic Clinic - Gallery': 'عيادة السيراميك - المعرض',
+    'Ceramic Clinic - Gallery': 'مركز سيرام - المعرض',
     
     // FAQ Page
     'Frequently': 'الأسئلة',
@@ -128,7 +129,7 @@ const translations = {
     'contact info': 'معلومات الاتصال',
     'Connecting': 'تواصل',
     'Near & Far': 'قريب وبعيد',
-    'For emergency dental care or to schedule an appointment, contact our office at visit our clinic.': 'للرعاية الطارئة للأسنان أو لحجز موعد، اتصل بمكتبنا أو زر عيادتنا.',
+    'For emergency dental care or to schedule an appointment, contact our office at visit our center.': 'للرعاية الطارئة للأسنان أو لحجز موعد، اتصل بمكتبنا أو زر مركزنا.',
     'visit us on': 'زرنا في',
     'working hours': 'ساعات العمل',
     'email us': 'راسلنا عبر البريد الإلكتروني',

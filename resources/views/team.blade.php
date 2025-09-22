@@ -38,7 +38,7 @@
         <title data-translate="Team">CERAM CLINIC - Our Team</title>
     @endif
 	<!-- Favicon Icon -->
-	<link rel="shortcut icon" type="image/x-icon" src="{{ $setting?->site_icon ? asset('storage/' . $setting->site_icon) : asset('assets/images/favicon.png') }}">
+	<link rel="shortcut icon" type="image/x-icon" href="{{ $setting?->site_icon ? asset('storage/' . $setting->site_icon) : asset('assets/images/favicon.png') }}">
 	<!-- Google Fonts Css-->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

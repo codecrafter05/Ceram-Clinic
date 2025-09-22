@@ -9,7 +9,7 @@
 	<meta name="author" content="Awaiken">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>CERAM CLINIC - {{ isset($customPage) && $customPage && !$customPage instanceof \Illuminate\Database\Eloquent\Collection && method_exists($customPage, 'getText') ? $customPage->getText('page_name') : 'Custom Pages' }}</title>
+    <title>CERAM CENTER - {{ isset($customPage) && $customPage && !$customPage instanceof \Illuminate\Database\Eloquent\Collection && method_exists($customPage, 'getText') ? $customPage->getText('page_name') : 'Custom Pages' }}</title>
 
     <link rel="shortcut icon" type="image/x-icon" href="{{ $setting?->site_icon ? asset('storage/' . $setting->site_icon) : asset('assets/images/favicon.png') }}">
 
