@@ -38,7 +38,7 @@
         <title data-translate="Contact Us">CERAM CLINIC - Contact Us</title>
     @endif
 	<!-- Favicon Icon -->
-	<link rel="shortcut icon" type="image/x-icon" src="{{ $setting?->site_icon ? asset('storage/' . $setting->site_icon) : asset('assets/images/favicon.png') }}">
+	<link rel="shortcut icon" type="image/x-icon" href="{{ $setting?->site_icon ? asset('storage/' . $setting->site_icon) : asset('assets/images/favicon.png') }}">
 	<!-- Google Fonts Css-->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -92,7 +92,7 @@
                         <div class="section-title">
                             <h3 class="wow fadeInUp" data-translate="contact info">contact info</h3>
                             <h2 data-cursor="-opaque"><span data-translate="Connecting">Connecting</span> <span data-translate="Near & Far">Near & Far</span></h2>
-                            <p class="wow fadeInUp" data-wow-delay="0.25s" data-translate="For emergency dental care or to schedule an appointment, contact our office at visit our clinic.">For emergency dental care or to schedule an appointment, contact our office at visit our clinic.</p>
+                            <p class="wow fadeInUp" data-wow-delay="0.25s" data-translate="For emergency dental care or to schedule an appointment, contact our office at visit our center.">For emergency dental care or to schedule an appointment, contact our office at visit our center.</p>
                         </div>
                         <!-- Section Title End -->
 

@@ -31,7 +31,7 @@ const translations = {
     'View all services': 'View all services',
     
     // Video Section
-    'visit clinic': 'visit clinic',
+    'visit clinic': 'visit center',
     'Comprehensive Dental Care For All Ages': 'Comprehensive Dental Care For All Ages',
     'play video': 'play video',
     
@@ -76,6 +76,7 @@ const translations = {
     'Privacy Policy': 'Privacy Policy',
     'Terms of Service': 'Terms of Service',
     'All Rights Reserved': 'All Rights Reserved',
+    'Healthy Teeth, Beautiful Smile.': 'Healthy Teeth, Beautiful Smile.',
     'The goal our clinic is provide friendly, caring dentistry and highest level of general, cosmetic, and specialist dental treatments.': 'The goal our clinic is provide friendly, caring dentistry and highest level of general, cosmetic, and specialist dental treatments.',
     
     // Contact Page
@@ -91,7 +92,7 @@ const translations = {
     'Your Message': 'Your Message',
     
     // About Page
-    'About Our Clinic': 'About Our Clinic',
+    'About Our Clinic': 'About Our Center',
     'Our Mission': 'Our Mission',
     'Our Vision': 'Our Vision',
     'Our Values': 'Our Values',
@@ -112,7 +113,7 @@ const translations = {
     'Photo Gallery': 'Photo Gallery',
     'Gallery': 'Gallery',
     'gallery': 'gallery',
-    'Ceramic Clinic - Gallery': 'Ceramic Clinic - Gallery',
+    'Ceramic Clinic - Gallery': 'Ceramic Center - Gallery',
     
     // FAQ Page
     'Frequently': 'Frequently',
@@ -128,7 +129,7 @@ const translations = {
     'contact info': 'contact info',
     'Connecting': 'Connecting',
     'Near & Far': 'Near & Far',
-    'For emergency dental care or to schedule an appointment, contact our office at visit our clinic.': 'For emergency dental care or to schedule an appointment, contact our office at visit our clinic.',
+    'For emergency dental care or to schedule an appointment, contact our office at visit our center.': 'For emergency dental care or to schedule an appointment, contact our office at visit our center.',
     'visit us on': 'visit us on',
     'working hours': 'working hours',
     'email us': 'email us',

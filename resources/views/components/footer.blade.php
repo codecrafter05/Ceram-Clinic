@@ -7,15 +7,13 @@
                     <div class="about-footer">
                         <!-- Footer Logo Start -->
                         <div class="footer-logo">
-                            @if($setting?->site_logo)
-                            <img src="{{ asset('storage/' . $setting->site_logo) }}" alt="Site Logo">
-                            @endif
+                            <img src="{{  asset('assets/images/CERAM-07.png') }}" alt="Site Logo">
                         </div>
                         <!-- Footer Logo End -->
 
                         <!-- About Footer Content Start -->
                         <div class="about-footer-content">
-                            <p data-translate="The goal our clinic is provide friendly, caring dentistry and highest level of general, cosmetic, and specialist dental treatments.">The goal our clinic is provide friendly, caring dentistry and highest level of general, cosmetic, and specialist dental treatments.</p>
+                            <p data-translate="Healthy Teeth, Beautiful Smile.">Healthy Teeth, Beautiful Smile.</p>
                          </div>
                          <!-- About Footer Content End -->
                      </div>
@@ -28,7 +26,7 @@
                         <ul>                            
                             <li><a href="{{ url('/') }}" data-translate="home">home</a></li>
                             <li><a href="{{ url('/about') }}" data-translate="about us">about us</a></li>
-                            <li><a href="{{ url('/services') }}" data-translate="services">services</a></li>
+                            <li><a href="{{ url('/services') }}" data-translate="Services">services</a></li>
                             <li><a href="{{ url('/contact') }}" data-translate="contact us">contact us</a></li>
                         </ul>
                     </div>
