@@ -7,7 +7,7 @@
                     <div class="about-footer">
                         <!-- Footer Logo Start -->
                         <div class="footer-logo">
-                            <img src="{{  asset('assets/images/CERAM-07.png') }}" alt="Site Logo">
+                            <img src="{{  asset('assets/images/CERAM-07.PNG') }}" alt="Site Logo">
                         </div>
                         <!-- Footer Logo End -->
 
