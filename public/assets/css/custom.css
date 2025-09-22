@@ -681,7 +681,7 @@ header.main-header .header-sticky.active{
 /************************************/
 
 .hero{
-	background: var(--secondary-color) url('../images/hero-bg.svg') no-repeat;
+	background: var(--secondary-color) url('../images/hero-bgg.png') no-repeat;
 	background-position: center center;
 	background-size: auto;
 	padding: 50px 0 0;
@@ -1153,7 +1153,7 @@ header.main-header .header-sticky.active{
 }
 
 .about-image{
-	background: url('../images/about-bg-image.svg') no-repeat;
+	background: url('../images/hero-bgg.png') no-repeat;
 	background-position: center center;
 	background-size: auto;
 	position: relative;
@@ -1540,7 +1540,7 @@ header.main-header .header-sticky.active{
 
 .why-choose-us{
 	position: relative;
-	background: var(--secondary-color) url('../images/why-choose-us-bg.svg') no-repeat;
+	background: var(--secondary-color) url('../images/why-choose-us-bg.png') no-repeat;
 	background-position: top center;
 	background-size: auto;
 	padding: 100px 0;
@@ -1703,7 +1703,7 @@ header.main-header .header-sticky.active{
 .our-team{
 	position: relative;
 	padding: 100px 0 70px;
-	background: var(--secondary-color) url('../images/our-team-bg.svg') no-repeat;
+	background: var(--secondary-color) url('../images/hero-bgg.png') no-repeat;
 	background-position: top center;
 	background-size: auto;
 }
@@ -2168,7 +2168,7 @@ text-align: center;
 
 footer.main-footer{
 	padding: 100px 0 0;
-	background: var(--primary-color) url('../images/footer-bg.svg') no-repeat;
+	background: var(--primary-color) url('../images/footer-bg.png') no-repeat;
 	background-position: center center;
 	background-size: auto;
 }
@@ -2241,7 +2241,7 @@ footer.main-footer{
 /************************************/
 
 .page-header{
-	background: var(--secondary-color) url('../images/page-header-bg.svg') no-repeat;
+	background: var(--secondary-color) url('../images/page-header-bg.png') no-repeat;
 	background-position: center center;
 	background-size: contain;
 	padding: 100px 0;
