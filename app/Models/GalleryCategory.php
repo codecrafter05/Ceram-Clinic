@@ -4,36 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class About extends Model
+class GalleryCategory extends Model
 {
-    protected $table = 'abouts';
-
     protected $fillable = [
-        // Hero About
-        'about_img1',
-        'about_img2',
-        'title_en',
-        'title_ar',
-        'subTitle_en',
-        'subTitle_ar',
-        'goals',
-        'mission_en',
-        'mission_ar',
-        'vision_en',
-        'vision_ar',
-
-        // FAQ
-        'faq_img',
-        'faq_title_en',
-        'faq_title_ar',
-        'faq_subTitle_en',
-        'faq_subTitle_ar',
-        'faq',
-    ];
-
-    protected $casts = [
-        'goals' => 'array',
-        'faq'   => 'array',
+        'name_en',
+        'name_ar',
+        'sort_order',
     ];
 
     /**
@@ -53,5 +29,13 @@ class About extends Model
         }
         
         return $this->$enField ?? $this->$arField ?? '';
+    }
+
+    /**
+     * Get galleries for this category
+     */
+    public function galleries()
+    {
+        return $this->hasMany(Gallery::class);
     }
 }

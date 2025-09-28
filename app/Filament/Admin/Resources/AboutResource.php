@@ -77,6 +77,26 @@ class AboutResource extends Resource
                             ->addActionLabel('Add Goal')
                             ->grid(2)
                             ->nullable(),
+
+                        Forms\Components\RichEditor::make('mission_en')
+                            ->label('Mission (EN)')
+                            ->toolbarButtons(['bold','italic','underline','strike','link','orderedList','bulletList'])
+                            ->columnSpanFull(),
+
+                        Forms\Components\RichEditor::make('mission_ar')
+                            ->label('المهمة (AR)')
+                            ->toolbarButtons(['bold','italic','underline','strike','link','orderedList','bulletList'])
+                            ->columnSpanFull(),
+
+                        Forms\Components\RichEditor::make('vision_en')
+                            ->label('Vision (EN)')
+                            ->toolbarButtons(['bold','italic','underline','strike','link','orderedList','bulletList'])
+                            ->columnSpanFull(),
+
+                        Forms\Components\RichEditor::make('vision_ar')
+                            ->label('الرؤية (AR)')
+                            ->toolbarButtons(['bold','italic','underline','strike','link','orderedList','bulletList'])
+                            ->columnSpanFull(),
                     ])
                     ->columns(2),
 

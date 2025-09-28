@@ -27,6 +27,130 @@
     <link href="{{ asset('assets/css/mousecursor.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/custom.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/rtl.css') }}" rel="stylesheet">
+    
+    <!-- Custom Page Styles -->
+    <style>
+        .custom-page-content {
+            margin-top: 40px;
+            padding: 40px 0;
+        }
+        
+        .content-wrapper {
+            background: #fff;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid #f0f0f0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .content-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #007bff, #28a745, #ffc107, #dc3545);
+            background-size: 300% 100%;
+            animation: gradientShift 3s ease-in-out infinite;
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .content-wrapper h1,
+        .content-wrapper h2,
+        .content-wrapper h3,
+        .content-wrapper h4,
+        .content-wrapper h5,
+        .content-wrapper h6 {
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .content-wrapper p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+        
+        .content-wrapper ul,
+        .content-wrapper ol {
+            margin-bottom: 20px;
+            padding-left: 30px;
+        }
+        
+        .content-wrapper li {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+        
+        .content-wrapper blockquote {
+            border-left: 4px solid #007bff;
+            padding-left: 20px;
+            margin: 30px 0;
+            font-style: italic;
+            color: #555;
+        }
+        
+        .content-wrapper img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .content-wrapper a {
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .content-wrapper a:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+        
+        .section-title.text-center h3 {
+            color: #007bff;
+            font-size: 18px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+        
+        .section-title.text-center h2 {
+            font-size: 42px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .content-wrapper {
+                padding: 30px 20px;
+                margin: 20px 0;
+            }
+            
+            .section-title.text-center h2 {
+                font-size: 32px;
+            }
+            
+            .custom-page-content {
+                margin-top: 20px;
+                padding: 20px 0;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -59,16 +183,23 @@
     <div class="about-us page-about-us">
         <div class="container">
             <div class="row align-items-center">
-
-                <div >
+                <div class="col-lg-12">
                     <!-- About Content Start -->
                     <div class="about-content">
                         <!-- Section Title Start -->
-                        <div class="section-title">
-                            <h2 data-cursor="-opaque">{{ isset($customPage) && $customPage && !$customPage instanceof \Illuminate\Database\Eloquent\Collection && method_exists($customPage, 'getText') ? $customPage->getText('title') : 'Custom Pages' }}</h2>
-                            <p class="wow fadeInUp" data-wow-delay="0.25s">{{ isset($customPage) && $customPage && !$customPage instanceof \Illuminate\Database\Eloquent\Collection && method_exists($customPage, 'getText') ? $customPage->getText('description') : 'Browse through our custom pages.' }}</p>
+                        <div class="section-title text-center">
+                            <h3 class="wow fadeInUp" data-translate="Custom Page">Custom Page</h3>
+                            <h2 class="wow fadeInUp" data-wow-delay="0.25s" data-cursor="-opaque">{{ isset($customPage) && $customPage && !$customPage instanceof \Illuminate\Database\Eloquent\Collection && method_exists($customPage, 'getText') ? $customPage->getText('title') : 'Custom Pages' }}</h2>
                         </div>
                         <!-- Section Title End -->
+
+                        <!-- Custom Page Content Start -->
+                        <div class="custom-page-content wow fadeInUp" data-wow-delay="0.5s">
+                            <div class="content-wrapper">
+                                {!! isset($customPage) && $customPage && !$customPage instanceof \Illuminate\Database\Eloquent\Collection && method_exists($customPage, 'getText') ? $customPage->getText('description') : 'Browse through our custom pages.' !!}
+                            </div>
+                        </div>
+                        <!-- Custom Page Content End -->
                     </div>
                     <!-- About Content End -->
                 </div>

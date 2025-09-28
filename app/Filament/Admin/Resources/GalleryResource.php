@@ -19,20 +19,49 @@ class GalleryResource extends Resource
 {
     protected static ?string $model = Gallery::class;
     protected static ?string $navigationIcon = 'heroicon-o-photo';
-    protected static ?string $navigationGroup = 'Site Content';
-    protected static ?string $navigationLabel = 'Gallery';
+    protected static ?string $navigationGroup = 'Gallery';
+    protected static ?string $navigationLabel = 'Gallery Items';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                FileUpload::make('image')
-                    ->label('Gallery Image')
-                    ->image()
-                    ->directory('ceram/gallery')
-                    ->imageEditor()
-                    ->helperText('Upload a gallery image')
+                Forms\Components\Select::make('gallery_category_id')
+                    ->label('Category')
+                    ->relationship('category', 'name_en')
+                    ->searchable()
+                    ->preload()
                     ->required(),
+
+                Forms\Components\Section::make('Media')
+                    ->schema([
+                        FileUpload::make('image')
+                            ->label('Gallery Image/Video')
+                            ->directory('ceram/gallery')
+                            ->imageEditor()
+                            ->helperText('Upload a gallery image or video')
+                            ->required(),
+
+                        Forms\Components\Select::make('type')
+                            ->label('Media Type')
+                            ->options([
+                                'image' => 'Image',
+                                'video' => 'Video',
+                            ])
+                            ->default('image')
+                            ->required(),
+                    ])->columns(2),
+
+                Forms\Components\Section::make('Titles')
+                    ->schema([
+                        Forms\Components\TextInput::make('title_ar')
+                            ->label('العنوان (AR)')
+                            ->maxLength(255),
+
+                        Forms\Components\TextInput::make('title_en')
+                            ->label('Title (EN)')
+                            ->maxLength(255),
+                    ])->columns(2),
             ]);
     }
 
@@ -40,15 +69,39 @@ class GalleryResource extends Resource
     {
         return $table
             ->columns([
-                    ImageColumn::make('image')
-                    ->label('Image')
-                    ->circular(), // يخلي الصورة دائرية في الجدول
+                ImageColumn::make('image')
+                    ->label('Media')
+                    ->circular(),
+
+                Tables\Columns\TextColumn::make('category.name_en')
+                    ->label('Category')
+                    ->getStateUsing(fn ($record) => $record->category ? $record->category->getText('name') : '-')
+                    ->sortable()
+                    ->searchable(),
+
+                Tables\Columns\TextColumn::make('title_en')
+                    ->label('Title')
+                    ->getStateUsing(fn ($record) => $record->getText('title'))
+                    ->searchable(),
+
+                Tables\Columns\TextColumn::make('type')
+                    ->label('Type')
+                    ->badge()
+                    ->color(fn (string $state): string => match ($state) {
+                        'image' => 'success',
+                        'video' => 'warning',
+                    }),
+
+                Tables\Columns\TextColumn::make('created_at')
+                    ->dateTime()
+                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

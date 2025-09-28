@@ -56,31 +56,91 @@
 	</div>
 	<!-- Page Header End -->
 
-    <!-- Photo Gallery Section Start -->
-    <div class="our-gallery-page">
+    <!-- Page Gallery Start -->
+    <div class="page-faqs gallery-page">
         <div class="container">
-            <!-- gallery section start -->
-            <div class="row gallery-items">
-                @foreach($galleries as $index => $gallery)
-                    <div class="col-lg-3 col-md-4 col-6">
-                        <!-- image gallery start -->
-                        <div class="photo-gallery wow fadeInUp" 
-                            data-wow-delay="{{ $index * 0.2 }}s" 
-                            data-cursor-text="View">
-                            <a href="{{ asset('storage/'.$gallery->image) }}" class="gallery-lightbox">
-                                <figure>
-                                    <img src="{{ asset('storage/'.$gallery->image) }}" alt="Gallery Image">
-                                </figure>
-                            </a>
+            <div class="row">
+                <!-- Sidebar -->
+                <div class="col-lg-4">
+                    <div class="faq-sidebar">
+                        <div class="faq-catagery-list wow fadeInUp" data-wow-delay="0.25s">
+                            <ul>
+                                <li class="active">
+                                    <a href="#" data-category="all" data-translate="All">{{ session('locale', 'en') === 'ar' ? 'الكل' : 'All' }}</a>
+                                </li>
+                                @foreach($categories as $category)
+                                    <li>
+                                        <a href="#" data-category="{{ $category->id }}">
+                                            {{ $category->getText('name') }}
+                                        </a>
+                                    </li>
+                                @endforeach
+                            </ul>
                         </div>
-                        <!-- image gallery end -->
                     </div>
-                @endforeach
+                </div>
+
+                <!-- Content -->
+                <div class="col-lg-8">
+                    <div class="gallery-content">
+                        <!-- Gallery Grid -->
+                        <div class="gallery-grid">
+                            <div class="row" id="gallery-items">
+                                @foreach($galleries as $index => $gallery)
+                                    <div class="col-lg-6 col-md-6 gallery-item" 
+                                         data-category="{{ $gallery->gallery_category_id ?? 'all' }}"
+                                         data-type="{{ $gallery->type ?? 'image' }}">
+                                        
+                                        @if(($gallery->type ?? 'image') === 'video')
+                                            <!-- Video Item -->
+                                            <div class="gallery-video wow fadeInUp" 
+                                                 data-wow-delay="{{ ($index % 2) * 0.2 }}s">
+                                                <div class="video-wrapper">
+                                                    <video controls preload="metadata">
+                                                        <source src="{{ asset('storage/'.$gallery->image) }}" type="video/mp4">
+                                                        Your browser does not support the video tag.
+                                                    </video>
+                                                    <div class="video-overlay">
+                                                        <i class="fas fa-play"></i>
+                                                    </div>
+                                                </div>
+                                                @if($gallery->title)
+                                                    <div class="gallery-caption">
+                                                        <h5>{{ $gallery->getText('title') }}</h5>
+                                                    </div>
+                                                @endif
+                                            </div>
+                                        @else
+                                            <!-- Image Item -->
+                                            <div class="gallery-image wow fadeInUp" 
+                                                 data-wow-delay="{{ ($index % 2) * 0.2 }}s"
+                                                 data-cursor-text="View">
+                                                <a href="{{ asset('storage/'.$gallery->image) }}" class="gallery-lightbox">
+                                                    <figure>
+                                                        <img src="{{ asset('storage/'.$gallery->image) }}" 
+                                                             alt="{{ $gallery->getText('title') ?? 'Gallery Image' }}">
+                                                        <div class="gallery-overlay">
+                                                            <i class="fas fa-search-plus"></i>
+                                                        </div>
+                                                    </figure>
+                                                </a>
+                                                @if($gallery->title)
+                                                    <div class="gallery-caption">
+                                                        <h5>{{ $gallery->getText('title') }}</h5>
+                                                    </div>
+                                                @endif
+                                            </div>
+                                        @endif
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <!-- gallery section end -->
         </div>
     </div>
-    <!-- Photo Gallery Section End -->
+    <!-- Page Gallery End -->
 
 
     <x-footer />
@@ -104,8 +164,60 @@
     <script src="{{ asset('assets/js/function.js') }}"></script>
     <script src="{{ asset('assets/js/language-switcher.js') }}"></script>
     <script src="{{ asset('assets/js/translator.js') }}"></script>
-    <script src="{{ asset('assets/js/language-switcher.js') }}"></script>
-    <script src="{{ asset('assets/js/translator.js') }}"></script>
+    
+    <!-- Gallery Filter Script -->
+    <script>
+        $(document).ready(function() {
+            // Category filter functionality - using correct selectors
+            $('.faq-catagery-list a').click(function(e) {
+                e.preventDefault();
+                
+                // Remove active class from all items
+                $('.faq-catagery-list li').removeClass('active');
+                
+                // Add active class to clicked item
+                $(this).parent().addClass('active');
+                
+                // Get selected category
+                var selectedCategory = $(this).data('category');
+                
+                console.log('Selected category:', selectedCategory);
+                
+                // Filter gallery items
+                if (selectedCategory === 'all') {
+                    // Show all items
+                    $('.gallery-item').show();
+                } else {
+                    // Hide all items first
+                    $('.gallery-item').hide();
+                    
+                    // Show only items with matching category
+                    $('.gallery-item').each(function() {
+                        var itemCategory = $(this).attr('data-category');
+                        console.log('Item category:', itemCategory);
+                        if (itemCategory == selectedCategory) {
+                            $(this).show();
+                        }
+                    });
+                }
+            });
+            
+            // Initialize Magnific Popup for lightbox
+            $('.gallery-lightbox').magnificPopup({
+                type: 'image',
+                gallery: {
+                    enabled: true,
+                    navigateByImgClick: true,
+                    preload: [0,1]
+                },
+                image: {
+                    titleSrc: function(item) {
+                        return item.el.find('img').attr('alt');
+                    }
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>
