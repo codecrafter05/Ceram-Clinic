@@ -147,6 +147,60 @@
     </div>
     <!-- Page About Us End -->
 
+
+    <!-- Page About Us Start -->
+    <div class="about-us page-about-us page-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <!-- About Content Start -->
+                    <div class="about-content">
+                        <!-- Section Title Start -->
+                        <div class="section-title">
+                            <h3 class="wow fadeInUp" data-translate="Our Mission">Our Mission</h3>
+                            <h2 data-cursor="-opaque" data-translate="Mission">{{ session('locale', 'en') === 'ar' ? 'المهمة' : 'Mission' }}</h2>
+                        </div>
+                        <!-- Section Title End -->
+
+                        <!-- About Us Body Start -->
+                        <div class="about-us-body wow fadeInUp" data-wow-delay="0.5s">
+                            @if($about)
+                                <div class="mission-content">
+                                    {!! $about->getText('mission') !!}
+                                </div>
+                            @endif
+                        </div>
+                        <!-- About Us Body End -->
+                    </div>
+                    <!-- About Content End -->
+                </div>
+                <div class="col-lg-6">
+                    <!-- About Content Start -->
+                    <div class="about-content">
+                        <!-- Section Title Start -->
+                        <div class="section-title">
+                            <h3 class="wow fadeInUp" data-translate="Our Vision">Our Vision</h3>
+                            <h2 data-cursor="-opaque" data-translate="Vision">{{ session('locale', 'en') === 'ar' ? 'الرؤية' : 'Vision' }}</h2>
+                        </div>
+                        <!-- Section Title End -->
+
+                        <!-- About Us Body Start -->
+                        <div class="about-us-body wow fadeInUp" data-wow-delay="0.5s">
+                            @if($about)
+                                <div class="vision-content">
+                                    {!! $about->getText('vision') !!}
+                                </div>
+                            @endif
+                        </div>
+                        <!-- About Us Body End -->
+                    </div>
+                    <!-- About Content End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page About Us End -->
+
     <!-- How It Work Start -->
     <div class="how-it-work about-how-it-work">
         <div class="container">
