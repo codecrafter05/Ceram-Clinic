@@ -459,6 +459,7 @@
     <!-- Why Choose Us Section End -->
 
     <!-- How It Work Start -->
+    @if($about && $about->faq_img)
     <div class="how-it-work">
         <div class="container">
             <div class="row align-items-center">
@@ -551,6 +552,7 @@
             </div>
         </div>
     </div>
+    @endif
     <!-- How It Work End -->
 
     <!-- Our Team Start -->
