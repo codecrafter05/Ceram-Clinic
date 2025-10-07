@@ -84,7 +84,7 @@ class AboutResource extends Resource
                             ->columnSpanFull(),
 
                         Forms\Components\RichEditor::make('mission_ar')
-                            ->label('المهمة (AR)')
+                            ->label('الرسالة (AR)')
                             ->toolbarButtons(['bold','italic','underline','strike','link','orderedList','bulletList'])
                             ->columnSpanFull(),
 
