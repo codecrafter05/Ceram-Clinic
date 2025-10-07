@@ -57,6 +57,88 @@
     <link href="{{ asset('assets/css/custom.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/rtl.css') }}" rel="stylesheet">
 
+    <!-- WhatsApp Float Icon Styles -->
+    <style>
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            background-color: #128c7e;
+            transform: scale(1.1);
+            box-shadow: 2px 2px 10px #999;
+        }
+
+        .whatsapp-btn {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            border-radius: 50px;
+        }
+
+        .whatsapp-btn i {
+            font-size: 30px;
+            line-height: 60px;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 25px;
+            }
+            
+            .whatsapp-btn i {
+                font-size: 25px;
+                line-height: 50px;
+            }
+        }
+
+        /* RTL Support */
+        [dir="rtl"] .whatsapp-float {
+            right: auto;
+            left: 40px;
+        }
+
+        [dir="rtl"] @media (max-width: 768px) {
+            .whatsapp-float {
+                right: auto;
+                left: 20px;
+            }
+        }
+    </style>
 
 </head>
 <body>
@@ -671,6 +753,14 @@
 
     <x-footer />
 
+    <!-- WhatsApp Floating Icon Start -->
+    <div class="whatsapp-float">
+        <a href="javascript:void(0)" onclick="openWhatsApp()" class="whatsapp-btn" title="تواصل معنا عبر واتساب">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+    <!-- WhatsApp Floating Icon End -->
+
     <script src="{{ asset('assets/js/jquery-3.7.1.min.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('assets/js/validator.min.js') }}"></script>
@@ -691,6 +781,30 @@
     <script src="{{ asset('assets/js/language-switcher.js') }}"></script>
     <script src="{{ asset('assets/js/translator.js') }}"></script>
 
+    <!-- WhatsApp Message Script -->
+    <script>
+        function openWhatsApp() {
+            const phoneNumber = '97339332224';
+            const currentLocale = '{{ app()->getLocale() }}';
+            
+            // رسالة مخصصة حسب اللغة
+            let message = '';
+            if (currentLocale === 'ar') {
+                message = 'مرحباً! 👋\n\nجئت إليكم من موقع عيادة سيرام الإلكتروني وأرغب في الاستفسار عن خدماتكم الطبية.\n\nشكراً لكم!';
+            } else {
+                message = 'Hello! 👋\n\nI came from the Ceram Clinic website and would like to inquire about your dental services.\n\nThank you!';
+            }
+            
+            // تشفير الرسالة للرابط
+            const encodedMessage = encodeURIComponent(message);
+            
+            // رابط واتساب مع الرسالة
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+            
+            // فتح واتساب
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
 
 </body>
 </html>

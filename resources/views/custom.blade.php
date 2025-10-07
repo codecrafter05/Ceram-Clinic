@@ -45,23 +45,6 @@
             overflow: hidden;
         }
         
-        .content-wrapper::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #007bff, #28a745, #ffc107, #dc3545);
-            background-size: 300% 100%;
-            animation: gradientShift 3s ease-in-out infinite;
-        }
-        
-        @keyframes gradientShift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-        
         .content-wrapper h1,
         .content-wrapper h2,
         .content-wrapper h3,
@@ -188,7 +171,6 @@
                     <div class="about-content">
                         <!-- Section Title Start -->
                         <div class="section-title text-center">
-                            <h3 class="wow fadeInUp" data-translate="Custom Page">Custom Page</h3>
                             <h2 class="wow fadeInUp" data-wow-delay="0.25s" data-cursor="-opaque">{{ isset($customPage) && $customPage && !$customPage instanceof \Illuminate\Database\Eloquent\Collection && method_exists($customPage, 'getText') ? $customPage->getText('title') : 'Custom Pages' }}</h2>
                         </div>
                         <!-- Section Title End -->
